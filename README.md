@@ -23,13 +23,7 @@ results/derived/     every table and figure in the paper is built from these CSV
 data/                the released query benchmark
 annotation/          thematic relevance annotation: guidelines, blinded task, judgments
 spotcheck/           known-item spot check: guidelines, blinded task, judgments
-paper/               the paper source, so that the table files can be regenerated in place
 ```
-
-`paper/` holds the LaTeX body, the bibliography and the generated table files, but not the ACL
-style files, which come from the official template. Every `tab_*.tex` in it is written by
-`make_tables.py` and `appendix_tables.py` from the CSVs in `results/derived/`, so the claim that no
-number is typed in by hand can be checked by deleting them and regenerating.
 
 The two poetry corpora are distributed separately as a data archive, because of their size. Unpack
 it into `data/` before running anything that re-embeds text. The analysis scripts that only read
