@@ -1,0 +1,58 @@
+family,item,p,p_holm,stars,stars_holm,k
+A: diwan/expl_ai_vs_verses,gte,7.121860330286233e-16,5.697488264228986e-15,***,***,10
+A: diwan/expl_ai_vs_verses,jina-v3,1.1159089057251951e-09,2.2318178114503903e-09,***,***,10
+A: diwan/expl_ai_vs_verses,silma-sts,3.61778074860062e-12,1.447112299440248e-11,***,***,10
+A: diwan/expl_ai_vs_verses,LaBSE,1.4016007077149398e-15,9.811204954004579e-15,***,***,10
+A: diwan/expl_ai_vs_verses,Muffakir-v2,8.490021806129162e-19,7.641019625516246e-18,***,***,10
+A: diwan/expl_ai_vs_verses,Qwen3-0.6B,1.5442389845249101e-12,7.721194922624552e-12,***,***,10
+A: diwan/expl_ai_vs_verses,Qwen3-8B,6.401865149108231e-11,1.9205595447324692e-10,***,***,10
+A: diwan/expl_ai_vs_verses,BGE-M3,1.202072479759671e-13,7.212434878558026e-13,***,***,10
+A: diwan/expl_ai_vs_verses,mE5-large,1.9482376627755696e-09,2.2318178114503903e-09,***,***,10
+A: diwan/expl_ai_vs_verses,BM25,8.36942744625216e-20,8.36942744625216e-19,***,***,10
+A: fannorflop/expl_ai_vs_verses,gte,2.148435253799241e-05,0.00019335917284193167,***,***,10
+A: fannorflop/expl_ai_vs_verses,jina-v3,0.0001867993852783,0.0014943950822264,***,**,10
+A: fannorflop/expl_ai_vs_verses,silma-sts,0.1506752076263038,0.3160268066238144,,,10
+A: fannorflop/expl_ai_vs_verses,LaBSE,0.4499625362902225,0.4499625362902225,,,10
+A: fannorflop/expl_ai_vs_verses,Muffakir-v2,0.0271199924031263,0.1355999620156315,*,,10
+A: fannorflop/expl_ai_vs_verses,Qwen3-0.6B,0.0034618534914423,0.0242329744400961,**,*,10
+A: fannorflop/expl_ai_vs_verses,Qwen3-8B,0.1053422688746048,0.3160268066238144,,,10
+A: fannorflop/expl_ai_vs_verses,BGE-M3,0.0085545385026934,0.05132723101616039,**,,10
+A: fannorflop/expl_ai_vs_verses,mE5-large,0.0334167216020976,0.1355999620156315,*,,10
+A: fannorflop/expl_ai_vs_verses,BM25,1.1625691644538388e-20,1.1625691644538387e-19,***,***,10
+A: fannorflop/expl_ff_vs_verses,gte,0.0629722570361696,0.314861285180848,,,10
+A: fannorflop/expl_ff_vs_verses,jina-v3,0.4943822736955,1.0,,,10
+A: fannorflop/expl_ff_vs_verses,silma-sts,3.761512780416609e-05,0.0003385361502374948,***,***,10
+A: fannorflop/expl_ff_vs_verses,LaBSE,0.52577336017565,1.0,,,10
+A: fannorflop/expl_ff_vs_verses,Muffakir-v2,5.446803038068455e-12,5.446803038068455e-11,***,***,10
+A: fannorflop/expl_ff_vs_verses,Qwen3-0.6B,0.0024442284992149,0.0146653709952894,**,*,10
+A: fannorflop/expl_ff_vs_verses,Qwen3-8B,0.0014962588853935,0.0104738121977545,**,*,10
+A: fannorflop/expl_ff_vs_verses,BGE-M3,0.4029630750460797,1.0,,,10
+A: fannorflop/expl_ff_vs_verses,mE5-large,0.0001831165641297,0.0014649325130376,***,**,10
+A: fannorflop/expl_ff_vs_verses,BM25,1.0,1.0,,,10
+B: quotation-slope DiD,BM25,0.005,0.045,**,*,9
+B: quotation-slope DiD,gte,0.1272,1.0,,,9
+B: quotation-slope DiD,LaBSE,0.1696,1.0,,,9
+B: quotation-slope DiD,silma-sts,0.3632,1.0,,,9
+B: quotation-slope DiD,BGE-M3,0.3766,1.0,,,9
+B: quotation-slope DiD,Qwen3-0.6B,0.8826,1.0,,,9
+B: quotation-slope DiD,jina-v3,0.903,1.0,,,9
+B: quotation-slope DiD,mE5-large,0.8122,1.0,,,9
+B: quotation-slope DiD,Muffakir-v2,0.2496,1.0,,,9
+C: TrackB diwan,BM25 vs BGE-M3,1.103762505133691e-09,5.518812525668455e-09,***,***,9
+C: TrackB diwan,BM25 vs LaBSE,0.3523528298381249,0.3523528298381249,,,9
+C: TrackB diwan,BM25 vs Muffakir-v2,1.782171949130594e-09,7.128687796522376e-09,***,***,9
+C: TrackB diwan,BM25 vs Qwen3-0.6B,1.6247043100008323e-06,3.2494086200016645e-06,***,***,9
+C: TrackB diwan,BM25 vs Qwen3-8B,2.5873278891587205e-21,2.3285951002428485e-20,***,***,9
+C: TrackB diwan,BM25 vs gte,1.8559662460785163e-08,5.567898738235549e-08,***,***,9
+C: TrackB diwan,BM25 vs jina-v3,6.8889684516239545e-15,4.822277916136768e-14,***,***,9
+C: TrackB diwan,BM25 vs mE5-large,3.7538621616219965e-13,2.252317296973198e-12,***,***,9
+C: TrackB diwan,BM25 vs silma-sts,5.008449302002845e-18,4.006759441602276e-17,***,***,9
+C: TrackB fannorflop,BM25 vs BGE-M3,2.3850672395560733e-09,1.1925336197780367e-08,***,***,9
+C: TrackB fannorflop,BM25 vs LaBSE,0.05421327457264719,0.05421327457264719,,,9
+C: TrackB fannorflop,BM25 vs Muffakir-v2,7.934316084151127e-09,3.173726433660451e-08,***,***,9
+C: TrackB fannorflop,BM25 vs Qwen3-0.6B,5.398976712953873e-07,1.0797953425907746e-06,***,***,9
+C: TrackB fannorflop,BM25 vs Qwen3-8B,2.225798770822915e-19,2.0032188937406235e-18,***,***,9
+C: TrackB fannorflop,BM25 vs gte,1.2249979472077823e-07,3.674993841623347e-07,***,***,9
+C: TrackB fannorflop,BM25 vs jina-v3,8.812106011595385e-13,6.168474208116769e-12,***,***,9
+C: TrackB fannorflop,BM25 vs mE5-large,9.21656803535967e-11,5.529940821215802e-10,***,***,9
+C: TrackB fannorflop,BM25 vs silma-sts,3.493321367460251e-14,2.794657093968201e-13,***,***,9

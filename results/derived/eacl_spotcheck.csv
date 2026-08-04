@@ -1,0 +1,8 @@
+criterion,k,n,rate,lo,hi,corrected_R@5_diwan,corrected_R@5_fannorflop
+strict (score 2),17.0,50.0,0.34,0.221,0.477,0.834,0.813
+lenient (score 2 or 1),36.0,50.0,0.72,0.586,0.83,0.929,0.921
+"strict, diwan",10.0,25.0,0.4,0.227,0.594,,
+"strict, fannorflop",7.0,25.0,0.28,0.135,0.473,,
+"DiD, uncorrected",,,0.161,,,,
+"DiD, pooled rate",,,0.106,,,,
+"DiD, register-specific",,,0.113,,,,

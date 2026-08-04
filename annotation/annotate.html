@@ -1,0 +1,838 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Poetry relevance annotation</title><style>
+body{font:15px/1.6 system-ui,sans-serif;max-width:900px;margin:0 auto;padding:24px;background:#faf9f7;color:#1a1a1a}
+h1{font-size:22px} h2{font-size:20px;margin:0 0 4px;font-family:"Amiri","Noto Naskh Arabic",serif}
+section{margin:36px 0;border-top:3px solid #333;padding-top:12px}
+.meta{color:#777;font-size:12px;margin-bottom:12px}
+article{background:#fff;border:1px solid #e2e0dc;border-radius:8px;padding:14px;margin:10px 0}
+.poem{font-family:"Amiri","Noto Naskh Arabic",serif;font-size:19px;line-height:2;margin-bottom:10px}
+.ctl{display:flex;flex-wrap:wrap;gap:12px;align-items:center;border-top:1px solid #eee;padding-top:10px}
+.lbl{font-size:13px;color:#555} label{font-size:13px;cursor:pointer}
+.note{flex:1;min-width:200px;padding:5px 8px;border:1px solid #ddd;border-radius:5px;font-size:13px}
+#bar{position:sticky;bottom:0;background:#fff;border-top:2px solid #333;padding:12px;display:flex;
+gap:14px;align-items:center;margin-top:24px}
+button{padding:9px 18px;font-size:14px;border:0;border-radius:6px;background:#1a1a1a;color:#fff;cursor:pointer}
+#prog{font-variant-numeric:tabular-nums}
+</style></head><body>
+<h1>Thematic relevance annotation</h1>
+<p>For each poem, judge only whether it is <em>about the theme stated above it</em>. Ignore poetic
+quality, era and author. Systems are anonymised and the order is shuffled. See
+<code>GUIDELINES.md</code>. Progress saves automatically in this browser; click
+<strong>Download CSV</strong> when finished.</p>
+<section><h2 dir="rtl">الفخر والحماسة</h2><div class="meta">diwan &middot; t1 &middot; 5 poems</div>
+<article id="i0000">
+<div class="poem" dir="rtl">أَكْرِمْ بِهَا مِنْ بِنَاءِ بَانِي  أَرْسَخُ فِي الْفَخْرِ مِنْ أَبَانِ<br>أَجْنَى إِلَيْهَا الرِّضَى جِنَانِي  مِنَ الْمَعَانِي جَنَى جَنَانِي<br>أَيُّ جَنًى لِلأَكُفِّ دَانِي  مَا لِلْمُبَارَى بِهِ يَدَانِ<br>أُقْسِمُ بِالذِّكْرِ وَالْمَثَانِي  مَا لَكَ فِيمَا سَمِعْتِ ثَانِي<br>مُدَامَةٌ بَرَّةُ الأَوَانِي  تَنْشَّطُ لِلْقَوْلِ كُلَّ وَانِي<br>تَقُولُ أَوْضَاعُهَا لِلْغَوَانِي  فَالْعِلْمُ عَنْ زِينَةِ الْغَوَانِي<br>يَارَبِ بَارِكْ لِمَنْ بَنَانِي  فِي الْفِكْرِ وَالْقَلْبِ وَالْبَيَانِ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0000" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0000" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0000" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0000">
+</div></article>
+<article id="i0001">
+<div class="poem" dir="rtl">مَقَامُكَ فَوْقَ مَا يَهَبُ الْوَسَامْ  وَأَوْسِمَةٍ مَسَاعِيكِ الجِسَامْ<br>وَأَنْ يَتَبَاهَى بِالأَخْطَارِقُومِ  فَحَسْبُكَ أَنَّكَ الْفَرْدُ الْهُمَامُ<br>وَأَنَّكَ مُحْرِزٌ قَصَبَ الْمَعَالِي  بِحَيْثُ غَدَتْ ذُرَاهَا لا تُرَامُ<br>وَأَنَّكَ إِنْ يَضُمْ لِلنَّاسِ جَارِ  فَجَارُكَ لا يَهُونُ وَلاَ يُضَامُ<br>أَضَفْتَ إِلَى التَّلِيدِ طَرِيفَ جَاهِ  وَقَلْبُكَ بِالْمَحَامِدِ مُسْتَهَامْ<br>وَحَيْثُ تَيَقَّظُوا لِلشَّيْنِ نَامَتْ  عُيُونُكَ عَنْهُ مَا كَرَمَ المَنَامْ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0001" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0001" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0001" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0001">
+</div></article>
+<article id="i0002">
+<div class="poem" dir="rtl">مَوْلاَيَ نَجْلُ الْكِرَامِ يَا مَنْ  شِعَارُهُ الْفَخْرُ وَالْفَخَارُ<br>عِشْتُ بِرَغْمِ الْعِدَا سَعِيدَا  مَا اخْتَلَفَ اللَّيْلُ وَالنَّهَارْ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0002" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0002" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0002" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0002">
+</div></article>
+<article id="i0003">
+<div class="poem" dir="rtl">هُمْ لَمْ يُطِيقُوا أَنْ يَكُونُوا دَوْلَةً  أَحَدًا فَصَارُوا أَدْوَلًا سَتَزُولُ<br>هُمْ يَطْمَحُونَ فَقَطْ لِنَهْبِ بِلادِهِمْ  هُمْ يَطْمَحُونَ لِيُقْتُلُوا وَيَصُولُوا<br>الْمَجْدُ عِنْدَهُمُ افْتِرَاسُ شُعُوبِهِمْ  وَالْعَوْثُ بِالأَعْرَاْضِ وَالتَّذْلِيْلِ<br>هَذِي طَبِيعَةُ كُلِّ عَاشِقٍ عَرْشُهُ  لا شَعْبَهُ وَالذَّمُّ سَوْفَ يَطُولُ<br>إِنّي خَجولٌ مَنْ تُدْنِي مَجْدَنَا  وَكَذَا فَكُلُّ مُوَاطِنٍ مَخْجُولِ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0003" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0003" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0003" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0003">
+</div></article>
+<article id="i0004">
+<div class="poem" dir="rtl">مِنْ خَزْرَجِ الْفِخْرِ مِنْ أَبْنَاءِ سَعْدِهِمْ  نَاهِيكَ فَخْرًا فَلا مَرْعَى كَسَعْدَانِ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0004" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0004" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0004" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0004">
+</div></article>
+</section>
+<section><h2 dir="rtl">مأساة اللاجئين وشوقهم للعودة</h2><div class="meta">diwan &middot; t111 &middot; 6 poems</div>
+<article id="i0005">
+<div class="poem" dir="rtl">إِذَا الْمَصْدُورُ لَمْ يَنْفُثْ لِمَا قَدْ  حَوَى فِي الصَّدْرِ مِنَ الْمِ الْغَلِيلِ<br>وَلَمْ يَجِدِ السَّبِيلُ إِلَى التَّشَاكِي  كَمَا يَشْكُو الخَيْلُ إِلَى الْخَلِيلِ<br>أَحَلَّ بِنَفْسِهِ كَمَدًا وَكَرْبًا  وَاسْلَمْهَا إِلَى خَطْب جَلِيلِ<br>فَأَخْوَفُ مَا يَكُونُ عَلَى عَلِيلِ  إِذَا قَعَدَ الطَّبِيبُ عَنِ الْعَلِيلِ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0005" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0005" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0005" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0005">
+</div></article>
+<article id="i0006">
+<div class="poem" dir="rtl">يَا قَاسِمَ الرِّزْقِ لِمَ فَاتَتْنِي الْقَسْمُ  مَا أَنْتَ مُتَّهَمًا قُلْ لِي مَنِ اتِّهِمْ<br>إِنْ كَانَ نَحْمِي نَحْسًا أَنْتَ تُسْعِدُهْ  فَأَنْتَ فِي الْحَالَتَيْنِ الْخَصْمُ وَالْحِكَمُ<br>أَعْطَيْتَنِي حِكَمًا لَمْ تُعْطِنِي وَرْقَا  قُلْ لِي بِلاَ وَرَق مَا تَنْفَعُ الحِكَمُ<br>خُذْ مِنْ عُلُومِي شَطْرًا وَاعْطِنِي وَرَقَا  وَلا تَكِلْنِي إِلَى مَنْ شَخْصُهُ صَنَمُ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0006" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0006" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0006" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0006">
+</div></article>
+<article id="i0007">
+<div class="poem" dir="rtl">فِي هَجْرَةٍ لاَ أُنْسَ فِيهَا  لِلْغَرِيبِ وَلاَ صَفَاءِ<br>تَتَقَاذَفُ الآفَاقُ بِي  قَذْقَ الْعَوَاطِفِ لِلْهِبَاءْ<br>وَتُحِيطُ بِي لُجَجُ الصُّرُوفِ  فَمِنْ بَلاءٍ فِي بَلاَءْ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0007" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0007" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0007" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0007">
+</div></article>
+<article id="i0008">
+<div class="poem" dir="rtl">يَا قَائِدَ القَلْبِ إِلَى صَبْرِ  كَانَ لَهُ ذُخْر مِنَ الذُّخْرِ<br>كَانَ مُقِيمًا فَنَهَاهُ الْهَوَى  وَاخْتَلَسَتْهُ دَوْلَةُ الهَجْرِ<br>مَا رَاحَةُ الْقَلْبِ إِلَى وَاكِفٍ  مِنَ الْمَآقِي بِدَمٍ يَجْرِي<br>لَعَلَّهُ يُطْفِئُ مَا بِالْحَشَا  مِنْ حَرَقٍ ضَاقَ بِهَا صَدْرِي</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0008" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0008" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0008" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0008">
+</div></article>
+<article id="i0009">
+<div class="poem" dir="rtl">دَعْنِي فَلَمْ أَرَ مِثْلِي  مِمَّنْ تَقَدَّمَ قَبْلِي<br>سَلَكْتُ فِي طَلَبِ الرُّزْ  قِ كُلَّ حُزْن وَسَهْل<br>وَمَاْ تَرَكَتْ بِلاَدَا  إِلا وَطِئْتُ بِرِجْلِي<br>فَلَمْ أَفْدْ قَطُّ شَيْئًا  بِحُسْنِ رَأْي وَعَقْل<br>وَكُلَّمَا ازْدَدْتُ حِرْصًا  لَمْ يَلْحَقِ الْخِلَّ بِقَلِي<br>يُرِيكَ أَنَّ العَطَايَا  مَنْ فِعْلِهِ لَيْسَ فِعْلِي</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0009" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0009" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0009" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0009">
+</div></article>
+<article id="i0010">
+<div class="poem" dir="rtl">لِغِيَاثِ سُوْرِيَيْنِ أَغْرَابُ  تَجْرِي بِإِطْعَامٍ لَهُمْ وَشَرَابْ<br>تُفْنِي صِبَاهَا فِي سَبِيلِ إِغَاثَةٍ  لِلاجِئِيْنَ مِنَ الضَّنَا الْغَلاَبِ<br>أَنْعَمْ بِزَوْجَيْنِ اسْتَقَامَا فِي الْهُدَى  عَمَلًا بِشَرْعِ الْخَالِقِ الْوَهَابِ<br>هَلْ يَسْتَحِقُّ العَصْرُ ذَا نَوْعَيْهِمَا  بِصِفَاتٍ صَلَى اللهُ وَالأَصْحَابْ<br>مِنْ حَظِّنَا نَسْغُ المُرُوءَةِ لَمْ يَزَلْ  فِي هَذِهِ الأَرْجَاءِ وَالأَنْسَاْبِ<br>وَبِأَنَّ نَهْرَ النِّيلِ يَجْرِي خَالِدًا  بِجَمِيلِهِ فِي المَوْطِنِ الخِلاَبِ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0010" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0010" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0010" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0010">
+</div></article>
+</section>
+<section><h2 dir="rtl">الحكمة في الصمت وقيمة الاستماع</h2><div class="meta">diwan &middot; t133 &middot; 7 poems</div>
+<article id="i0011">
+<div class="poem" dir="rtl">مَنْ لَمْ يُوَاسِكْ فِي قَلِيلٍ  لَمْ يُوَاسِكْ فِي كَثِيرْ<br>وَالحَقُّ يَلْزَمُ فِي الْكَثِيرْ  وَلَيْسَ يَسْقُطُ فِي اليَسِيرِ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0011" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0011" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0011" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0011">
+</div></article>
+<article id="i0012">
+<div class="poem" dir="rtl">ا عَادِلًا فِي حُكْمِهِ لاَ يُظْلَمُ  رَحِ الخُفَا كَمْ ذَا نَجْنٍ وَنَكْتُمُ<br>ا سَامِعَ الأَصْوَاتِ إِنْ لَمْ تَسْتَجَبْ  نَ يَسْتَجِيبُ لَنَا سِوَاكَ وَيَرْحَمُ<br>ا مِنْ مَقَالِيدِ الأُمُورِ بِكَفِّهِ  طَفَا فَأَنْتَ بِحَالِ عَبْدِكَ أَعْلَمُ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0012" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0012" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0012" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0012">
+</div></article>
+<article id="i0013">
+<div class="poem" dir="rtl">بُشْرَى لِوَالِدَةِ الخَدِيو بِعَوْدَةٍ  فِي صِحَّةٍ هِيَ مِنْ أَجْلِ النِّعمُةِ<br>فَلَقَدْ أَضَاءَتْ مِصْرُ عِنْدَ قُدُومِهَا  وَلَهَا تَبَسُّمُ ثَغْرِ أَشْرَفِ دَوْلَةٍ<br>وَصَفَا بِتَوْفِيقِ العَزِيزِ زَمَانُهَا  لِسَلِيلِهَا الْمَلِكُ الْعَلِيُّ الْهِمَّةْ<br>وَبِكَامِلِ الأَوْصَافِ طَافَ ثَنَاؤُهَا  وَغَدَا بِهَا حُسْنًا بَدِيعَ الحِكْمَةِ<br>وَالْمَجْدُ أَنْشَدَ فِي الْقُدُومِ مُؤَرَّخًا  مَدَّ الإِيَابُ صَفَاءَ شَمْسِ الْعِصْمَةِ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0013" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0013" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0013" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0013">
+</div></article>
+<article id="i0014">
+<div class="poem" dir="rtl">تَعَالَيْ فِي خُفُوتِ الضَّوْءِ نُورًا كَاسِيًا دَرْبِي  كَمِشْكَاةٍ عَلَى مِشْكَاةِ أَفْكَارِي<br>تُنِيرُ الْحُلْمَ أَزْهَارَا  وَقُرْبَانَا<br>كَنَبْعِ الْخَيْرِ مِنْ صَبْرِي  تَعَالَيْ فِي رَنِينِ الصَّمْتِ أَلْحَانَا<br>كَأَجْرَاسِ الْمَوَاعِيْدِ  كَهَمْسِ الطِّفْلِ فِي رَوْضِ<br>وَدَفْقَ المَاءَ مِنْ نَبْعِ  وَخَوْفِي حِينَ يَكْوِينِي<br>رَحِيلُ الكَفِّ عَنْ كَفِّي  فَضُمِيْنِي<br>غَزَالًا آبَ مِنْ غَيْ  وَأَلْقَى القَيْدَ عَنْ فِي</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0014" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0014" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0014" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0014">
+</div></article>
+<article id="i0015">
+<div class="poem" dir="rtl">لَمَّا تَكَلَّمْتُ كَانَ النُّطْقُ لِي شَرَكَا  وَالنُّطْقُ فَخٌّ لِصَيْدِ الْحَاذِقِ الْفَطَنِ<br>وَصِرْتُ فِي قَفَصِ الإِفْتَاءِ مُحْتَبِسًا  فِيهِ أَغْذَى بِمَرِّ الْهَمِّ وَالْحُزَنِ<br>فَقُلْتُ أَسْكُتْ عَلَيَّ أَنْ يُخَلِّصَنِي  حَسَنُ السُّكُوتِ مِنَ الأَحْزَانِ وَالْمِحَنِ<br>وَقُلْتُ أَجْهَلُ عِلْمًا أَنَّ مَعْرِفَتِي  لِي آفَةٌ وَبِجَهْلِي رَاحَةُ البَدْنِ<br>وَقُلْتُ إِنْ مُتُّ أَحْيَا فِي الدُّنَى فَرَحًا  مَنْ مَاتَ عَاشَ بِعَيْش طَيِّبٍ حَسَنِ<br>فَلَمْ يُفِدْنِي شَيْئًا مَا ذَكَرْتُ سِوَى  زِيَادَةُ الهَمِّ وَالمَوْلَى يُخَلِّصُنِي</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0015" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0015" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0015" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0015">
+</div></article>
+<article id="i0016">
+<div class="poem" dir="rtl">مَا مَرّ بِي يَوْم وَلا لَيْلَةٌ  دُونَ ثَنَاءِ حُسْن أَغْنَمُهْ<br>وَلَيْسَ لِي فِي رَقْدَتِي لَيْلَةٌ  مِنْ دُونِ عِلْم نَافِعٍ أَحْكَمُهُ<br>أَزِيدُ فِي عِلْمِي وَفِي حِكْمَتِي  وَقِيمَةُ الإِنْسَانِ مَا يَعْلَمُهُ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0016" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0016" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0016" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0016">
+</div></article>
+<article id="i0017">
+<div class="poem" dir="rtl">إِذَا سَكَتَ الإِنْسَانُ قُلْتُ خُصُومُهُ  وَإِنْ أَضْجَعَتْهُ الحَادِثَاتُ لِجَنْبِهِ<br>حِسَا طَامِرٌ فِي صَمْتِهِ مِنْ دَمِ الْفَتَى  فَصَغَّرَ ذَاكَ الصَّمْتَ مُعْظَمَ ذَنْبِهِ<br>وَلَمْ يَكُ فِي حَالِ البَعُوضِ إِذَا شَدَا  لَهُ نَغَمٌ عَالٍ وَأَنْتَ أَذٌ بِهِ<br>وَإِنْ سَلَّ سَيْفًا مِنْ كَلاَمٍ مُسْفَّهٍ  عَلَيْكَ فَقَابِلْهُ بِصَبْرِكَ تَنَبّهْ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0017" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0017" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0017" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0017">
+</div></article>
+</section>
+<section><h2 dir="rtl">المقارنة بين صخب المدينة وهدوء القرية</h2><div class="meta">diwan &middot; t155 &middot; 6 poems</div>
+<article id="i0018">
+<div class="poem" dir="rtl">لا تَنْسَ وَعْدًا بَيْنَنَا قَدِ اقْتَرَبْ  وَاجْتَنِبِ الْعُذْرَ فَفِي الْعُذْرِ الْعَطَبْ<br>وَعُجْ بِنَا وَالشَّرْقُ مُبْيَضّ العَذْبِ  نَسْعَى إِلى جَنَّةِ لَهْو وَلَعْبِ<br>حَدِيقَةٌ تَهْدِي إِلَى النَّفْسِ الطَّرَبِ  قَدْ جَاءَ فِيهَا الْبَاقِلاءُ بِالْعُجَبِ<br>بَهْجَةَ عَيْن وَشِفَاءٍ لِلسَّغْبِ  يَخَالُ فِيهِ النُّورُ جَزَعًا فِي سَخَبٍ<br>أَوْ بَلَقِ طَيْر وَقِّعًا عَلَى القُضُبِ  فِي ظِلِّ سِدْر مُثْمِرِ دَانِي الْهَدْبِ<br>فِيهِ لأَنْوَاعٍ مِنَ الطَّيْرِ صَخَبُ  إِذَا الرِّيَاحُ زَعْزَعَتْ تِلْكَ الشَّعْبَ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0018" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0018" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0018" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0018">
+</div></article>
+<article id="i0019">
+<div class="poem" dir="rtl">وَجَمْع فِيهِ بِيض ثُمَّ سُودُ  أَرَى سَبَجًا تُرَصَّعُ بَيْنَ دُرِّ<br>أَوِ الرَّيْحَانُ فِي السُّودَانِ أَبْدَى  مَفَاتِيلُ البَنَفْسَجِ بَيْنَ زَهْرِ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0019" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0019" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0019" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0019">
+</div></article>
+<article id="i0020">
+<div class="poem" dir="rtl">تَأَمَّلْ إِلَى الدُّولابِ وَالنَّهْرِ إِذْ جَرَى  وَدَمْعُهُمَا بَيْنَ الرِّياضِ غَزِيرُ<br>كَأَنَّ نَسِيمَ الرَّوْضِ قَدْ ضَاعَ مِنْهُمَا  فَأَصْبَحَ ذَا يَجْرِي وَذَاكَ يَدُورُ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0020" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0020" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0020" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0020">
+</div></article>
+<article id="i0021">
+<div class="poem" dir="rtl">حَبَّذَا بِالشَّعْبِ يَوْمِي  بَيْنُ وِلْدَانٍ وَحُورٍ<br>وَغُصُونُ البَانِ وَالْوَرْ  دْ عَلَى شَاطِي النُّهُورْ<br>وَبَدَا النَّرْجِسُ مَا بِي  نْ أَقَاحَ مُسْتَنِيرْ<br>كَقُدُودٍ وَخُدُودِ  وَعُيُونٌ وَثُغُورُ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0021" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0021" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0021" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0021">
+</div></article>
+<article id="i0022">
+<div class="poem" dir="rtl">جَمَالُ الرِّيفِ وَهْوَ بِدُونِ نَظْم  يَفُوقُ جَمَالَ مُدْنٍ ذَا نِظَامْ<br>فَلَحْنُ الطَّيْرِ وَهْوَ بِلاَ انْتِظَامِ  يَفُوقُ نِظَامَ أَلْحَانِ الأَنَامْ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0022" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0022" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0022" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0022">
+</div></article>
+<article id="i0023">
+<div class="poem" dir="rtl">بِرُوحِي أَنُفٌ بَيْنَ خَدَّيْهِ فَاصِلُ  فَكَانَ كَنُورٍ قَدْ بَدَا بَيْنَ نُوْرَيْنِ<br>وَمَا هُوَ إِلا البَرْقُ يَلْمَعُ دَائِمًا  ضِيَاءً وَيَبْدُو فَاصِلًا بَينَ بَدْرَيْنِ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0023" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0023" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0023" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0023">
+</div></article>
+</section>
+<section><h2 dir="rtl">الأندلس بعد سقوطها وذكر أمجادها الزائلة</h2><div class="meta">diwan &middot; t177 &middot; 7 poems</div>
+<article id="i0024">
+<div class="poem" dir="rtl">أَقُولُ وَرَوْعِي لِلْفِرَاقِ مُرَوَّعُ  وَفِي الخَدِّ سَيْل لِلْفِرَاقِ دُفُوعُ<br>لَئِنْ صَدَعَ الدَّهْرُ الْمُشَتَّتُ جَمْعَنَا  فَلِلدَّهْرِ حُكْم لِلْجُمُوعِ صُدُوْعٌ<br>وَإِنِّي لأَرْجُو أَنْ يَعُودَ زَمَانُنَا  بِخَيْر فَمِنْ بَعْدِ الشِّتَاءِ رَبِيعُ<br>وَلِلنَّجْمِ مِنْ بَعْدِ الرُّجُوعِ اسْتِقَامَةٌ  وَلِلشَّمْسِ مِنْ بَعْدِ الْغُرُوْبِ طُلُوعُ<br>وَإِنَّ نِعْمَةً زَالَتْ عَنِ الحُبِّ وَانْقَضَتْ  فَإِنَّ لَهَا بَعْدَ الزَّوَالِ رُجُوعُ<br>وَكُنْ وَاثِقًا بِاللهِ وَاصْبِرْ لِحُكْمِهِ  فَإِنَّ زَوَالَ الشَّرِّ عَنْكَ سَرِيعُ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0024" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0024" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0024" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0024">
+</div></article>
+<article id="i0025">
+<div class="poem" dir="rtl">وَكَمْ نَاسٍ بِمَوْتِ أُصُولِهِمْ قَدْ  رَقُّوا رُتَبًا لَهَا شَرَفٌ وَعِزَّهْ<br>كَدُودِ الْقَزِّ أَمْسَى فِي قُبُورِ  لِصَاحِبِهَا بِهَا حُلَلٌ وَبُزُّهْ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0025" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0025" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0025" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0025">
+</div></article>
+<article id="i0026">
+<div class="poem" dir="rtl">وَلَيْلَةِ أُنْس نِلْتُ مِنْهَا بَنَفْسَجَا  وَزَهْرًا وَخَفْضُ الْعَيْشِ كَانَ بِهَاْ نَصَبَا<br>كَأَنَّ دُجَاهَا وَالثُّرَيَّا وَقَدْ بَدَتْ  لَنَا وَهِلاَلُ الاَفْقِ نَوْلُهَا قُرْبَا</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0026" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0026" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0026" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0026">
+</div></article>
+<article id="i0027">
+<div class="poem" dir="rtl">وَلَيْلَةِ أُنْس نِلْتُ مِنْهَا بَنَفْسَجَا  وَزَهْرًا وَخَفْضُ الْعَيْشِ كَانَ بِهَاْ نَصَبَا<br>كَأَنَّ دُجَاهَا وَالثُّرَيَّا وَقَدْ بَدَتْ  لَنَا وَهِلاَلُ الاَفْقِ نَوْلُهَا قُرْبَا</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0027" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0027" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0027" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0027">
+</div></article>
+<article id="i0028">
+<div class="poem" dir="rtl">إِلَى كَمْ نُوَدِّعُ رَاحِلًا بَعْدَ رَاحِلْ  وَنَطْوِي سِنِيَّ العُمْرِ طَيَّ المَرَاحِلِ<br>تَوَلَّى عَليَّ ثُمَّ وَلَّى مُحَمَّدٌ  خَلِيلَيْنِ أَوَدًا سَائِغَينِ المَنَاهِلْ<br>مَضَوْا فَهَنِيءُ العَيْشِ كُدَّرُ صَفْوُهِ  وَعَطَّلَ كَأْسَ الأُنْسِ بَيْنَ المَحَافِلْ<br>أَتَرْضَى مِنَ الدُّنْيَا بِصَفْو مُكَدَّرٍ  وَلَهْو بِلا خِلٍّ وَصُحْبَةِ جَاهِلٍ<br>نُكَابِدُ فِيهَا نَاقِصًا بَعْدَ نَاقِصٍ  وَنَفْقِدُ مِنْهَا كَامِلًا بَعْدَ كَامِلِ<br>كَأَنَّ الصَّفَا لَمْ يَرْضَ بِالْبُعْدِ عَنْهُمَا  فَوَافَاهُمَا شَوْقًا لِتِلْكَ المَنَازِلِ<br>سَقَى اللهُ بِالرِّضْوَانِ قَبْرَيْهِمَا الْحَيَا  وَلاَقَاهُمَا الْحُسْنَى بِغُفْرَانِ شَامِلِ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0028" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0028" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0028" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0028">
+</div></article>
+<article id="i0029">
+<div class="poem" dir="rtl">يَا طَبِيبًا تَكَامَلَ الْعِلْمُ فِيهِ  بِنِظَامٍ مِنَ الْخِصَالِ فَرِيدْ<br>بَلَّغَتْهُ العَلْيَاءُ نَفْسَ أَبِي  ذِي فُؤَادٍ لَدْن وَعِلْم وَطِيدْ<br>طَاهِرَ الْعِرْقِ صَادِقُ القَوْلِ وَالْفِعْلِ  وَلُوع بِكُلِّ فَضْل جَدِيدْ<br>لَكَ شُكْر عَلَى مُرُوءَتِكَ الحُسْنَى  وَذِكْر يَطِيبُ بالتَّرْدِيدِ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0029" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0029" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0029" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0029">
+</div></article>
+<article id="i0030">
+<div class="poem" dir="rtl">تَوَالَ عَلِيًّا وأَبْنَاءَهُ  تَفِزُّ فِي المَعَادِ وَأَهْوَالُهِ<br>إِمَامٌ لَهُ عِقْدُ يَوْمَ الغَدِيرِ  بِنَصِّ النَّبِيِّ وَأَقْوَالِهِ<br>لَهُ فِي التَّشَهُّدِ بَعْدَ الصَّلاَةِ  مَقَامٌ يُخَبِّرُ عَنْ حَالِهِ<br>فَهَلْ بَعْدَ ذِكْرِ إِلَهِ السَّمَاءْ  وَذَكَرَ النَّبِيُّ سِوَى آلِهِ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0030" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0030" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0030" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0030">
+</div></article>
+</section>
+<section><h2 dir="rtl">قيمة التسامح والعفو وتجاوز الأحقاد</h2><div class="meta">diwan &middot; t200 &middot; 6 poems</div>
+<article id="i0031">
+<div class="poem" dir="rtl">هَاقَدْ كَتَبْتْ فَمَا رَدَّدْتْ جَوَابِي  وَرَجَعْتُ مَخْتُومًا عَلَيَّ كِتَابِي<br>وَأَتَىْ رَسُولِي مُسْتَكِينًا يَشْتَكِي  ذُلِّ الحِجَابِ وَنَخْوَةِ البَوّابِ<br>وَكَأَنَّنِي بِكَ قَدْ كَتَبْتَ مُعْذِرًا  وَطَلَمْتَنِي بِمَلاَمَةٍ وَعَتَابِ<br>فَارْجِعْ إِلَى الإِنْصَافِ وَاعْلَمْ أَنَّهُ  أَوْلَى بِذِي الآدَاْبِ وَالأَحْسَابِ<br>يَا رَحْمَةَ اللهِ الَّتِي قَدْ أَصْبَحَتْ  دُونَ الأَنَامِ عَلَيَّ سَوْطُ عَذَابِ<br>بِأَبِي وَأُمِّي أَنْتَ مِنْ مُسْتَجْمَعٍ  تِيهِ القِيَانِ وَرِقَّةُ الْكِتَابِ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0031" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0031" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0031" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0031">
+</div></article>
+<article id="i0032">
+<div class="poem" dir="rtl">أَلاَ فَاسْقِنِي الصَّهْبَاءَ بِالْكَاسِ وَالطَّاسِ  وَلا تَخْشَ سَكْرَى فَمَالِي فِيهِ مِنْ بَأْس<br>فَمَا الْعَيْشُ إِلاَّ أَنْ أَبِيتَ مَطُوَّحَا  مِنَ السُّكْرِ مَا تَشْتَالُ رِجْلِي وَلا رَاسِي<br>خَلِيًّا مِنَ الهَمِّ الثَّقِيلِ مُوَفَّرًا  مِنَ الْعَتْبِ مَشْغُولًا بِنَفْسِي عَنِ النَّاسِ<br>إِذَا أَخَذَ الصَّاخُونَ فِي ذَمِّ صَحْبِهِمْ  تَنَاوَلْتْ شُكْرَى بِالتَّنَادُمِ وَالْكَاسِ<br>وَأَعْفُوْ وَمَا أَسْلَفْتُ ذَنْبًا وَلا خَنَا  سِوَى هَفَوَاتٍ لا تُضُرُّ بِجِلاسِي<br>وَاسْتَغْفِرِ اللهَ الْكَرِيمَ تَضَرُّعَا  بِنَفْسِي وَاسْتَكْفَى بِهِ عَنْ عَدِّ أَنْفَاسِي</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0032" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0032" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0032" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0032">
+</div></article>
+<article id="i0033">
+<div class="poem" dir="rtl">أَلَمَّتْ لِأَنْ رَأَيْتَ ظُرُوفَ شِعْرِي  عَلَى الأَيَّامِ مُخْلَقَةٌ لَبِيسُهْ<br>لَئِنْ خَسِسَتْ قِيمَةَ ظَرْفِ شِعْرِي  فَظَرْفُ الدُّرِّ قِيمَتُهُ خَسِيسُهْ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0033" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0033" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0033" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0033">
+</div></article>
+<article id="i0034">
+<div class="poem" dir="rtl">قَدْ كُنْتُ أَجْهَدُ فِي الْتِمَاسِ صَنِيعَةٍ  نَفْسًا شِهَابَ ذَكَائِهَا وَقَادِ<br>وَأَقُولُ لَوْ كَانَ المُخاطِبُ غَيْرَكُمْ  عِنْدَ الشَّدَائِدِ تَذْهَبُ الأَحْقَادُ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0034" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0034" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0034" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0034">
+</div></article>
+<article id="i0035">
+<div class="poem" dir="rtl">قَدْ كُنْتُ أَجْهَدُ فِي الْتِمَاسِ صَنِيعَةٍ  نَفْسًا شِهَابَ ذَكَائِهَا وَقَادِ<br>وَأَقُولُ لَوْ كَانَ المُخاطِبُ غَيْرَكُمْ  عِنْدَ الشَّدَائِدِ تَذْهَبُ الأَحْقَادُ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0035" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0035" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0035" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0035">
+</div></article>
+<article id="i0036">
+<div class="poem" dir="rtl">غَفَرْتُ ذَنْبَ النَّوَى إذْ كُنْتَ بَاخِلَهْ  أَيَّامَ أَمْكَنَ مِنْكَ الوُدُّ وَاللَّطْفُ<br>لَمْ يَفْعَلِ البَيْنُ إِلاَّ مَا فَعَلْتُ وَمَا  بَيْنَ الأَخِلاءِ إِلاَّ الْمَطْلُ وَالْخَلْفُ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0036" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0036" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0036" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0036">
+</div></article>
+</section>
+<section><h2 dir="rtl">اليأس من فساد الحكام والسياسة</h2><div class="meta">diwan &middot; t23 &middot; 5 poems</div>
+<article id="i0037">
+<div class="poem" dir="rtl">احْظُرْ عَلَى نَفْسِكَ مَا تَشْتَهِي  وَعِشْ عَظِيمَ الْقَدْرِ فِي النَّاسِ<br>وَارْجِعْ إِلَى الْيَاسِ إِذَا لَمْ تَجِدْ  مُنْصَرِفًا أَقْوَى مِنَ اليَاسِ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0037" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0037" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0037" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0037">
+</div></article>
+<article id="i0038">
+<div class="poem" dir="rtl">هُمْ لَمْ يُطِيقُوا أَنْ يَكُونُوا دَوْلَةً  أَحَدًا فَصَارُوا أَدْوَلًا سَتَزُولُ<br>هُمْ يَطْمَحُونَ فَقَطْ لِنَهْبِ بِلادِهِمْ  هُمْ يَطْمَحُونَ لِيُقْتُلُوا وَيَصُولُوا<br>الْمَجْدُ عِنْدَهُمُ افْتِرَاسُ شُعُوبِهِمْ  وَالْعَوْثُ بِالأَعْرَاْضِ وَالتَّذْلِيْلِ<br>هَذِي طَبِيعَةُ كُلِّ عَاشِقٍ عَرْشُهُ  لا شَعْبَهُ وَالذَّمُّ سَوْفَ يَطُولُ<br>إِنّي خَجولٌ مَنْ تُدْنِي مَجْدَنَا  وَكَذَا فَكُلُّ مُوَاطِنٍ مَخْجُولِ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0038" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0038" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0038" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0038">
+</div></article>
+<article id="i0039">
+<div class="poem" dir="rtl">يَا وَلِيَّ الأَمْرِ آتَاكَ الْعُلَىلاَ  يَخْتَشِي الزَّرْعُ مِنَ الْعُرْبِ فَسَادَهُ<br>مَا فَسَادُ الزَّرْعُ مِنْ عَرَبٍ وَلَكِنْ  أَرْسَلَ اللَّهُ عَلَى الزَّرْعِ جِرَادَهُ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0039" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0039" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0039" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0039">
+</div></article>
+<article id="i0040">
+<div class="poem" dir="rtl">فِي فَسَادِ الأَحْوَالِ لِلَّهِ سِرُّ  وَالْتِبَاسٌ فِي غَايَةِ الإِيضَاحِ<br>فَيَقُولُ الْجُهَّالُ قَدْ فَسَدَ الأُمْ  رِ وَذَاكَ الفَسَادُ عَيْنُ الصَّلاَحْ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0040" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0040" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0040" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0040">
+</div></article>
+<article id="i0041">
+<div class="poem" dir="rtl">دَوْلَةً تَطْلُبُ الفَرَا  رٍ وَمَجْد مُحَلَّقِ<br>هُوَ يَأْس مُكَذِّبٌ  وَرَجَاءَ مُصَدِّقٍ<br>قَدْ بَنَيْتُمْ فَشِيدُوا  وَغَرَسْتُمْ فَأَوْرَقُوا</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0041" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0041" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0041" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0041">
+</div></article>
+</section>
+<section><h2 dir="rtl">قيمة العقل والحكمة في مواجهة صعاب الحياة</h2><div class="meta">diwan &middot; t45 &middot; 7 poems</div>
+<article id="i0042">
+<div class="poem" dir="rtl">مَا فَازَ بِالظَّفَرِ امْرُؤً  فِي الْحَرْبِ إِلاَّ بِالثَّبَاتِ<br>أَطَرَ الشَّجَاعَةَ فِي الرَّجَا  لْ فَتِلْكَ مِنْ خَيْرِ الصِّفَاتْ<br>إِنَّ المَصِيرَ إِذَا اسْتَكَا  نَتْ أُمَّةً لإِلَى الشَّتَاتِ<br>تُبْنَى صُرُوحَ الغَالِبِي  نَ عَلَى الْجَمَاجِمِ وَالرُّفَاتْ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0042" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0042" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0042" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0042">
+</div></article>
+<article id="i0043">
+<div class="poem" dir="rtl">فَدَيْتُ اللَّيَالِي مَا سَيَأْتِي وَمَا مَضَى  تُرْجِي وَتَخْشَى لَيْسَ تَبْقَى وَتَرْجِعُ<br>وَكُلُّ عَوَادِيهَا تَرَوعُ وَتَنْقَضِي  وَكُلُّ صَفَاهَا يَنْتَهي أَو تُوَدَّعُ<br>فَلاَ مَا تُرْجِّي دَائِمٌ تَزْدَهِي بِهِ  وَلاَ مَا الَّذِي تَخْشَاهُ بَاقٍ فَتَفْزَعُ<br>وَلاَ الْجِدُّ فِي الدُّنْيَا بِمَجْد سِوَى الْقَضَا  وَلاَ الكَفُّ عِنْدَمَا قَضَى اللهُ يَمْنَعُ<br>وَلا شَيْءَ إِلاَّ اللَّهُ فِيمَا رَأَيْتُهُ  يُرْجَى وَيَخْشى أَو يَضُرُّ وَيَنْفَعُ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0043" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0043" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0043" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0043">
+</div></article>
+<article id="i0044">
+<div class="poem" dir="rtl">زَهَدَنِي فِي الْعَقْلِ أَنِّي أَرَى  عِنَايَةُ الأَيَّامِ بِالْجَهْلِ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0044" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0044" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0044" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0044">
+</div></article>
+<article id="i0045">
+<div class="poem" dir="rtl">إِنِّي أَرَى الْعَقْلَ فِي الأَشْيَاءِ مُنْتَشِرًا  وَيُنْكِرُ الْعَقْلُ فِيهَا فَاقِدَ الْعَقْلِ<br>دَعْ فِلْسَفَاتٍ مِنَ الْوِجْدَانِ فَارِغَةٍ  تَزِيَّدُ دَارِسُهَا جَهْلًا عَلَى جَهْلِ<br>مَنْ يَعُمُّ وِجْدَانَهُ يَعِي الطَّبِيبَ بِهِ  لَمْ يَنْتَفِعْ فَاقِدَ العَيْنَيْنِ بِالْكُحَلِ<br>تُبْدِي لَنَا الآلَةُ الصَّمَّاءُ صَانِعَهَا  وَالْخَلْقُ نُبْصِرُ فِيهِ الْخَالِقَ الْكُلِّي</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0045" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0045" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0045" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0045">
+</div></article>
+<article id="i0046">
+<div class="poem" dir="rtl">إِذَا طَغَى الْعَقْلُ عَلَى رَبِّهِ  فَالْعَقْلُ مَعْنَاهُ هُوَ الْجَهْلُ<br>يَعْتَرِضُ الْعَقْلَ عَلَى خَالِقٍ  مِنْ بَعْضِ مَصْنُوعَاتِهِ الْعَقْلُ<br>إِنْ بَانَ فَضْلُ الْعَقْلِ فِي صُنْعِهِ  فَصَانَعُ الْعَقْلِ لَهُ الْفَضْلُ<br>عَبَدْتُهُ لَمْ أَدْرِ مَا كُنْهَهْ  وَالْجُزْءُ هَلْ يَعْرِفُ مَا الْكَلْ<br>لَمْ أَدْرِ إِلَّاَّ أَنَّهُ خَالِقِي  وَ أَنَّنِي لِشَمْسِهِ ظِلْ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0046" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0046" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0046" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0046">
+</div></article>
+<article id="i0047">
+<div class="poem" dir="rtl">الْعَقْلُ يُوضِحُ لِلنَّسْ  كَ مَنْهَجًا فَاحِذْ حَذْوَهُ<br>وَلَيْسَ يُظْلَمُ قَلْبُ  وَفِيهِ لِلب جِذْوهِ<br>وَفَاتَ رَكْضُ المَنَايَا  رَكْضَ الْقَضِيبِ وَبَذُوهُ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0047" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0047" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0047" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0047">
+</div></article>
+<article id="i0048">
+<div class="poem" dir="rtl">إِنَّ عِنْدِيَ وَقْتِي كَعَقْلِي ثَمِينْ  وَأَمَامِيَ الوُجُودِ لا مَتَنَاهِي<br>لا أُضِيعُ الوَقْتَ الثَّمِينَ بِلْهْو  إِنَّ لَهْوِي بِالْفِكْرِ لاَ بِالْمَلاَهِي</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0048" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0048" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0048" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0048">
+</div></article>
+</section>
+<section><h2 dir="rtl">شجاعة الفرسان وإقدامهم في القتال</h2><div class="meta">diwan &middot; t67 &middot; 5 poems</div>
+<article id="i0049">
+<div class="poem" dir="rtl">مَا فَازَ بِالظَّفَرِ امْرُؤً  فِي الْحَرْبِ إِلاَّ بِالثَّبَاتِ<br>أَطَرَ الشَّجَاعَةَ فِي الرَّجَا  لْ فَتِلْكَ مِنْ خَيْرِ الصِّفَاتْ<br>إِنَّ المَصِيرَ إِذَا اسْتَكَا  نَتْ أُمَّةً لإِلَى الشَّتَاتِ<br>تُبْنَى صُرُوحَ الغَالِبِي  نَ عَلَى الْجَمَاجِمِ وَالرُّفَاتْ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0049" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0049" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0049" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0049">
+</div></article>
+<article id="i0050">
+<div class="poem" dir="rtl">كَالنَّجْمِ بَيْنَ السُّحْبِ يَظْهَرُ صَوْتَكِ  جَهْرًا وَسِرًّا مِنْ شَجَاعَةِ رَأْيِكِ<br>أَحْسَسْتَ إِحْسَاسًا عَظِيمًا كَامِلًا  فِي كَوْنِكَ الإِحْسَانُ طَيْلَةَ عُمْرِكِ<br>بَلْ تَمْلِكِيْنَ اسْمًا فَرِيدًا رَائِعًا  كَتَفْرُدَ لَكَ فِي الحِجَى وَالْمَسْلَكِ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0050" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0050" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0050" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0050">
+</div></article>
+<article id="i0051">
+<div class="poem" dir="rtl">وَمُصَارِعُ صَرْعِ القُلُوبِ جَمَالُهُ  لَمَّا تَبَدَّى يَصْرَعُ الأَجْسَادَا<br>يَرْدَى الْعُلُوْجَ شَجَاْعَةٌ وَبَرَاْعَةٌ  فَيُرِيكَ ظَبْيًا يَقْبِضُ الآسَادَا</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0051" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0051" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0051" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0051">
+</div></article>
+<article id="i0052">
+<div class="poem" dir="rtl">جُنُودُ الدَّاوِرِيِّ عِنْدَ النِّضَالْ  لُيُوْثْ بِالأَعَادِي لاَ تُبَالِي<br>وَهَا هِيَ فِي الصُّفُوفِ قَدِ اسْتَعَدَتْ  بِبِيضِ الْهِنْدِ وَالسُّمْرِ الْعَوَالِي<br>وَجَازَتْ تَحْتَ صَنْجُقِهِ فَفَازَتْ  بِنَصْرِ اللهِ فِي يَوْمِ النِّزَالِ<br>فَيَا مِصْرُ ارْتَعَى فِي رَوْضِ عَلْمِ  نَفِيسْ وَارْتَقِي أَوْجَ المَعَالِي<br>فَطَالِعْ مُلْكِهِ بِالعَدْلِ أَضْحَى  سَعِيدٌ اَلَجَدْ مَنْظُومُ اللآلِي</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0052" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0052" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0052" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0052">
+</div></article>
+<article id="i0053">
+<div class="poem" dir="rtl">لِتَبْدِ اليَوْمَ نِسْوَةَ آلِ كَعْب  بِأَجْيَادٍ مُدْمَاةِ الخَدُوشِ<br>عَلَى الْفُرْسَانِ مِنْ سَلَفَيْ تَمِيمِ  يُثْلْهُمُ الرَّدَى ثَلُّ العُرُوشِ<br>مَضَوْا وَبَقِيتَ بَعْدَهُمْ مَهْيَّضًا  كَمَا نَهَضَ الْجَنَاحُ بِغَيْرِ رِيشِ<br>وَمَنْ نَهَشْتْ أَسِنَّة آلِ كَعْب  فَلاَ دِرْيَاقَ لِلرَّجُلِ النَّهِيشِ<br>فَيَا نَفْسُ اذْهَبِي أَسَفًا عَلَيْهِمْ  فَبَعْدَهُمْ كَمَوْتِكَ أَنْ تَعِيشِي</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0053" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0053" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0053" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0053">
+</div></article>
+</section>
+<section><h2 dir="rtl">العلاقة بين الروح والجسد</h2><div class="meta">diwan &middot; t89 &middot; 6 poems</div>
+<article id="i0054">
+<div class="poem" dir="rtl">خُذْ جِيدَ الشِّعْرِ مِمَّا أَثْبَتَ الْمَاحِي  مَا جُودُ الشِّعْرِ مِثْلُ الْمُثْبِتِ المَاحِي<br>دِيوَانُ عَصْر تُرَى فِيهِ رَوَائِعَهُ  مِنْ كُلِّ مُزْدَهِرٍ أَوْ كُلِّ لِمَاحِ<br>يُسَلْسِلُ اللَّفْظَ فَالأَلْبَابُ فِي طَرَبٍ  مِنْ نَشْوَةِ الرُّوحِ لاَ مِنْ نَشْوَةِ الرَّاحِ<br>تُرَى قَوَافِيهِ فِي حُسْنِهَا نَبْتَا  كَمَا تَلاْحَقَ مِصْبَاحٌ بِمِصْبَاحِ<br>إِذَا تَرَنَّمَ بَيْنَ الحَفْلِ يَنْشُدُهُ  سَمِعْتُ آيَةَ تِبْيَانٍ وَإِفْصَاحِ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0054" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0054" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0054" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0054">
+</div></article>
+<article id="i0055">
+<div class="poem" dir="rtl">يَقُولُونَ إِنَّ الجِسْمَ يَنْقُلُ رُوحَهُ  إلى غَيْرِهِ حَتَّى يُهَذِّبَهَا النَّقْلُ<br>فَلا تَقْبَلَنْ مَا يُخَبِرُونَكَ ضِلَّةً  إِذَا لَمْ يُؤَيِّدْ مَا أَتَوْكَ بِهِ العَقْلُ<br>وَلَيْسَ جُسُومٌ كَالنَّخِيلِ وَإِنْ سَمَا  بِهَا الْفَرْعُ إِلاَّ مِثْلَ مَا نَبَتَ البَقْلُ<br>فَعِشْ وَادِعًا وَارْفُقْ بِنَفْسِكَ طَالِبًا  فَإِنَّ حُسَامَ الْهِنْدِ يُنْهِكُهُ الصَّقْلُ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0055" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0055" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0055" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0055">
+</div></article>
+<article id="i0056">
+<div class="poem" dir="rtl">ايِهَا الرُّوحَ الَّذِي اسْتَقْرَأْتَهُ  بَاذِلًا فِي البَحْثِ عَنْهُ جَلَدِي<br>اِنْكَ المُخَّ الَّذِي قَدْ ذَهَبَتْ  شَعْبًا اعْصَابُهُ فِي جَسَدِي</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0056" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0056" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0056" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0056">
+</div></article>
+<article id="i0057">
+<div class="poem" dir="rtl">لَكُمْ فُؤَادِيْ دَوَاْمَا  وَإِنَّمَا الرُّوحُ أَنْتُمْ<br>وَجِسْمُهَا ثُمَّ سِرِّي  لَدَيكُمْ حَيْثُ كُنْتُمُ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0057" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0057" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0057" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0057">
+</div></article>
+<article id="i0058">
+<div class="poem" dir="rtl">أَنْتَ الْفُؤَادُ وَجِسْمُ الرُّوحِ يَا قَمَرْ  وَالشَّمْسُ أَنْتِ وَأَنْتِ الرُّوحُ وَالْبَصَرُ<br>وَحَيْثُمَا كُنْتِ كُنْتِ يَا شِفَا حُزْنِي  وَلِي هَوَاكِ فَلا يَبْقَى وَلا يَذَرْ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0058" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0058" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0058" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0058">
+</div></article>
+<article id="i0059">
+<div class="poem" dir="rtl">الرُّوحُ كَالرِّيحِ إِنْ جَازَتْ شَذَا النَّطْفْ  تَزْكُوْ وَتَخْبُثُ إِنْ مَرَّتْ عَلَى الْجِيفِ<br>وَلَيْسَ تَحْكُمُ فِي جِسْم تَكُونُ لَهُ  إِلا عَلَى مُقْتَضَى مَا فِيهِ فَاعْتَرَفْ<br>وَإِنَّمَا هِيَ مِنْ أَمْرِ الإِلَهِ أَتَتْ  فِي خِسَّةٍ هِيَ مِنْ جِسْم وَفِي شَرَفٍ<br>فَتَارَةً فِي شَقَاءٍ مِنْهُ قَدْرَهْ  رَبِّي وَطَوْرًا بِسَعْد غَيْرِ مُنْصَرِفِ<br>فَالْجَأْ إِلَى اللهِ إِنْ رُمْتِ النَّجَاةَ بِهَا  وَاسْلُكْ سَبِيلَ أُولِي التَّقْوَى وَلا تَقِفْ</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0059" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0059" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0059" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0059">
+</div></article>
+</section>
+<section><h2 dir="rtl">الفخر والحماسة</h2><div class="meta">fannorflop &middot; t1 &middot; 6 poems</div>
+<article id="i0060">
+<div class="poem" dir="rtl">عجبا لواصف طارق الأحزان  ولما تجيء به بنو الديان<br>فخروا علي بجبوة لمحرق  وإتاوة سيقت إلى النعمان<br>ما أنت وابن محرق وقبيله  وإتاوة اللخمي في عيلان<br>فاقصد بذرعك قصد قومك نصرهم  ودع القبائل من بني قحطان<br>إن كان سالفة الإتاوة فيكم  أولى ففخرك فخر كل يماني<br>وافخر برهط بني الحماس ومالك  وبني الضباب ورعبل وقيان<br>فأنا المعظم وابن فارس قرزل  وأبو براء زانني ونماني<br>وأبو جري ذو الفعال ومالك  منعا الذمار صباح كل طعان<br>وإذا تعاظمت الأمور هوازنا  كنت المنوه باسمه والباني</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0060" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0060" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0060" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0060">
+</div></article>
+<article id="i0061">
+<div class="poem" dir="rtl">بعلو جدك يسعد الدهر  وإلى فخارك ينتهي الفخر<br>أقبلت والإقبال في قرن  وقدمت يقدم جيشك النصر<br>وتوحشت بغداذ لا عدمت  بك إنسها وتجهم القصر<br>لا تحتقر أمد الفراق لها  فلساعة هي عندها شهر<br>أتلام إن أبدت كآبتها  أرض يحل بغيرها القطر</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0061" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0061" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0061" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0061">
+</div></article>
+<article id="i0062">
+<div class="poem" dir="rtl">هل المجد إلا السؤدد العود والندى  وجاه الملوك واحتمال العظائم<br>نصرنا وآوينا النبي محمدا  على أنف راض من معد وراغم<br>بحي حريد أصله وذماره  بجابية الجولان وسط الأعاجم<br>نصرناه لما حل وسط رحالنا  بأسيافنا من كل باغ وظالم<br>جعلنا بنينا دونه وبناتنا  وطبنا له نفسا بفيء المغانم<br>ونحن ضربنا الناس حتى تتابعوا  على دينه بالمرهفات الصوارم<br>ونحن ولدنا من قريش عظيمها  ولدنا نبي الخير من آل هاشم<br>لنا الملك في الإشراك والسبق في الهدى  ونصر النبي وابتناء المكارم<br>بني دارم لا تفخروا إن فخركم  يعود وبالا عند ذكر المكارم<br>هبلتم علينا تفخرون وأنتم  لنا خول ما بين ظئر وخادم</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0062" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0062" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0062" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0062">
+</div></article>
+<article id="i0063">
+<div class="poem" dir="rtl">جارى أباه فأقبلا وهما<br>يتعاوران ملاءة الفخر<br>حتى إذا نزت القلوب وقد<br>لزت هناك العذر بالعذر<br>وعلا هتاف الناس أيهما<br>قال المجيب هناك لا أدري<br>برزت صحيفة وجه والده<br>ومضى على غلوائه يجري<br>أولى فأولى أن يساويه<br>لولا جلال السن والكبر<br>وهما كأنهما وقد برزا<br>صقران قد حطا على وكر,</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0063" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0063" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0063" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0063">
+</div></article>
+<article id="i0064">
+<div class="poem" dir="rtl">العلم مغرس كل فخر فافتخر  واحذر يفوتك فخر ذاك المغرس<br>واعلم بأن العلم ليس يناله  من همه في مطعم أو ملبس<br>لا أخو العلم الذي يعنى به  في حالتيه عاريا أو مكتسي<br>فاجعل لنفسك منه حظا وافرا  واهجر له طيب الرقاد وعبس<br>فلعل يوما حضرت بمجلس  كنت الرئيس وفخر ذاك المجلس</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0064" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0064" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0064" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0064">
+</div></article>
+<article id="i0065">
+<div class="poem" dir="rtl">يا مخجل البدر كلما طلعا  وفارس الخيل يوم كل وعى<br>هنئت بالخلعة التي خلعت  قلب معاديك والحسود معا<br>فقل لشانيك إن ظفرت به  قولا صحيحا يفيد من سمعا<br>ما الفخر فيمن تزينه خلع  الفخر فيمن يزين الخلعا</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0065" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0065" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0065" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0065">
+</div></article>
+</section>
+<section><h2 dir="rtl">مأساة اللاجئين وشوقهم للعودة</h2><div class="meta">fannorflop &middot; t111 &middot; 6 poems</div>
+<article id="i0066">
+<div class="poem" dir="rtl">دنياك ماوية لها نوب  شتى سماوية وأنباء<br>أف لها جل ما يفيد بها  من فاز فيها الطعام والباء<br>جد مقيم وخاب ذو سفر  كأنه في الهجير حرباء<br>أقضية لا تزال واردة  تحار في كونها الألباء<br>قام بنو القوم في أماكنهم  وغيبت في التراب آباء<br>وزال عز الأمير وافترقت  أحباؤه عنه والأحباء<br>وكل حين حوب ومعصية  زادتها في الذنوب حوباء</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0066" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0066" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0066" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0066">
+</div></article>
+<article id="i0067">
+<div class="poem" dir="rtl">إذا بركت في صوم لقوم  دعوت لهم بتطويل العذاب<br>وما التبريك في شهر طويل  يطاول يومه يوم الحساب<br>فليت الليل فيه كان شهرا  ومر نهاره مر السحاب<br>فلا أهلا بمانع كل خير  وأهلا بالطعام وبالشراب</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0067" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0067" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0067" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0067">
+</div></article>
+<article id="i0068">
+<div class="poem" dir="rtl">القلب كالماء والأهواء طافية  عليه مثل حباب الماء في الماء<br>منه تنمت ويأتي ما يغيرها  فيخلق العهد من هند وأسماء<br>والقول كالخلق من سيء ومن حسن  والناس كالدهر من نور وظلماء<br>يقال إن زمانا يستقيد لهم  حتى يبدل من بؤس بنعماء<br>ويوجد الصقر في الدرماء معتقدا  رأي امرىء القيس في عمرو بن درماء<br>ولست أحسب هذا كائنا أبدا  فابغ الورود لنفس ذات أظماء</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0068" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0068" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0068" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0068">
+</div></article>
+<article id="i0069">
+<div class="poem" dir="rtl">أعد الناس للعيد  من اللذات ألوانا<br>وأعددت مع الدمع  له راحا وريحانا<br>فيا من تسمع الدنيا  إذا ما كان غضبانا<br>دع الهجر الذي كان  لنا منك كما كانا<br>فما أحسن بالمعشو  ق أن يهجر أحيانا<br>إذا لم يكن المعشو<br>ق للعاشق خوانا,</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0069" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0069" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0069" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0069">
+</div></article>
+<article id="i0070">
+<div class="poem" dir="rtl">أبا طاهر أنت عيب الزمان  وعيب لحمدان في حفرته<br>لئن مثل لطويس جرى  فإنك أشأم من غرته<br>كفى الله شؤمك سيف الإمام  وباعد شخصك عن حضرته</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0070" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0070" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0070" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0070">
+</div></article>
+<article id="i0071">
+<div class="poem" dir="rtl">ألا كل بصري يرى أنما العلى  مكمهة سحق لهن جرين<br>فإن تغرسوا نخلا فإن غراسنا  ضراب وطعن في النحور سخين<br>وإن أك بصريا فإن مهاجري  دمشق ولكن الحديث شجون<br>مجاور قوم ليس بيني وبينهم  أواصر إلا دعوة وظنون<br>إذا ما دعا باسمي العريف أجبته  إلى دعوة مما علي تهون<br>لأزد عمان بالمهلب نزوة  إذا افتخر الأقوام ثم تلين<br>وبكر ترى أن النبوة أنزلت  على مسمع في الرحم وهو جنين<br>وقالت تميم لا نرى أن واحدا  كأحنفنا حتى الممات يكون<br>فما لمت قيسا بعدها في قتيبة  وفخر به إن الفخار فنون</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0071" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0071" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0071" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0071">
+</div></article>
+</section>
+<section><h2 dir="rtl">الحكمة في الصمت وقيمة الاستماع</h2><div class="meta">fannorflop &middot; t133 &middot; 8 poems</div>
+<article id="i0072">
+<div class="poem" dir="rtl">انظر إلى العرش على مائة  سفينة تجري بأسمائه<br>واعجب له من مكرب دائر  قد أودع الخلق بأحشائه<br>يسبح في بحر بلا ساحل  في حندس الغيب وظلمائه<br>وموجه أحوال عشاقه  وريحه أنفاس أبنائه<br>فلو تراه بالورى سائرا  من ألف الخط إلى يائه<br>ويرجع العود على بدئه  ولا نهايات لإبدائه<br>يكور الصبح على ليله  وصبحه يفنى بإمسائه<br>فانظر إلى الحكمة سيارة  في وسط الفلك وأرجائه<br>ومن أتى يرغب في شانه  يقعد في الدنيا بسيسائه<br>حتى يرع في نفسه فلكه  وصنعة الله بإنشائه</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0072" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0072" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0072" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0072">
+</div></article>
+<article id="i0073">
+<div class="poem" dir="rtl">يا طالب الحكمة من أهلها  النور يجلو لون ظلمائه<br>ولأصل يسقي أبدا فرعه  وتثمر الأكمام من مائه<br>من حسد الناس على مالهم  تحمل الهم بأعبائه<br>والدهر رواغ بأبنائه  يغرهم منه بحلوائه<br>يلحق آباء بأبنائهم  ويلحق الإبن بآبائه<br>والفعل منسوب إلى أهله  كلشيء تدعوه بأسمائه</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0073" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0073" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0073" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0073">
+</div></article>
+<article id="i0074">
+<div class="poem" dir="rtl">قد نال خيرا في المعاشر ظاهرا  من كان تحت لسانه مخبوءا<br>باء الكلام بمأثم والصمت لم  يك في الأعم بمأثم ليبوءا<br>إن يرتفع بشر عليك فكم غدا  علم بتابع فتنة مربوءا<br>مهلا أمن وباء فررت وهل ترى  في الدهر إلا منزلا موبوءا<br>تسبى الكرائم والكميت شرابها  يلفى لألأم شارب مسبوءا<br>حلف العباءة سوف يصبح مثله  ملك ويترك طيبه المعبوءا</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0074" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0074" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0074" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0074">
+</div></article>
+<article id="i0075">
+<div class="poem" dir="rtl">يا سعد غم الماء ورد يدهمه<br>يوم تلاقى شأوه ونعمه<br>واختلفت أمراسه وقيمه<br>فأنما أنت أخ لا نعدمه<br>فأبلنا منك بلاء نعلمه<br>فقام وثاب نبيل محزمه<br>لم يلق بؤسا لحمه ولا دمه<br>ولم تبت حمى به توصمه<br>لم يتجشأ من طعام يبشمه<br>كأن سفود حديد معصمه<br>يدك مدماك الطوي قدمه,</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0075" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0075" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0075" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0075">
+</div></article>
+<article id="i0076">
+<div class="poem" dir="rtl">إذا غامرت في شرف مروم  فلا تقنع بما دون النجوم<br>فطعم الموت في أمر صغير  كطعم الموت في أمر عظيم<br>ستبكي شجوها فرسي ومهري  صفائح دمعها ماء الجسوم<br>قربن النار ثم نشأن فيها  كما نشأ العذارى في النعيم<br>وفارقن الصياقل مخلصات  وأيديها كثيرات الكلوم<br>يرى الجبناء أن العجز عقل  وتلك خديعة الطبع اللئيم<br>وكل شجاعة في المرء تغني  ولا مثل الشجاعة في الحكيم<br>وكم من عائب قولا صحيحا  وآفته من الفهم السقيم<br>ولكن تأخذ الآذان منه  على قدر القرائح والعلوم</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0076" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0076" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0076" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0076">
+</div></article>
+<article id="i0077">
+<div class="poem" dir="rtl">ما وعظ العاقل من واعظ  أبلغ في العاقل من نفسه<br>قد يضرب العاقل أمثاله  في غده يوما وفي أمسه<br>فمنه ما ينفع أهل الحجى  من أبعد الناس ومن جنسه<br>قد يستشير الشيخ أبناءه  ويقبس الحكمة من عرسه<br>والعقل مقسوم فلا تزهدن  في طلب العلم وفي قبسه<br>واسأل فقد يكشف عنك العمى  سؤالك العالم في أنسه</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0077" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0077" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0077" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0077">
+</div></article>
+<article id="i0078">
+<div class="poem" dir="rtl">خل جنبيك لرام  وامض عنه بسلام<br>مت بداء الصمت خير  لك من داء الكلام<br>ربما استفتحت بالمز  ح مغاليق الحمام<br>رب لفظ ساق آجا  ل نيام وقيام<br>إنما السالم من أل  جم فاه بلجام<br>فالبس الناس على الصح  حة منهم والسقام<br>وعليك القصد إن ال  قصد أبقى للحمام<br>شبت يا هذا وما تت  رك أخلاق الغلام<br>والمنايا آكلات  شاربات للأنام</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0078" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0078" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0078" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0078">
+</div></article>
+<article id="i0079">
+<div class="poem" dir="rtl">إذا سكت الإنسان قلت خصومه  وإن أضجعته الحادثات لجنبه<br>حسا طامر في صمته من دم الفتى  فصغر ذاك الصمت معظم ذنبه<br>ولم يك في حال البعوض إذا شدا  له نغم عال وأنت أذ به<br>وإن سل سيفا من كلام مسفه  عليك فقابله بصبرك تنبه</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0079" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0079" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0079" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0079">
+</div></article>
+</section>
+<section><h2 dir="rtl">المقارنة بين صخب المدينة وهدوء القرية</h2><div class="meta">fannorflop &middot; t155 &middot; 7 poems</div>
+<article id="i0080">
+<div class="poem" dir="rtl">ومحبوسة في الحي ضامنة القرى  إذا الليل وافاها بأشعث ساغب<br>معقرة لا تنكر السيف وسطها  إذا لم يكن فيها معس لحالب<br>مرازيح في المأوى إذا هبت الصبا  تطيف أوابيها بأكلف ثالب<br>إذا استقبلتها الريح لم تنفتل لها  وإن أصبحت شهب الذرى والغوارب<br>إذا ما الدم المهراق أضلع حمله  وناب رهناها بأغلى النوائب<br>إذا ما بدا بالغيب منها عصابة  أوين له مشي النساء اللواغب<br>يطفن بزياف كأن هديره  إذا جاوز الحيزوم ترجيع قاصب<br>ترد على الظمء الطويل نطافها  إذا شوت الجوزاء ورق الجنادب<br>كأن لهاها في بلاعيم جنة  وأشداقها العليا مغار الثعالب<br>إذا لم يكن إلا القتاد تجزعت  مناجلها أصل القتاد المكالب</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0080" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0080" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0080" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0080">
+</div></article>
+<article id="i0081">
+<div class="poem" dir="rtl">بادر الكأس نهارا  واشرب الراح العقارا<br>واسقنيها مثلما تش  ربها كيلا عيارا<br>خندريسا تنفح المس  ك وتحكي الجلنارا<br>فإذا أكثرت فيها ال  ماء زادتك خمارا<br>فامض في اللذات قدما  واخلعن فيها العذارا<br>واجعل البستان بيتا  واجعل القرية دارا<br>وأطر فيها حماما  وارتبط فيها المهارى<br>وإذا كان قطاف  وتوقعت العصارا<br>فاطبخ الراح بشمس  فكفى بالشمس نارا</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0081" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0081" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0081" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0081">
+</div></article>
+<article id="i0082">
+<div class="poem" dir="rtl">وبلدة لا ترام خائفة  زوراء مغبرة جوانبها<br>تسمع للجن عازفين بها  تضبح من رهبة ثعالبها<br>يصعد من خوفها الفؤاد ولا  يرقد بعض الرقاد صاحبها<br>كلفتها عرمسا عذافرة  ذات هباب فعما مناكبها<br>تراقب المحصد الممر إذا  هاجرة لم تقل جنادبها<br>بمقلة لا تغر صادقة  يطحر عنها القذاة حاجبها<br>ذاك وقد أصبح الخليل بصه  باء كميت صاف جوانبها<br>مثل دم الشادن الذبيح إذا  أتأق منها الراووق شاربها<br>دبت دبيبا حتى تخونه  منها حميا وكف صالبها<br>عما تراه يكف منطقه  أجمع في النفس ما يغالبها</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0082" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0082" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0082" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0082">
+</div></article>
+<article id="i0083">
+<div class="poem" dir="rtl">ألست بجاعلي كبني جعيل  هداك الله أو كبني جناب<br>أدب وراء نقدة أن تراني  ودونك بالمدينة ألف باب<br>وأحبس بالعراء المحل بيتي  ودونك عازب صخب الذباب<br>أحاذر إن قدرت علي يوما  عقابك والأليم من العذاب</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0083" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0083" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0083" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0083">
+</div></article>
+<article id="i0084">
+<div class="poem" dir="rtl">قالت أنيسة دع بلادك والتمس  دارا بطيبة ربة الآطام<br>تكتب عيالك في العطاء وتفترض  وكذاك يفعل حازم الأقوام<br>فهممت ثم ذكرت ليل لقاحنا  بلوى عنيزة أو بقف بشام<br>إذ هن عن حسبي مذاود كلما  نزل الظلام بعصبة أغتام<br>إن المدينة لا مدينة فالزمي  حقف السناد وقبة الأرجام<br>يحلب لك اللبن الغريض وينتزع  بالعيس من يمن إليك وشام<br>وتجاوري النفر الذين بنبلهم  أرمي العدو إذا نهضت أرامي<br>الباذلين إذا طلبت تلادهم  والمانعي ظهري من الغرام</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0084" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0084" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0084" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0084">
+</div></article>
+<article id="i0085">
+<div class="poem" dir="rtl">لقد قرين قريا مصغرا  إذا الهدان حار وأسبكرا<br>فكان كالعدل يجر جرا  أدنيته من أهله فسرا<br>ذا الصهوات البادن الممرا  لا يبوح المنزل الا جرا<br>والحر يتركن فليس حرا  ينضحن ماء البدن العسرا<br>نضح الأديم الصفق المصفرا  بدأن كؤما ورجعن عرا<br>شرين من ماوان ماء مرا  ومن شبام مثله أو شرا<br>سدم المساقي آجنات صفرا  يجدن من نهم الحداة شرا<br>وجد المقاليت يخفن الضرا  تظر أنضاد الثقاب طرا</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0085" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0085" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0085" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0085">
+</div></article>
+<article id="i0086">
+<div class="poem" dir="rtl">إن اليمامة خير ساكنها  أهل القرية من بني ذهل<br>الضامنون لمال جارهم  حتى يتم نواهض البقل<br>قوم إذا انتسبوا ففرعهم  فرعي وأثبت أصلهم أصلي</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0086" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0086" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0086" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0086">
+</div></article>
+</section>
+<section><h2 dir="rtl">الأندلس بعد سقوطها وذكر أمجادها الزائلة</h2><div class="meta">fannorflop &middot; t177 &middot; 5 poems</div>
+<article id="i0087">
+<div class="poem" dir="rtl">إن للجنة في الأندلس  مجتلى حسن وريا نفس<br>فسنا صبحتها من شنب  ودجى ظلمتها من لعس<br>فإذا ما هبت الريح صبا  صحت وا شوقي إلى الأندلس</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0087" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0087" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0087" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0087">
+</div></article>
+<article id="i0088">
+<div class="poem" dir="rtl">هل رسم دارسة المقام يباب  متكلم لمسائل بجواب<br>قفر عفا رهم السحاب رسومه  وهبوب كل مطلة مرباب<br>ولقد رأيت بها الحلول يزينهم  بيض الوجوه ثواقب الأحساب<br>فدع الديار وذكر كل خريدة  بيضاء آنسة الحديث كعاب<br>واشك الهموم إلى الإله وما ترى  من معشر متألبين غضاب<br>أموا بغزوهم الرسول وألبوا  أهل القرى وبوادي الأعراب<br>جيش عيينة وابن حرب فيهم  متخمطين بحلبة الأحزاب<br>حتى إذا وردوا المدينة وارتجوا  قتل النبي ومغنم الأسلاب<br>وغدوا علينا قادرين بأيدهم  ردوا بغيظهم على الأعقاب<br>بهبوب معصفة تفرق جمعهم  وجنود ربك سيد الأرباب</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0088" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0088" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0088" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0088">
+</div></article>
+<article id="i0089">
+<div class="poem" dir="rtl">أمسى خليطك قد أجد فراقا  هاج الحزين وذكر الأشواقا<br>هل تبصران ظعائنا بعنيزة  أم هل تقول لنا بهن لحاقا<br>إن الفؤاد مع الذين تحملوا  لم ينظروا بعنيزة الإشراقا<br>حث الحداة بهم وراء حمولهم  بزلا تجاسر لم يكن حقاقا<br>يا رب قائلة تقول وقائل  أسراق إنك قد خزيت سراقا<br>إن الذين عووا عواءك قد لقوا  مني صواعق تخضع الأعناقا<br>فإذا لقيت مجيلسا من بارق  لاقيت أطبع مجلس أخلاقا<br>الناقصين إذا يعد حصاهم  والجامعين مذلة ونفاقا<br>ولقد هممت بأن أدمر بارقا  فرقبت فيهم عمنا إسحاقا</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0089" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0089" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0089" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0089">
+</div></article>
+<article id="i0090">
+<div class="poem" dir="rtl">الساع آنية الحوادث ما حوت  لم يبد إلا بعد كشف غطائها<br>وكأنما هذا الزمان قصيدة  ما اضطر شاعرها إلى إيطائها<br>ليست لياليه محسة كائن  وصفت بسرعتها ولا إبطائها<br>والمصر آنس منه خرق مفازة  أنس الدليل بقافها مع طائها<br>وسهام دهرك لا تزال مصيبة  صرفت بإذن الله عن أخطائها<br>إن المواهب كلها عارية  ومن السفاهة غبطة بعطائها</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0090" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0090" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0090" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0090">
+</div></article>
+<article id="i0091">
+<div class="poem" dir="rtl">وجدنا خزاعيا رسنة مازن  ومنها إذا هاب الكماة جسورها<br>على ما يهاب القوم من عاجل القرى  إذا احمر من نفح الصبا زمهريرها<br>وهم يوم ولى أسلم ظهره القنا  وفر وشر الناس بأسا فرورها<br>وهم يوم عباد بن أخضر بالقنا  وبالهندوانيات بيضا ذكورها<br>أبوا أن يفروا يوم كر عليهم  ولا يقتل الأبطال إلا كرورها<br>جلوا بالعوالي والسيوف غشاوة  يكاد من الإظلام يعشى بصيرها<br>وهم أنزلوا هندا منازل لم تكن  لهم قبلها إلا مصيرا تصيرها<br>ودارت رحى الأبطال في حومة الوغى  وأظهر أنياب الحروب هريرها<br>وهم رجعوا لابن المعكبر ذوده  وقد كان عنها قد تولى مجيرها<br>وهم صدقوا رؤيا بريقة إذ رأت  غيابة موت مستهلا مطيرها</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0091" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0091" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0091" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0091">
+</div></article>
+</section>
+<section><h2 dir="rtl">قيمة التسامح والعفو وتجاوز الأحقاد</h2><div class="meta">fannorflop &middot; t200 &middot; 6 poems</div>
+<article id="i0092">
+<div class="poem" dir="rtl">أقصر فلست بزائدي ودا  بلغ المدى وتجاوز الحدا<br>أرسلتها مملوءة كرما  فرددتها مملوءة حمدا<br>جاءتك تطفح وهي فارغة  مثنى به وتظنها فردا<br>تأبى خلائقك التي شرفت  أن لا تحن وتذكر العهدا<br>لو كنت عصرا منبتا زهرا  كنت الربيع وكانت الوردا</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0092" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0092" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0092" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0092">
+</div></article>
+<article id="i0093">
+<div class="poem" dir="rtl">لا يعجبنك يا ذا حسن منظرة  لم يجعل الله فيها حسن مخبرة<br>خير اكتساب الفتى ما كان من عمل  زاك وصبر على عسر وميسرة<br>وأفضل الزهد زهد كان عن جدة  وأفضل العفو عفو عند مقدرة<br>لا خير لا خير للإنسان في طمع  يصير منه إلى ذل ومحقرة<br>أستغفر الله من ذنبي وأسأله  عيشا هنيئا بأخلاق مطهرة</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0093" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0093" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0093" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0093">
+</div></article>
+<article id="i0094">
+<div class="poem" dir="rtl">لي سيد قد سامني الخسفا  أكدى من المعروف أم أصفى<br>أستر ماغير من رأيه  أريد أن يخفى فما يخفى<br>داعبني بالمطل مستأنيا  وعده من فعله ظرفا<br>قد كنت من أبعدهم همة  عندي ومن أجودهم كفا<br>المائة الدينار منسية  في عدة أشبعتها خلفا<br>لا صدق إسماعيل فيها ولا  وفاء إبراهيم إذ وفى<br>إن كنت لا تنوي نجاحا لها  فكيف لاتجعلها ألفا<br>هل لك في الصلح فأعفيك من  نصف وتستأنف لي نصفا<br>أو تترك الود على حاله  وتستوي أقدامنا صفا<br>إن الذي يثقل أهل لأن  يضرب عنه للذي خفا</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0094" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0094" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0094" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0094">
+</div></article>
+<article id="i0095">
+<div class="poem" dir="rtl">لنا صديق سيئ فعله  ليس له في الناس من حامد<br>لو كان في الدنيا له قيمة  بعناه بالناقص والزائد<br>أخلاقه تحكي الطريق التي  من السويداء إلى آمد</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0095" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0095" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0095" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0095">
+</div></article>
+<article id="i0096">
+<div class="poem" dir="rtl">رب الزمان أجل قد  را أن يهنى بالزمان<br>لكنها العادات في  رفع المدائح والتهاني<br>ملك تدين لأمره ال  ثقلان من إنس وجان<br>يلقى الندى والعفو عف  وا عنده جان وجاني<br>أضحى بسيرته الأنام  من الحوادث في أمان<br>أفنى بذابله ونا  ئله الأعادي والأماني<br>لا زلت محفوظ العلى  عالي الدعائم والمباني<br>جذلان مخضر الندى  والعود محمر السنان<br>ما افتر في وجه الربي  ع الطلق ثغر الأقحوان<br>واستخدمت عون القوا  في فيك أبكار المعاني</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0096" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0096" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0096" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0096">
+</div></article>
+<article id="i0097">
+<div class="poem" dir="rtl">في جلنار وأختها دبسية  يا ابن الوزير لعاتب متعتب<br>أحضرتموني جلنار وأحضرت  دبسية الكبرى لغيري تجنب<br>فعتبت عتبا خلت فيه كفاية  ثم انصرفت إلى التي هي أصوب<br>فكظمت بالإغضاء كل مغصة  من ظلمكم ووهبت ما لا يوهب<br>وظننت توبتكم نصوحا بعدها  ولقد يخالف من يظن ويحسب<br>فجرى علي بظلمكم من خرم  يوم كما علم الإله عصبصب<br>يوم يسمى حين يكنى غيره  لا بل يكنى غيره ويلقب<br>وحدت شمول بالشمول لمعشر  غيري وفيما دون ذلك مغضب<br>ياسادتي مالي أذاد عن التي  أبغي وأسعط بالتي أتجنب<br>أمشاهدي يوم الرفيهة تحتمى  ومشاهدي يوم الكريهة تخطب</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0097" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0097" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0097" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0097">
+</div></article>
+</section>
+<section><h2 dir="rtl">اليأس من فساد الحكام والسياسة</h2><div class="meta">fannorflop &middot; t23 &middot; 6 poems</div>
+<article id="i0098">
+<div class="poem" dir="rtl">إني دعيت إلى احتفالك فجأة  فأجبت رغم شواغلي وسقامي<br>ودعوت شعري يا أمين فخانني  أدبي ولم يرع القريض ذمامي<br>فأتيت صفر الكف لم أملك سوى  أملي بصفحك عن قصور كلامي<br>واخجلتي أيكون هذا موقفي  في حفلة التوديع والإكرام<br>وأنا الخليق بأن أرتل للورى  آيات هذا المصلح المقدام<br>وأقوم عن نفسي وعن غيري بما  يقضي الولاء وواجب الإعظام<br>بنها لقد وفيت قسطك من منى  وسعادة ورعاية ونظام<br>فدعي سواك يفز بقرب موفق  هو في الحكومة نخبة الحكام<br>لبس التواضع حلة ومشى إلى  رتب الجلال مسدد الأقدام<br>وغدا بأبراج العلا متنقلا  كالبدر يسعده السرى بتمام</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0098" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0098" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0098" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0098">
+</div></article>
+<article id="i0099">
+<div class="poem" dir="rtl">ومجلس مقصر والنفس تكرهه  حبست فيه لأعداء أجاثيها<br>آبى وآنف عن أشياء يأخذها  رث القوى وضعيف القوم يعطيها<br>ومرند لي بالبغضاء مؤتزر  أنزلت من حزنة صعب مراقيها<br>لم أدر سورته إلا مصافحة  إني أخو الحرب إن جارت أجاريها</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0099" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0099" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0099" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0099">
+</div></article>
+<article id="i0100">
+<div class="poem" dir="rtl">بما حزته من شريف النظام  وأرهفته من حواشي الكلام<br>تعال إلى الأنس في مجلس  يهز به الشيخ عطفي غلام<br>صقيل تخال به بيضة  تروقك تحت جناح الظلام<br>رطيب النسيم كأن الصبا  تجرر فيه ذيول الغمام<br>يكاد سرورا بأضيافه  يهش فيلقاهم بالسلام<br>وعندي لمثلك من خاطب  بنات الحمام وأم المدام<br>بنات تنافس فيها الملوك  وتلهو العذارى بها في الخيام<br>فقد كدن يلقطن حب القلوب  ويشربن ماء عيون الكرام<br>وصفراء طلقت بنتا لها  وما للكريم ومأتى الحرام<br>أمص مراشفها لوعة  وأذكر مابيننا من ذمام</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0100" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0100" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0100" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0100">
+</div></article>
+<article id="i0101">
+<div class="poem" dir="rtl">كم أمة لعبت بها جهالها  فتنطست من قبل في تعذيبها<br>الخوف يلجئها إلى تصديقها  والعقل ويحملها على تكذيبها<br>وجبلة الناس الفساد فظل من  يسمو بحكمته إلى تهذيبها<br>يا ثلة في غفلة وأويسها ال  القرني مثل أويسها أي ذيبها<br>سبحان مجمد راكد ومقره  وممير لجة زاخر ومذيبها</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0101" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0101" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0101" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0101">
+</div></article>
+<article id="i0102">
+<div class="poem" dir="rtl">قل لمن ساد ثم ساد أبوه  قبله ثم قبل ذلك جده<br>وأبو جده فساد إلى أن  يتلاقى نزاره ومعده<br>ثم آبائه إلى المبتدى من  آدم لا أب وأم تعده<br>يا ابن بحبوحة البطاح عبيد ال  لاه غوثا من مستغيث يوده<br>فاهتبل عندي النصيحة واذخر  ني لقول أجيده وأجده<br>واستزدني إلى مكارمك الغر  ر ومجد إليك خيم مجده<br>عبدري إذا انتمى أبطحي  تالد نسجه عتيق فرنده</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0102" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0102" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0102" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0102">
+</div></article>
+<article id="i0103">
+<div class="poem" dir="rtl">ما لهذا النجم في السحر  قد سها من شدة السهر<br>خلته يا قوم يؤنسني  إن جفاني مؤنس السحر<br>يا لقومي إنني رجل  أفنت الأيام مصطبري<br>أسهرتني الحادثات وقد  نام حتى هاتف الشجر<br>والدجى يخطو على مهل  خطو ذي عز وذي خفر<br>فيه شخص اليأس عانقني  كحبيب آب من سفر<br>وأثارت بي فوادحه  كامنات الهم والكدر<br>وكأن الليل أقسم لا  ينقضي أو ينقضي عمري<br>أيها الزنجي ما لك لم  تخش فينا خالق البشر<br>لي حبيب هاجر وله  صورة من أبدع الصور</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0103" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0103" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0103" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0103">
+</div></article>
+</section>
+<section><h2 dir="rtl">قيمة العقل والحكمة في مواجهة صعاب الحياة</h2><div class="meta">fannorflop &middot; t45 &middot; 7 poems</div>
+<article id="i0104">
+<div class="poem" dir="rtl">شرهت فلست أرضى بالقليل  وما أنفك من حدث جليل<br>وما أنفك من أمل يعني  وما أنفك من قال وقيل<br>ألا يا عاشق الدنيا المعنى  كأنك قد دعيت إلى الرحيل<br>أما تنفك من شهوات نفس  تجور بهن عن قصد السبيل<br>لئن عوفيت من شهوات نفس  لقد عوفيت من شر طويل<br>وللدنيا دوائر دائرات  لتذهب بالعزيز وبالذليل<br>وللدنيا يد تهب المنايا  وتستلب الخليل من الخليل<br>وما لك غير عقلك من نصيح  وما لك غير عقلك من دليل<br>وما لك غير تقوى الله مال  وغير فعالك الحسن الجميل<br>وقار الحلم يقرع كل جهل  وعزم الصبر ينهض بالجليل</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0104" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0104" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0104" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0104">
+</div></article>
+<article id="i0105">
+<div class="poem" dir="rtl">خير سبيل المال تفريقه  في طاعة الله وتمزيقه<br>والدهر لايبقى على أهله  تغريبه طورا وتشريقه<br>وقد أرى العقل إذا ما صفا  قلت من الدنيا معاليقه<br>ما كل من برق تأديبه  يغرني ما عشت تبريقه<br>من حقق الإيمان في قلبه  أوشك أن يظهر تحقيقه</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0105" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0105" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0105" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0105">
+</div></article>
+<article id="i0106">
+<div class="poem" dir="rtl">أنبت عذار أم شقائق روضة  مشى فوقها نمل بأرجله حبر<br>أم العنبر المفتوت من فوق وجنة  أسالته نار الخد فانبهم الأمر<br>فحيا عذارا أذهل الصب مذ بدا  وإن ضل فيه العقل واختلط الفكر<br>يميس به لدن القوام مهفهف  له في اختلاس العقل من حسنه عذر<br>هلال إذا ما قلت أمسى جبينه  صدقت ولكن دون طلعته البدر<br>تعلم منه الظبي لفتة جيده  ومن طرفه الوسنان يستنبط السحر<br>متى صافحت سمعي رقائق لفظه  ترى كل عضو في داخله السكر<br>يمازج ألفاظ البلاغة صوته  فيبدي لنا درا وفي ضمنه خمر<br>وتشكو ارتجاج القرط صفحة جيده  كما بات يشكو من غدائره الخصر<br>يجرعني كأس المنون بصده  ويقتلني منه إذا هجر الهجر</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0106" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0106" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0106" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0106">
+</div></article>
+<article id="i0107">
+<div class="poem" dir="rtl">يا رب رزق قد أتى من سبب  لو سلم العبد إليه الطلب<br>ورب من قد جاءه رزقه  من حيث لايرجو ولايحتسب<br>ما أنفع العقل لأصحابه  نتيجة العقل تمام الأدب<br>إني أرى المغرور من غره ال  دهر على كثرة ما ينقلب<br>ما يستقيم الأمر إلا التوى  ولا يجيء الشيء إلا ذهب<br>والدهر لا تفنى أعاجيبه  في كل ما فكرت فيه عجب</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0107" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0107" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0107" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0107">
+</div></article>
+<article id="i0108">
+<div class="poem" dir="rtl">إذا جمع امرؤ حزما وعقلا  فحق له بذلك أن يطاعا<br>إذا ذو العقل أعطى النصح منه  عديم العقل ضيعه فضاعا<br>وكيف بصاحب إن أدن شبرا  يزدني في مباعدة ذراعا<br>أبت نفسي له إلا وصالا  وتأبى نفسه إلا انقطاعا<br>كلانا جاهد أدنو وينأى  كذلك ما استطعت وما استطاعا</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0108" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0108" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0108" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0108">
+</div></article>
+<article id="i0109">
+<div class="poem" dir="rtl">من لم يعظه التجريب والأدب  لم يثنه شيبه ولا الحقب<br>يا أيها المبتلى بهمته  ألم تر الدهر كيف ينقلب<br>من أي خلق الإله يعجب من  يعجب والخلق كله عجب<br>وبالرضى والتسليم ينقطع ال  هم وبالكفر يكثر العطب<br>وعند حسن التقدير يستحكم ال  جد وينبت اللهو واللعب<br>وفي جميل القنوع ينخفض ال  عيش وبالحرص يعظم التعب<br>إن الغنى في النفوس والعز تق  وى الله لا فضة ولا ذهب<br>وحادثات الأقدار تجري وما  تجري بشيء إلا له سبب</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0109" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0109" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0109" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0109">
+</div></article>
+<article id="i0110">
+<div class="poem" dir="rtl">لنا صديق سيئ فعله  ليس له في الناس من حامد<br>لو كان في الدنيا له قيمة  بعناه بالناقص والزائد<br>أخلاقه تحكي الطريق التي  من السويداء إلى آمد</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0110" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0110" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0110" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0110">
+</div></article>
+</section>
+<section><h2 dir="rtl">شجاعة الفرسان وإقدامهم في القتال</h2><div class="meta">fannorflop &middot; t67 &middot; 7 poems</div>
+<article id="i0111">
+<div class="poem" dir="rtl">إذا غامرت في شرف مروم  فلا تقنع بما دون النجوم<br>فطعم الموت في أمر صغير  كطعم الموت في أمر عظيم<br>ستبكي شجوها فرسي ومهري  صفائح دمعها ماء الجسوم<br>قربن النار ثم نشأن فيها  كما نشأ العذارى في النعيم<br>وفارقن الصياقل مخلصات  وأيديها كثيرات الكلوم<br>يرى الجبناء أن العجز عقل  وتلك خديعة الطبع اللئيم<br>وكل شجاعة في المرء تغني  ولا مثل الشجاعة في الحكيم<br>وكم من عائب قولا صحيحا  وآفته من الفهم السقيم<br>ولكن تأخذ الآذان منه  على قدر القرائح والعلوم</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0111" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0111" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0111" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0111">
+</div></article>
+<article id="i0112">
+<div class="poem" dir="rtl">دعني أجد إلى العلياء في الطلب  وأبلغ الغاية القصوى من الرتب<br>لعل عبلة تضحي وهي راضية  على سوادي وتمحو صورة الغضب<br>إذا رأت سائر السادات سائرة  تزور شعري بركن البيت في رجب<br>يا عبل قومي انظري فعلي ولا تسلي  عني الحسود الذي ينبيك بالكذب<br>إذ أقبلت حدق الفرسان ترمقني  وكل مقدام حرب مال للهرب<br>فما تركت لهم وجها لمنهزم  ولا طريقا ينجيهم من العطب<br>فبادري وانظري طعنا إذا نظرت  عين الوليد إليه شاب وهو صبي<br>خلقت للحرب أحميها إذا بردت  وأصطلي نارها في شدة اللهب<br>بصارم حيثما جردته سجدت  له جبابرة الأعجام والعرب<br>وقد طلبت من العلياء منزلة  بصارمي لا بأمي لا ولا بأبي</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0112" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0112" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0112" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0112">
+</div></article>
+<article id="i0113">
+<div class="poem" dir="rtl">أحل هريم يوم بابل بالقنا  نذور نساء من تميم فحلت<br>فأصبحن لا يشرين نفسا بنفسه  من الناس إن عنه المنية زلت<br>يكون أمام الخيل أول طاعن  ويضرب أخراها إذا هي ولت<br>عشية لا يدري يزيد أينتحي  على السيف أم يعطي يدا حين شلت<br>وأصبح كالشقراء تنحر إن مضت  وتضرب ساقاها إذا ما تولت<br>لعمري لقد جلى هريم بسيفه  وجوها علتها غبرة فتجلت<br>وقائلة كيف القتال ولو رأت  هريما لدارت عينها واسمدرت<br>وما كر إلا كان أول طاعن  ولا عاينته الخيل إلا اشمأزت<br>أتاك ابن مروان يقود جنوده  ثمانين ألفا خيلها قد أظلت<br>فلم يغن ما خندقت حولك نقرة  من البيض من أغمادها حين سلت</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0113" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0113" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0113" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0113">
+</div></article>
+<article id="i0114">
+<div class="poem" dir="rtl">ولقد نهيتكم وقلت لكم  لا تقربن فوارس الصيداء<br>أبناء حرب ماهرين بها  تغذى صغارهم بحسن غذاء<br>قد كنت أعهدهم وخيلهم  يلقون قدما عورة الأعداء<br>أيسار صدق ما علمتهم  عند الشتاء وقلة الأنواء</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0114" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0114" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0114" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0114">
+</div></article>
+<article id="i0115">
+<div class="poem" dir="rtl">أحرقتني نار الجوى والبعاد  بعد فقد الأوطان والأولاد<br>شاب رأسي فصار أبيض لونا  بعدما كان حالكا بالسواد<br>وتذكرت عبلة يوم جاءت  لوداعي والهم والوجد بادي<br>وهي تذري من خيفة البعد دمعا  مستهلا بلوعة وسهاد<br>قلت كفي الدموع عنك فقلبي  ذاب حزنا ولوعتي في ازدياد<br>ويح هذا الزمان كيف رماني  بسهام صابت صميم فؤادي<br>غير أني مثل الحسام إذا ما  زاد صقلا جاد يوم جلاد<br>حنكتني نوائب الدهر حتى  أوقفتني على طريق الرشاد<br>ولقيت الأبطال في كل حرب  وهزمت الرجال في كل وادي<br>وتركت الفرسان صرعى بطعن  من سنان يحكي رؤوس المزاد</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0115" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0115" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0115" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0115">
+</div></article>
+<article id="i0116">
+<div class="poem" dir="rtl">ويلكم يا قصبات الجوفان  جيئوا بمثل قعنب والعلهان<br>والحنتفين عند شل الأظعان  أو كأبي حزرة سم الفرسان<br>وما ابن حناءة بالوغل الوان  ولا ضعيف في لقاء الأقران</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0116" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0116" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0116" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0116">
+</div></article>
+<article id="i0117">
+<div class="poem" dir="rtl">لعمري وما عمري علي بهين  لنعم الفتى أرديتم آل خثعما<br>أصيب به فرعا سليم كلاهما  فعز علينا أن يصاب ونرغما<br>وكان إذا ما أقدم الخيل بيشة  إلى هضب أشراك أناخ فألجما<br>فأرسلها تهوي رعالا كأنها  جراد زفته ريح نجد فأتهما<br>فأمسى الحوامي قد تعفين بعده  وكان الحصى يكسو دوابرها دما<br>فآبت عشاء بالنهاب وكلها  يرى قلقا تحت الرحالة أهضما<br>وكانت إذا ما لم تطارد بعاقل  أو الرس خيلا طاردتها بعيهما<br>وكان ثمال الحي في كل أزمة  وعصمتهم والفارس المتغشما<br>وينهض للعليا إذا الحرب شمرت  فيطفئها قهرا وإن شاء أضرما<br>فأقسمت لا أنفك أحدر عبرة  تجول بها العينان مني لتسجما</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0117" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0117" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0117" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0117">
+</div></article>
+</section>
+<section><h2 dir="rtl">العلاقة بين الروح والجسد</h2><div class="meta">fannorflop &middot; t89 &middot; 8 poems</div>
+<article id="i0118">
+<div class="poem" dir="rtl">سعت لك صورتي وأتاك شخصي  وسار الظل نحوك والجهات<br>لأن الروح عندك وهي أصل  وحيث الأصل تسعى الملحقات<br>وهبها صورة من غير روح  أليس من القبول لها حياة</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0118" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0118" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0118" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0118">
+</div></article>
+<article id="i0119">
+<div class="poem" dir="rtl">يا عبد ضاق بحبكم جلدي  وهواكم صدع على كبدي<br>إني حلفت ألية صدقت  بفناء بيت الواحد الصمد<br>لتركتني صبا بحبكم  وقتلتني ظلما بلا قود<br>أبقيت من قلبي حشاشته  وحللت بين الروح والجسد<br>أفما أنى لك يا عبيدة أن  تشفي أخا الأحزان والكمد<br>يمسي ويصبح هائما بكم  ويهال بالترويع والسهد<br>نرجو عبيدة أن تجود لنا  ما إن يرجى بعد من أحد<br>علقتها بيضاء ناعمة  لم تجف عن طول ولم تزد<br>وتريك عيني جؤذر خرق  بالروض لم تكحل من الرمد<br>أحوى المدامع زان قامته  حلل الدمقس تظل في أود</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0119" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0119" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0119" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0119">
+</div></article>
+<article id="i0120">
+<div class="poem" dir="rtl">أحمد الله الذي أس  كنني دار الهوان<br>وجفاني كل من أم  ملته حتى لساني<br>لا يدلن على الإخ  وان بعدي من رآني<br>من أجاد الظن بالنا  س دهاه ما دهاني<br>كان لي إلف أرجي  ه لريب الحدثان<br>روحه روحي ولكن  يحتوينا جسدان<br>همه همي وهمي  همه في كل شان<br>ليس يعصيني ولا أع  صيه ما قال كفاني<br>فجفاني حين باهي  ت به ريب الزمان<br>ترك التصريح بالهج  ر فقرطست المعاني</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0120" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0120" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0120" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0120">
+</div></article>
+<article id="i0121">
+<div class="poem" dir="rtl">إني إلى خير البرية كلها  رحلت وما ضاقت علي المطامع<br>إلى القائد الميمون والمهتدى به  إذ الناس متبوع وآخر تابع<br>طبعت على الإسلام والحزم والندى  ألا إنما تبدي الأمور الطبائع<br>فداك رجال أوقدوا ثم أخمدوا  منازلهم من كل خير بلاقع<br>أرى الشمس فيها الروح سيقت هدية  إلي وقد أعيت علي المضاجع<br>تبسم عن غر عذاب كأنها  أقاح ترويها الذهاب اللوامع<br>كأن مجاج النحل بين لثاتها  وماء سحاب أحرزته الوقائع<br>وكادت بنات النفس تخرج والحشا  وتنفض من وجد عليها الأضالع<br>أراني إذا دار بظمياء طوحت  أخا زفرات تعتقبها الفواجع</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0121" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0121" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0121" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0121">
+</div></article>
+<article id="i0122">
+<div class="poem" dir="rtl">أخلاي بي شجو وليس بكم شجو  وكل امرئ عن شجو صاحبه خلو<br>وما من محب نال ممن يحبه  هوى صادقا إلا سيدخله زهو<br>بليت وكان المزح بدء بليتي  فأحببت حقا والبلاء له بدو<br>وعلقت من يزحو علي تجبرا  وإني في كل الخصال له كفو<br>رأيت الهوى جمر الغضا غير أنه  على كل حال عند صاحبه حلو<br>أذاب الهوى جسمي ولحمي وقوتي  فلم يبق إلا الروح والجسد النضو</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0122" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0122" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0122" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0122">
+</div></article>
+<article id="i0123">
+<div class="poem" dir="rtl">قد قيل إن الروح تأسف بعدما  تنأى عن الجسد الذي غنيت به<br>إن كان يصحبها الحجى فلعلها  تدري وتأبه للزمان وعتبه<br>أو لا فكم هذيان قوم غابر  في الكتب ضاع مداده في كتبه</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0123" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0123" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0123" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0123">
+</div></article>
+<article id="i0124">
+<div class="poem" dir="rtl">لما اتصلت اتصال الخلب بالكبد  ثم امتزجت امتزاج الروح بالجسد<br>ساء الوشاة مكاني منك واتقدت  في صدر كل عدو جمرة الحسد<br>فليسخط الناس لا أهد الرضى لهم  ولا يضع لك عهد آخر الأبد<br>لو استطعت إذا ما كنت غائبة  غضضت طرفي فلم أنظر إلى أحد</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0124" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0124" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0124" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0124">
+</div></article>
+<article id="i0125">
+<div class="poem" dir="rtl">نحن الكشافة في الوادي  جبريل الروح لنا حادي<br>يا رب بعيسى والهادي  وبموسى خذ بيد الوطن<br>كشافة مصر وصبيتها  ومناة الدار ومنيتها<br>وجمال الأرض وحليتها  وطلائع أفراح المدن<br>نبتدر الخير ونستبق  ما يرضى الخالق والخلق<br>بالنفس وخالقها نثق  ونزيد وثوقا في المحن<br>في السهل نرف رياحينا  ونجوب الصخر شياطينا<br>نبني الأبدان وتبنينا  والهمة في الجسم المرن<br>ونخلي الخلق وما اعتقدوا  ولوجه الخالق نجتهد<br>نأسوا الجرحى أنى وجدوا  ونداوي من جرح الزمن</div>
+<div class="ctl"><span class="lbl">Relevance to the theme:</span>
+<label><input type="radio" name="r_i0125" value="2"> 2 &ndash; clearly on-theme</label><label><input type="radio" name="r_i0125" value="1"> 1 &ndash; partly / tangentially</label><label><input type="radio" name="r_i0125" value="0"> 0 &ndash; off-theme</label>
+<input class="note" placeholder="note (optional)" name="n_i0125">
+</div></article>
+</section>
+<div id="bar"><span id="prog"></span><button onclick="dl()">Download CSV</button></div>
+<script>
+const K='poetry_annot_v1';
+function state(){const s={};document.querySelectorAll('input').forEach(i=>{
+ if(i.type==='radio'){if(i.checked)s[i.name]=i.value}else if(i.value)s[i.name]=i.value});return s}
+function save(){localStorage.setItem(K,JSON.stringify(state()));prog()}
+function prog(){const n=document.querySelectorAll('article').length;
+ const d=Object.keys(state()).filter(k=>k.startsWith('r_')).length;
+ document.getElementById('prog').textContent=d+' / '+n+' judged';}
+function load(){const s=JSON.parse(localStorage.getItem(K)||'{}');
+ for(const[k,v]of Object.entries(s)){if(k.startsWith('r_')){
+  const el=document.querySelector(`input[name="${k}"][value="${v}"]`);if(el)el.checked=true;
+ }else{const el=document.querySelector(`input[name="${k}"]`);if(el)el.value=v}}prog()}
+function dl(){const s=state();let out='item_id,relevance,note\n';
+ document.querySelectorAll('article').forEach(a=>{const id=a.id;
+  const r=s['r_'+id]??'';const n=(s['n_'+id]??'').replace(/"/g,'""');
+  out+=id+','+r+',"'+n+'"\n'});
+ const b=new Blob([out],{type:'text/csv;charset=utf-8'});const u=URL.createObjectURL(b);
+ const a=document.createElement('a');a.href=u;a.download='annotations.csv';a.click()}
+document.addEventListener('input',save);load();
+</script></body></html>

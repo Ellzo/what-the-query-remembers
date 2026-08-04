@@ -1,0 +1,201 @@
+corpus,system,mode,quartile,R@5,n
+diwan,gte,verses,Q1 (most figurative),0.292,65
+diwan,gte,verses,Q2,0.437,71
+diwan,gte,verses,Q3,0.579,57
+diwan,gte,verses,Q4 (most literal),0.662,65
+diwan,gte,expl_ai,Q1 (most figurative),0.785,65
+diwan,gte,expl_ai,Q2,0.817,71
+diwan,gte,expl_ai,Q3,0.772,57
+diwan,gte,expl_ai,Q4 (most literal),0.846,65
+diwan,jina-v3,verses,Q1 (most figurative),0.292,65
+diwan,jina-v3,verses,Q2,0.507,71
+diwan,jina-v3,verses,Q3,0.596,57
+diwan,jina-v3,verses,Q4 (most literal),0.708,65
+diwan,jina-v3,expl_ai,Q1 (most figurative),0.677,65
+diwan,jina-v3,expl_ai,Q2,0.775,71
+diwan,jina-v3,expl_ai,Q3,0.754,57
+diwan,jina-v3,expl_ai,Q4 (most literal),0.815,65
+diwan,silma-sts,verses,Q1 (most figurative),0.323,65
+diwan,silma-sts,verses,Q2,0.563,71
+diwan,silma-sts,verses,Q3,0.649,57
+diwan,silma-sts,verses,Q4 (most literal),0.708,65
+diwan,silma-sts,expl_ai,Q1 (most figurative),0.769,65
+diwan,silma-sts,expl_ai,Q2,0.803,71
+diwan,silma-sts,expl_ai,Q3,0.86,57
+diwan,silma-sts,expl_ai,Q4 (most literal),0.815,65
+diwan,LaBSE,verses,Q1 (most figurative),0.138,65
+diwan,LaBSE,verses,Q2,0.31,71
+diwan,LaBSE,verses,Q3,0.509,57
+diwan,LaBSE,verses,Q4 (most literal),0.538,65
+diwan,LaBSE,expl_ai,Q1 (most figurative),0.585,65
+diwan,LaBSE,expl_ai,Q2,0.634,71
+diwan,LaBSE,expl_ai,Q3,0.737,57
+diwan,LaBSE,expl_ai,Q4 (most literal),0.738,65
+diwan,Muffakir-v2,verses,Q1 (most figurative),0.108,65
+diwan,Muffakir-v2,verses,Q2,0.211,71
+diwan,Muffakir-v2,verses,Q3,0.228,57
+diwan,Muffakir-v2,verses,Q4 (most literal),0.385,65
+diwan,Muffakir-v2,expl_ai,Q1 (most figurative),0.585,65
+diwan,Muffakir-v2,expl_ai,Q2,0.549,71
+diwan,Muffakir-v2,expl_ai,Q3,0.614,57
+diwan,Muffakir-v2,expl_ai,Q4 (most literal),0.6,65
+diwan,Qwen3-0.6B,verses,Q1 (most figurative),0.231,65
+diwan,Qwen3-0.6B,verses,Q2,0.535,71
+diwan,Qwen3-0.6B,verses,Q3,0.649,57
+diwan,Qwen3-0.6B,verses,Q4 (most literal),0.708,65
+diwan,Qwen3-0.6B,expl_ai,Q1 (most figurative),0.738,65
+diwan,Qwen3-0.6B,expl_ai,Q2,0.775,71
+diwan,Qwen3-0.6B,expl_ai,Q3,0.825,57
+diwan,Qwen3-0.6B,expl_ai,Q4 (most literal),0.846,65
+diwan,Qwen3-8B,verses,Q1 (most figurative),0.554,65
+diwan,Qwen3-8B,verses,Q2,0.775,71
+diwan,Qwen3-8B,verses,Q3,0.807,57
+diwan,Qwen3-8B,verses,Q4 (most literal),0.862,65
+diwan,Qwen3-8B,expl_ai,Q1 (most figurative),0.877,65
+diwan,Qwen3-8B,expl_ai,Q2,0.944,71
+diwan,Qwen3-8B,expl_ai,Q3,0.947,57
+diwan,Qwen3-8B,expl_ai,Q4 (most literal),0.954,65
+diwan,BGE-M3,verses,Q1 (most figurative),0.385,65
+diwan,BGE-M3,verses,Q2,0.535,71
+diwan,BGE-M3,verses,Q3,0.632,57
+diwan,BGE-M3,verses,Q4 (most literal),0.754,65
+diwan,BGE-M3,expl_ai,Q1 (most figurative),0.8,65
+diwan,BGE-M3,expl_ai,Q2,0.873,71
+diwan,BGE-M3,expl_ai,Q3,0.842,57
+diwan,BGE-M3,expl_ai,Q4 (most literal),0.862,65
+diwan,mE5-large,verses,Q1 (most figurative),0.369,65
+diwan,mE5-large,verses,Q2,0.592,71
+diwan,mE5-large,verses,Q3,0.649,57
+diwan,mE5-large,verses,Q4 (most literal),0.738,65
+diwan,mE5-large,expl_ai,Q1 (most figurative),0.754,65
+diwan,mE5-large,expl_ai,Q2,0.803,71
+diwan,mE5-large,expl_ai,Q3,0.789,57
+diwan,mE5-large,expl_ai,Q4 (most literal),0.862,65
+diwan,BM25,verses,Q1 (most figurative),0.015,65
+diwan,BM25,verses,Q2,0.183,71
+diwan,BM25,verses,Q3,0.544,57
+diwan,BM25,verses,Q4 (most literal),0.862,65
+diwan,BM25,expl_ai,Q1 (most figurative),0.692,65
+diwan,BM25,expl_ai,Q2,0.746,71
+diwan,BM25,expl_ai,Q3,0.772,57
+diwan,BM25,expl_ai,Q4 (most literal),0.831,65
+fannorflop,gte,verses,Q1 (most figurative),0.254,63
+fannorflop,gte,verses,Q2,0.476,63
+fannorflop,gte,verses,Q3,0.697,66
+fannorflop,gte,verses,Q4 (most literal),0.865,52
+fannorflop,gte,expl_ai,Q1 (most figurative),0.302,63
+fannorflop,gte,expl_ai,Q2,0.333,63
+fannorflop,gte,expl_ai,Q3,0.439,66
+fannorflop,gte,expl_ai,Q4 (most literal),0.5,52
+fannorflop,gte,expl_ff,Q1 (most figurative),0.524,63
+fannorflop,gte,expl_ff,Q2,0.683,63
+fannorflop,gte,expl_ff,Q3,0.652,66
+fannorflop,gte,expl_ff,Q4 (most literal),0.692,52
+fannorflop,jina-v3,verses,Q1 (most figurative),0.397,63
+fannorflop,jina-v3,verses,Q2,0.603,63
+fannorflop,jina-v3,verses,Q3,0.773,66
+fannorflop,jina-v3,verses,Q4 (most literal),0.846,52
+fannorflop,jina-v3,expl_ai,Q1 (most figurative),0.429,63
+fannorflop,jina-v3,expl_ai,Q2,0.46,63
+fannorflop,jina-v3,expl_ai,Q3,0.606,66
+fannorflop,jina-v3,expl_ai,Q4 (most literal),0.519,52
+fannorflop,jina-v3,expl_ff,Q1 (most figurative),0.556,63
+fannorflop,jina-v3,expl_ff,Q2,0.667,63
+fannorflop,jina-v3,expl_ff,Q3,0.758,66
+fannorflop,jina-v3,expl_ff,Q4 (most literal),0.731,52
+fannorflop,silma-sts,verses,Q1 (most figurative),0.317,63
+fannorflop,silma-sts,verses,Q2,0.492,63
+fannorflop,silma-sts,verses,Q3,0.712,66
+fannorflop,silma-sts,verses,Q4 (most literal),0.769,52
+fannorflop,silma-sts,expl_ai,Q1 (most figurative),0.365,63
+fannorflop,silma-sts,expl_ai,Q2,0.524,63
+fannorflop,silma-sts,expl_ai,Q3,0.576,66
+fannorflop,silma-sts,expl_ai,Q4 (most literal),0.577,52
+fannorflop,silma-sts,expl_ff,Q1 (most figurative),0.54,63
+fannorflop,silma-sts,expl_ff,Q2,0.73,63
+fannorflop,silma-sts,expl_ff,Q3,0.803,66
+fannorflop,silma-sts,expl_ff,Q4 (most literal),0.808,52
+fannorflop,LaBSE,verses,Q1 (most figurative),0.063,63
+fannorflop,LaBSE,verses,Q2,0.222,63
+fannorflop,LaBSE,verses,Q3,0.409,66
+fannorflop,LaBSE,verses,Q4 (most literal),0.596,52
+fannorflop,LaBSE,expl_ai,Q1 (most figurative),0.19,63
+fannorflop,LaBSE,expl_ai,Q2,0.302,63
+fannorflop,LaBSE,expl_ai,Q3,0.303,66
+fannorflop,LaBSE,expl_ai,Q4 (most literal),0.346,52
+fannorflop,LaBSE,expl_ff,Q1 (most figurative),0.143,63
+fannorflop,LaBSE,expl_ff,Q2,0.381,63
+fannorflop,LaBSE,expl_ff,Q3,0.364,66
+fannorflop,LaBSE,expl_ff,Q4 (most literal),0.481,52
+fannorflop,Muffakir-v2,verses,Q1 (most figurative),0.063,63
+fannorflop,Muffakir-v2,verses,Q2,0.175,63
+fannorflop,Muffakir-v2,verses,Q3,0.273,66
+fannorflop,Muffakir-v2,verses,Q4 (most literal),0.346,52
+fannorflop,Muffakir-v2,expl_ai,Q1 (most figurative),0.143,63
+fannorflop,Muffakir-v2,expl_ai,Q2,0.349,63
+fannorflop,Muffakir-v2,expl_ai,Q3,0.318,66
+fannorflop,Muffakir-v2,expl_ai,Q4 (most literal),0.346,52
+fannorflop,Muffakir-v2,expl_ff,Q1 (most figurative),0.27,63
+fannorflop,Muffakir-v2,expl_ff,Q2,0.556,63
+fannorflop,Muffakir-v2,expl_ff,Q3,0.515,66
+fannorflop,Muffakir-v2,expl_ff,Q4 (most literal),0.538,52
+fannorflop,Qwen3-0.6B,verses,Q1 (most figurative),0.254,63
+fannorflop,Qwen3-0.6B,verses,Q2,0.508,63
+fannorflop,Qwen3-0.6B,verses,Q3,0.697,66
+fannorflop,Qwen3-0.6B,verses,Q4 (most literal),0.769,52
+fannorflop,Qwen3-0.6B,expl_ai,Q1 (most figurative),0.413,63
+fannorflop,Qwen3-0.6B,expl_ai,Q2,0.413,63
+fannorflop,Qwen3-0.6B,expl_ai,Q3,0.439,66
+fannorflop,Qwen3-0.6B,expl_ai,Q4 (most literal),0.462,52
+fannorflop,Qwen3-0.6B,expl_ff,Q1 (most figurative),0.54,63
+fannorflop,Qwen3-0.6B,expl_ff,Q2,0.619,63
+fannorflop,Qwen3-0.6B,expl_ff,Q3,0.803,66
+fannorflop,Qwen3-0.6B,expl_ff,Q4 (most literal),0.673,52
+fannorflop,Qwen3-8B,verses,Q1 (most figurative),0.508,63
+fannorflop,Qwen3-8B,verses,Q2,0.698,63
+fannorflop,Qwen3-8B,verses,Q3,0.773,66
+fannorflop,Qwen3-8B,verses,Q4 (most literal),0.923,52
+fannorflop,Qwen3-8B,expl_ai,Q1 (most figurative),0.524,63
+fannorflop,Qwen3-8B,expl_ai,Q2,0.635,63
+fannorflop,Qwen3-8B,expl_ai,Q3,0.727,66
+fannorflop,Qwen3-8B,expl_ai,Q4 (most literal),0.75,52
+fannorflop,Qwen3-8B,expl_ff,Q1 (most figurative),0.683,63
+fannorflop,Qwen3-8B,expl_ff,Q2,0.825,63
+fannorflop,Qwen3-8B,expl_ff,Q3,0.894,66
+fannorflop,Qwen3-8B,expl_ff,Q4 (most literal),0.865,52
+fannorflop,BGE-M3,verses,Q1 (most figurative),0.317,63
+fannorflop,BGE-M3,verses,Q2,0.698,63
+fannorflop,BGE-M3,verses,Q3,0.833,66
+fannorflop,BGE-M3,verses,Q4 (most literal),0.962,52
+fannorflop,BGE-M3,expl_ai,Q1 (most figurative),0.444,63
+fannorflop,BGE-M3,expl_ai,Q2,0.54,63
+fannorflop,BGE-M3,expl_ai,Q3,0.742,66
+fannorflop,BGE-M3,expl_ai,Q4 (most literal),0.673,52
+fannorflop,BGE-M3,expl_ff,Q1 (most figurative),0.54,63
+fannorflop,BGE-M3,expl_ff,Q2,0.746,63
+fannorflop,BGE-M3,expl_ff,Q3,0.788,66
+fannorflop,BGE-M3,expl_ff,Q4 (most literal),0.846,52
+fannorflop,mE5-large,verses,Q1 (most figurative),0.286,63
+fannorflop,mE5-large,verses,Q2,0.587,63
+fannorflop,mE5-large,verses,Q3,0.667,66
+fannorflop,mE5-large,verses,Q4 (most literal),0.808,52
+fannorflop,mE5-large,expl_ai,Q1 (most figurative),0.492,63
+fannorflop,mE5-large,expl_ai,Q2,0.476,63
+fannorflop,mE5-large,expl_ai,Q3,0.485,66
+fannorflop,mE5-large,expl_ai,Q4 (most literal),0.519,52
+fannorflop,mE5-large,expl_ff,Q1 (most figurative),0.524,63
+fannorflop,mE5-large,expl_ff,Q2,0.794,63
+fannorflop,mE5-large,expl_ff,Q3,0.788,66
+fannorflop,mE5-large,expl_ff,Q4 (most literal),0.769,52
+fannorflop,BM25,verses,Q1 (most figurative),0.222,63
+fannorflop,BM25,verses,Q2,0.825,63
+fannorflop,BM25,verses,Q3,0.97,66
+fannorflop,BM25,verses,Q4 (most literal),1.0,52
+fannorflop,BM25,expl_ai,Q1 (most figurative),0.159,63
+fannorflop,BM25,expl_ai,Q2,0.365,63
+fannorflop,BM25,expl_ai,Q3,0.439,66
+fannorflop,BM25,expl_ai,Q4 (most literal),0.481,52
+fannorflop,BM25,expl_ff,Q1 (most figurative),0.476,63
+fannorflop,BM25,expl_ff,Q2,0.762,63
+fannorflop,BM25,expl_ff,Q3,0.833,66
+fannorflop,BM25,expl_ff,Q4 (most literal),0.923,52

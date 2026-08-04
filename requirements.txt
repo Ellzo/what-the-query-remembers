@@ -1,0 +1,18 @@
+# Analysis and verification only (no GPU needed).
+numpy>=1.26
+pandas>=2.0
+scipy>=1.11
+matplotlib>=3.8
+
+# Retrieval grid (unified_run.py, query_features.py, mechanism.py, norm_ablation.py).
+# Install a torch build that matches your CUDA version.
+torch>=2.4
+sentence-transformers>=3.0
+transformers>=4.44
+
+# Second judge (judge2.py), 4-bit local inference.
+accelerate>=1.0
+bitsandbytes>=0.45
+
+# Primary judge (rejudge.py), hosted API.
+google-genai>=1.0

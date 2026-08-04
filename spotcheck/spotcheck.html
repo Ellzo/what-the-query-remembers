@@ -1,0 +1,353 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Known-item spot check</title><style>
+body{font:15px/1.6 system-ui,sans-serif;max-width:900px;margin:0 auto;padding:24px;background:#faf9f7;color:#1a1a1a}
+h1{font-size:22px}
+article{background:#fff;border:1px solid #e2e0dc;border-radius:8px;padding:14px;margin:16px 0}
+.q{font-family:"Amiri","Noto Naskh Arabic",serif;font-size:18px;font-weight:600;
+border-bottom:1px solid #eee;padding-bottom:8px;margin-bottom:10px}
+.poem{font-family:"Amiri","Noto Naskh Arabic",serif;font-size:19px;line-height:2;margin-bottom:10px}
+.ctl{display:flex;flex-wrap:wrap;gap:12px;align-items:center;border-top:1px solid #eee;padding-top:10px}
+.lbl{font-size:13px;color:#555} label{font-size:13px;cursor:pointer}
+.note{flex:1;min-width:200px;padding:5px 8px;border:1px solid #ddd;border-radius:5px;font-size:13px}
+#bar{position:sticky;bottom:0;background:#fff;border-top:2px solid #333;padding:12px;display:flex;
+gap:14px;align-items:center;margin-top:24px}
+button{padding:9px 18px;font-size:14px;border:0;border-radius:6px;background:#1a1a1a;color:#fff;cursor:pointer}
+#prog{font-variant-numeric:tabular-nums}
+</style></head><body>
+<h1>Known-item spot check</h1>
+<p>Each card shows a <strong>search request</strong> and <strong>one poem</strong> a system returned
+for it. Judge only this: <em>would this poem satisfy someone who issued that request?</em> Do not
+try to guess whether it is the poem we originally had in mind &mdash; that is exactly what we are
+testing. Ignore poetic quality, author and era. See <code>GUIDELINES.md</code>. Progress saves in
+this browser; click <strong>Download CSV</strong> when finished.</p>
+<article id="s000">
+<div class="q" dir="rtl">قصيدة عن الأرق والمعاناة ليلاً بسبب طائر مزعج يطن في الأذن.</div>
+<div class="poem" dir="rtl">ظُلْمَ الزَّمَانِ فَمَا أَلَمَّتْ بِظُلْمِهِ  شَيْئًا وَصَادَفَ طَائِرًا مُتَوَطِّنًا<br>وَغَدًا يُهَدِّدُنِي بِمُحْزِنٍ خَطْبِهْ  هَيْهَاتَ يَدْرِي الْحُزْنُ مِنْ عَرْفِ الْهَنَا</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s000" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s000" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s000" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s000"></div></article>
+<article id="s001">
+<div class="q" dir="rtl">قصيدة يعبر فيها الشاعر عن استسلامه التام للمحبوب، ويطلب منه الوصل والرحمة.</div>
+<div class="poem" dir="rtl">قُلْ لِذَّاتِ النِّقَابِ إِنَّ مُحِبَّا  قَدْ قَرَا مِنْ سُطُورِ حُسْنِكَ حَرْفًا<br>يَسْأَلُ اللهَ مِنْكَ رَحْمَةَ قَلْب  بَيْنَ وَصْل وَهِجْرَةٍ تَتَكَفَّا</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s001" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s001" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s001" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s001"></div></article>
+<article id="s002">
+<div class="q" dir="rtl">قصيدة عن زوال النعيم وقصر غمدان الذي صار رمادا</div>
+<div class="poem" dir="rtl">سلا القلب عما كان يهوى ويطلب  وأصبح لا يشكو ولا يتعتب<br>صحا بعد سكر وانتخى بعد ذلة  وقلب الذي يهوى العلا يتقلب<br>إلى كم أداري من تريد مذلتي  وأبذل جهدي في رضاها وتغضب<br>عبيلة أيام الجمال قليلة  لها دولة معلومة ثم تذهب<br>فلا تحسبي أني على البعد نادم  ولا القلب في نار الغرام معذب<br>وقد قلت إني قد سلوت عن الهوى  ومن كان مثلي لا يقول ويكذب<br>هجرتك فامضي حيث شئت وجربي  من الناس غيري فاللبيب يجرب<br>لقد ذل من أمسى على ربع منزل  ينوح على رسم الديار ويندب<br>وقد فاز من في الحرب أصبح جائلا  يطاعن قرنا والغبار مطنب<br>نديمي رعاك الله قم غن لي على  كؤوس المنايا من دم حين أشرب</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s002" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s002" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s002" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s002"></div></article>
+<article id="s003">
+<div class="q" dir="rtl">قصيدة عن شاعر هجر النوم خوفاً من رؤية حلم يخلف فيه المحبوب وعده، فخسر الوعد والنوم معاً.</div>
+<div class="poem" dir="rtl">هَجَرْتُ الْكَرَى مُذْنِمْتُ عَنْ ذِكْرِ مَوْعِدِي  لِئَلا أَرَى إِخْلافَ وَعْدِكَ فِي الغُمْضِ<br>فَمَا فُزَّتْ بِالْوَعْدِ الَّذِي رُمْتَ قَبْضَهُ  وَقَدْ فَاتَنِي النَّوْمُ الَّذِي كَانَ فِي قَبْضِي</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s003" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s003" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s003" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s003"></div></article>
+<article id="s004">
+<div class="q" dir="rtl">قصيدة عن قدر الله وقدرة الإنسان على التغيير وأمثلة تاريخية</div>
+<div class="poem" dir="rtl">ما يرتجى بالشيء ليس بنافع  ما للخطوب وللزمان الفاجع<br>ولقل يوم مر بي أو ليلة  لم يقرعا كبدي بخطب رائع<br>كم من أسير العقل في شهواته  ظفر الهوى منه بعقل ضائع<br>سبحان من قهر الملوك بقدرة  وسعت جميع الخلق ذات بدائع<br>أي الحوادث ليس يشهد أنه  صنع ويشهد باقتدار الصانع<br>ما الناس إلا كابن أم واحد  لولا اختلاف مذاهب وطبائع<br>والحق في المجرى أغر محجل  تلقاك غرته بنور ساطع<br>ما خير من يدعى ليحرز حظه  من دينه فيكون غير مطاوع<br>ما لامرئ عيش بغير بقائه  ماذا تحس يد بغير أصابع<br>أتطالع الآمال منتظرا ولا  تدري لعل الموت أول طالع</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s004" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s004" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s004" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s004"></div></article>
+<article id="s005">
+<div class="q" dir="rtl">قصيدة وطنية تعاتب حماة الوطن على تركهم الأعداء يعيثون فيه فساداً بعد ماضٍ مجيد.</div>
+<div class="poem" dir="rtl">قَامَتْ بِلاَدُكَ لِي مَقَامَ بِلاَدِي  وَأَرَى تِلادَكَ بَاتَ دُونَ تِلادِي<br>حَتَّى كَأَنِّي لَمْ أَرِمْ وَطَنِي وَلَمْ  تَشَمَّتْ بِزَائِلِ نِعْمَتِي حُسَّادِي<br>وَلَقَدْ وَعَدْتُ وَفِي حَيَاتِي مَانِعُ  لِي مَنْ تَنَجُّزِ ذَلِكَ الْمِيعَادْ<br>وَيُضَاعِفُ الوَعْدَ الَّذِي أَكْدَتَهُ  أَنَّ الَّذِي أُعْطِيْتُ جِدَّ مُعَادِ<br>أَتُرَى الشَّفِيعَ وَقَدْ أُمَرَّتْ بِحَاجَتِي  يَرْجُو الوُصُولَ بِهَا إِلَى إِحْمَادِي<br>وَإِذَا الْعَلِيلُ أَبَلُ مِمَّا يَشْتَكِي  لَمْ تَرْجُ فِيهِ مَثُوبَةُ العَوَّادِ</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s005" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s005" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s005" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s005"></div></article>
+<article id="s006">
+<div class="q" dir="rtl">قصيدة يعبر فيها الشاعر عن كرهه للدنيا وعجزه عن تغييرها، طالباً رحمة الله.</div>
+<div class="poem" dir="rtl">أَلاَ إِنَّمَا الدُّنْيَا وَقَدْ جِئْتَ كَارِهًا  وَكَابَدْتُ أَهْلِيْهَا وَأَذْهَبَ مَكْرَهَا<br>وَمَا لِي عَلَى شَيْء مِنَ الأَمْرِ قُدْرَةٌ  فَيَا رَبِّ رُحْمَاكَ الَّتِي أَنْتَ رَبُّهَا</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s006" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s006" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s006" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s006"></div></article>
+<article id="s007">
+<div class="q" dir="rtl">شاعر يدعو على قوم يبذرون الماء ويهدرون المال في شرب الخمر.</div>
+<div class="poem" dir="rtl">لَحَى اللَّهُ أَلافًا بِمَا يَصْنَعُونَهْ  مِنَ الْمَاءِ صِرْفًا فِعْلُ مَنْ لا يُنَاصِحُ<br>أُغَنّي لَهُ وَالمَالُ ضَاعَ بِشُرْبِهِ  أَمَاوِي إِنَّ المالَ غَادٍ وَرَائِحٌ</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s007" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s007" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s007" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s007"></div></article>
+<article id="s008">
+<div class="q" dir="rtl">قصيدة عن سر باح به مستودعه فبدا كصبح في كأس ساطعة</div>
+<div class="poem" dir="rtl">مضى ليل وأخلفت النجوم  ونحن لدى مصارعنا جثوم<br>فداو كلوم قلب أخيك ليلا  فإن فؤاده أبدا كليم<br>بصافية إذا قرعت بماء  جرى عن متنها در يحوم<br>تضاحكنا كعين الديك صرفا  فإن مزجت تخللها غيوم<br>لها في الكأس لين عروس خدر  وفيها للسرور رحى تدوم<br>ولما لاح ضوء الصبح عنا  وحرك عوده بدر وسيم<br>بصوت أخي الحجاز فهاج شوقي  لمن طلل برامة لا يريم</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s008" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s008" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s008" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s008"></div></article>
+<article id="s009">
+<div class="q" dir="rtl">قصيدة مدح لقوم يشبههم الشاعر بجبال الحكمة وبحار الكرم.</div>
+<div class="poem" dir="rtl">مَدْحُكَ يَا بْنَ الْكِرَامِ فَرْضُ  وَفِي سِوَاكَ المَدِيحُ نَدْبُ<br>قِيَاسُ كَفَّيْكَ فِي العَطَايَا  بِالْبَحْرِ عِنْدَ الْعُقُولِ كَذِّبْ<br>البَحْرُ يَخْشَى وَأَنْتَ تُرْجَى  وَالْبَحْرُ مِلْح وَأَنْتَ عَذْبُ</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s009" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s009" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s009" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s009"></div></article>
+<article id="s010">
+<div class="q" dir="rtl">قصيدة مدح إمام الهداية هارون الرشيد الذي بسط يده شرقا وغربا</div>
+<div class="poem" dir="rtl">أبا سعيد وفي الأيام معتبر  والدهر في حالتيه الصفو والكدر<br>ما للحوادث لا كانت غوائلها  ولا أصاب لها ناب ولا ظفر<br>تعز بالصبر واستبدل إسى بأسى  فالشمس طالعة إن غيب القمر<br>وهل خلا الدهر أولاه وآخره  من قائم بهدى مذ كون البشر<br>إيها عزاءك لا تغلب عليه فما  يستعذب الصبر إلا الحية الذكر<br>فلم يمت من أمير المؤمنين له  بقية وإن استولى به القدر<br>مضى الإمام وأضحى في رعيته  إمام عدل به يستنزل المطر<br>إن الخليفة هارون الذي وقفت  في كنه آلائه الأوهام والفكر<br>ألفاك في نصره صبحا أضاء له  ليل من الفتنة الطخياء معتكر<br>سكنت حد أناس فل حدهم  حد من السيف لا يبقي ولا يذر</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s010" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s010" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s010" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s010"></div></article>
+<article id="s011">
+<div class="q" dir="rtl">قصيدة يصف فيها الشاعر كيف يطيعه قلبه وعينه في حفظ سر محبوبته.</div>
+<div class="poem" dir="rtl">ؤَادِي وَعَيْنَي حَافِظَانِ لِغَيْبِهَا  لَى كُلِّ حَالٍ مِنْ رِضَاءٍ وَمِنْ عَتَبِ<br>غَازَلَهَا عَيْنِي فَيَقْصُرُ طَرْفُهَا  لِيهَا وَيَأْبَى الوَصْلُ مِنْ غَيْرِهَا قَلْبِي<br>سَانِي الهَوَى أَثْوَابُهُ إِذْ عَلِقْتَهَا  رُحْتُ إِلَى الْعُشَّاْقِ فِيْ خِلْعَةِ الْحُبِّ</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s011" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s011" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s011" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s011"></div></article>
+<article id="s012">
+<div class="q" dir="rtl">قصيدة فخر بشخص كريم يلجأ للعطاء إذا تأخر الوعد، ولو كانت خصاله نجوماً لأضاءت الليالي.</div>
+<div class="poem" dir="rtl">إِنَّ يَوْمَ القُدُومِ يَوْمَ كَرِيمْ  وَعَطَاءٌ يُعْطِيهِ رَبَّ كَرِيم<br>لَيْسَ لِلْعَبْدِ فِيهِ مَنٌّ وَلاَ لاَ  إِنَّهُ الْفَضْلُ ذَاكَ فَضْل عَظِيمُ<br>لَيْسَ فِي الدَّهْرِ مِثْلَ يَوْمِ الْقُدُومِ  لاَ وَلَيْسَ الْمُعْطِيهِ إِلاَّ الْقَدِيمُ<br>سِرْ بِنَا يَا خَلِيلُ قَلْبِ الْهَوَى  فَعَلِيلُ النَّوَى شِفَاهُ القُدُومِ</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s012" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s012" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s012" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s012"></div></article>
+<article id="s013">
+<div class="q" dir="rtl">قصيدة حنين إلى ليلة أنس ماضية مع الأصحاب يتمنى الشاعر عودتها بعد الفراق.</div>
+<div class="poem" dir="rtl">لَهْفِي عَلَى أُنْس بِتُونُسَ مَرَّ بِي  فَكَأَنَّمَا أَيَّامُهَا أَحْلامُ<br>مَا حَلّهَا ذُو خَلَّة إِلاَّ وَقَدْ  بَسَمَتْ لَهُ فِي وَجْهِهِ الأَيَّامْ<br>يَنْسَى الْغَرِيبُ بِأَهْلِهَا أَوْطَانَهُ  وَجَمِيعُ مَنْ يَهْوَى وَلَيْسَ يُضَامُ<br>يَصْبُوْ إِلَى اذْكَارِهَا قَلْبِيْ كَمَا  يُصْبِي الْمُحِبَّ إِلَى الْحَبِيْبِ غَرَاْمْ</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s013" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s013" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s013" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s013"></div></article>
+<article id="s014">
+<div class="q" dir="rtl">قصيدة هجاء فرس قبيح على المساوئ كلها محتوية وليس فيه خصلة مستوية</div>
+<div class="poem" dir="rtl">وجاهل طال به عنائي  لازمني وذاك من شقائي<br>كأنه الأشهر من أسمائي  أخرق ذو بصيرة عمياء<br>لا يعرف المدح من الهجاء  أفعاله الكل على استواء<br>أقبح من وعد بلا وفاء  ومن زوال النعمة الحسناء<br>أبغض للعين من الأقذاء  أثقل من شماتة الأعداء<br>فهو إذا رأته عين الرائي  أبو معاذ أو أخو الخنساء</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s014" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s014" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s014" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s014"></div></article>
+<article id="s015">
+<div class="q" dir="rtl">قصيدة حزينة مؤثرة عن مقتل فرسان الشاعر</div>
+<div class="poem" dir="rtl">يا عين جودي بدمع غير منزور  مثل الجمان على الخدين محدور<br>وابكي أخا كان محمودا شمائله  مثل الهلال منيرا غير مغمور<br>وفارس الخيل وافته منيته  ففي فؤادي صدع غير مجبور<br>نعم الفتى كنت إذ حنت مرفرفة  هوج الرياح حنين الوله الحور<br>والخيل تعثر بالأبطال عابسة  مثل السراحين من كاب ومعفور</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s015" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s015" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s015" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s015"></div></article>
+<article id="s016">
+<div class="q" dir="rtl">قصيدة هزلية تصف حواراً بين رجل وامرأة حول حجم عضوه بالنسبة لها.</div>
+<div class="poem" dir="rtl">كَلِفْتُ بِهَا وَقَدْ تَمَّتْ حُلاَهَا  وَزَيَّنَهَا المَلاَحَةُ وَالوَقَّارُ<br>فَمَا طَالَتْ وَلاَ قَصَرَتْ وَلَكِنْ  مُكَمَّلَةٌ يَضِيقُ بِهَا الإِزَارْ<br>قَوَامٌ بَينَ ذَلِكَ بِاعْتِدَالِ  فَلاَ طُولَ يُعَابُ وَلا اخْتِصَارْ<br>وَشِعْر وَاصِلِ الخَلْخَالِ مِنْهَا  فَأَضْحَى قُرْطُهَا قَلِقًا يَغَارْ<br>حَكَتْ فَصْلَ الرَّبِيعِ بِحُسْنِ قَدِّ  تَسَاوَى اللَّيْلُ فِيهِ وَالنَّهَارْ</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s016" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s016" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s016" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s016"></div></article>
+<article id="s017">
+<div class="q" dir="rtl">قصيدة عن رجل كريم يسقي الخير وقبيلة ضاربة بجيرانها</div>
+<div class="poem" dir="rtl">تحن حنينا إلى مالك  فحني حنينك إني معالي<br>إلى دار قوم حسان الوجوه  عظام القباب طوال العوالي<br>فوجهتهن على مهمه  قليل الوغى غير صوت الرئال<br>سراعا دوائب ما ينثني  ن حتى احتللن بحي حلال<br>بسعد بن ثعلبة الأكرمي  ن أهل الفضال وأهل النوال<br>ليالي يحبونني ودهم  ويحبون قدرك غر المحال<br>فتصبح في المحل محورة  لفيء إهالتها كالظلال<br>فإن كنت ساقية معشرا  كرام الضرائب في كل حال<br>على كرم وعلى نجدة  رحيقا بماء نطاف زلال<br>فكوني أولئك تسقينها  فدى لأولئك عمي وخالي</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s017" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s017" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s017" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s017"></div></article>
+<article id="s018">
+<div class="q" dir="rtl">قصيدة عن زيارة طيف الحبيبة للشاعر في مرضه، وسؤاله عن سبب حزنه بعد الوصال.</div>
+<div class="poem" dir="rtl">مُجَرَّدُ أَنْ تَجِيئِي لِي سَنَمْضِي  إِلَى أَبِهَا إِجَازَةَ مَنْ يَمُوتُ<br>تَعَالَيْ يَاْ حَبِيْبَةُ لِيْ سَرِيْعًا  فَنَبْضِي مِنْهُكَ وَبِهِ خَفُوتُ<br>وَلاَ أَرْجُو الْمَمَاتَ بِدُونِ قَرْبِي  إِلَيْكَ وَسَوْفَ يُحْزِنُكَ المَبِيتُ<br>وَلَمْ أَكُ راضِيًا لَكَ أَيَّ حُزْنٍ  عَلَى مَوْتِي وَلَكِنِّي أَمُوتُ</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s018" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s018" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s018" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s018"></div></article>
+<article id="s019">
+<div class="q" dir="rtl">قصيدة غزل يصف فيها الشاعر جمال وجه المحبوبة وقوامها اللين الذي يغير لون البان.</div>
+<div class="poem" dir="rtl">أَقُولُ لِغُصْنِ البَانِ إِنْ كُنْتُ لَمْ يَمَسْ  قَوَامُكَ إِلاَّ بِالصِّبَا فِي التَّنَسُّمِ<br>فَعَارِضْ حَبِيبِي حِينَ يَثْنِي قَوَامُهُ  وَقِفْ وَقْفَةً قُدّامَهُ تَتَعَلَّمُ</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s019" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s019" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s019" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s019"></div></article>
+<article id="s020">
+<div class="q" dir="rtl">قصيدة يأس شاعر من تحقيق أمره واستسلامه لقضاء الله</div>
+<div class="poem" dir="rtl">إن السلامة أن ترضى بما قضيا  ليسلمن بإذن الله من رضيا<br>المرء يأمل والآمال كاذبة  والمرء تصحبه الآمال ما بقيا<br>يا رب باك على ميت وباكية  لم يلبثا بعد ذاك الميت أن بكيا<br>ورب ناع نعى حينا أحبته  ما زال ينعى إلى أن قيل قد نعيا<br>علمي بأني أذوق الموت نغص لي  طيب الحياة فما تصفو الحياة ليا<br>كم من أخ تغتذي دود التراب به  وكان حيا بحلو العيش مغتذيا<br>يبلى مع الميت ذكر الذاكرين له  من غاب غيبة من لا يرتجى نسيا<br>من مات مات رجاء الناس منه فول  لوه الجفاء ومن لا يرتجى جفيا<br>إن الرحيل عن الدنيا ليزعجني  إن لم يكن رائحا بي كان مغتديا<br>الحمد لله طوبى للسعيد ومن  لم يسعد الله بالتقوى فقد شقيا</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s020" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s020" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s020" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s020"></div></article>
+<article id="s021">
+<div class="q" dir="rtl">قصيدة يخاطب فيها الشاعر محبوبه بالقمر المنير، ويستجير بجماله من جفائه.</div>
+<div class="poem" dir="rtl">أَمْسَى الْفُؤَادُ عَلَى تَلْهُبِ جَمْرِهِ  كَلِفًا بِمَنْ فَتَنَ الأَنَامَ بِسِحْرِهِ<br>قَمَرٌ غَنِيْتَ بِرِيقِهِ عَنْ قَرْقَفٍ  وَكَذَا غَنِيتُ بِنُورِهِ عَنْ بَدْرِهِ<br>أَفْنَى الْفُؤَادَ بِحُسْنِهِ وَجَمَالِهِ  فَالْعَاشِقُونَ بِأَسْرِهِمْ فِي أَسْرِهِ<br>فَكَأَنَّ ضَوْءَ الصُّبْحِ نُورُ جَبِينِهِ  وَكَأَنَّ ظُلْمَة لَيْلِهِ مِنْ شِعْرِهِ</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s021" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s021" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s021" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s021"></div></article>
+<article id="s022">
+<div class="q" dir="rtl">قصيدة صوفية عن حب الشاعر لله الذي يجد فيه وجوده ويفقد فيه نفسه.</div>
+<div class="poem" dir="rtl">حُبِّي وَجُودِي الَّذِي أَنِّي بِهِ مَوْجُودُ  مَوْجُودٌ عِنْدِي وَأَنِّي عِنْدَهُ مَفْقُودُ<br>مَقْدَرِي هُوَ دَائِمٌ وَهْوَ لِي مَشْهُودُ  مَنْ يَعْرِفِ اللهَ مِثْلِي حَازَ كُلَّ الجُودِ</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s022" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s022" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s022" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s022"></div></article>
+<article id="s023">
+<div class="q" dir="rtl">قصيدة فخر بصبر الشاعر وشجاعة عشيرته التي تتسربل الأسنة والصفائح</div>
+<div class="poem" dir="rtl">لقد سرني أن لا تعد مجاشع  من الفخر إلا عقر ناب بصوأر<br>أنابك أم قوم تفض سيوفهم  على الهام ثنيي بيضة المتجبر<br>لعمري لنعم المستجارون نهشل  وحي القرى للطارق المتنور<br>فوارس لا يدعون يال مجاشع  إذا برزت ذات العريش المخدر<br>وتدعون سلمى يا بني زبد استها  وضمرة لليوم العماس المذكر<br>أولئك خير مصدقا من مجاشع  إذا الخيل جالت في القنا المتكسر<br>لعمري لقد أردى هلال بن عامر  بتنهية المرباع رهط المجشر<br>وما زلت مذ لم تستجب لك نهشل  تلاقي صراحيا من الذل فاصبر<br>وعافت بنو شيبان حوض مجاشع  وشيبان أهل الصفو غير المكدر<br>ولو غضبت في شأن حدراء نهشل  سموها بدهم أو غزوها بأنسر</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s023" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s023" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s023" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s023"></div></article>
+<article id="s024">
+<div class="q" dir="rtl">قصيدة رمزية قصيرة عن الهدى والخير مطلعها فجر الهدى بادي السنا</div>
+<div class="poem" dir="rtl">إن ذا الموت ما عليه مجير  يهلك المستجار والمستجير<br>إن تكن لست خابرا بالليالي  وبأحداثها فإني خبير<br>هن يدنيننا من الموت قدما  فسواء صغيرنا والكبير<br>أيها الطالب الكثير ليغنى  كل من يطلب الكثير فقير<br>وأقل القليل يغني ويكفي  ليس يغني وليس يكفي الكثير<br>كيف تعمى عن الهدى كيف تعمى  عجبا والهدى سراج منير<br>قد أتاك الهدى من الله نصحا  وبه جاءك البشير النذير<br>ومع الله أنت ما دمت حيا  وإلى الله بعد ذاك تصير<br>والمنايا روائح وغواد  كل يوم لها سحاب مطير<br>لا تغرنك العيون فكم أع  مى تراه وإنهو لبصير</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s024" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s024" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s024" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s024"></div></article>
+<article id="s025">
+<div class="q" dir="rtl">قصيدة غزل وشوق في محبوب له خال كفتيت المسك</div>
+<div class="poem" dir="rtl">ورب ظبي إذا ما رمت أسأله  رفقا بقلبي أعياني تدلله<br>لم يخش بالهجر وزرا جاء يحمله  كم أحرق القلب حتى راح يثقله<br>وزر القتيل قتيل الهجر من حرقه  إن قيل من ذا الذي بالصب قد عذروا<br>وأسلموا القلب للبلوى وما عذروا  أقول من لوعتي والدمع ينحدر<br>ظبي بدا خاله في الجيد لو نظروا  إليه أهل الهوى خالوه من حدقه<br>أظنه من جنان الخلد قد شردا  بديع حسن تراني مفكرا أبدا<br>في الخال والجيد عمري ما عبدا  لا تحسبوا أن ذاك الخال حين بدا<br>فتيت مسك وإن أضحى على نسقه  كلا ولا عنبر أربت لطافته<br>ولو على العاج قد فاقت صياغته  ولا من الند لو جاءت صناعته<br>بل ذاك قلبي الذي شاعت سماحته  وافى يحل بنود الوزر من عنقه</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s025" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s025" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s025" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s025"></div></article>
+<article id="s026">
+<div class="q" dir="rtl">قصيدة رثاء صلاح الدين الأيوبي الذي كان سراجا للورى ثم انطفأ</div>
+<div class="poem" dir="rtl">أي هلال كسفا  وأي غصن قصفا<br>كان سراجا قد طفا  على الورى ثم انطفا<br>لم يركب الخيل ولم  يقلدوه مرهفا<br>قل للنحاة ويحكم  أحمدكم قد صرفا<br>صبرا صلاح الدين يا  رب السماح والوفا</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s026" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s026" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s026" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s026"></div></article>
+<article id="s027">
+<div class="q" dir="rtl">قصيدة حزن شاعر على غياب أحبته بعد أن بانوا بالرهن</div>
+<div class="poem" dir="rtl">إليك عني فإني عنك مشغول  والفكر مندهش والعقل معقول<br>وربع قلبي قد أقوت منازله  وجيش صبري ولى وهو مثلول<br>والدهر سل حسام البين حين رأى  شمل الأحبة أضحى وهو موصول<br>لله أشكو جوى بين الجوانح من  فقد الأحبة مذ غالتهم غول<br>فالقلب منا بنار الحزن مشتعل  والدمع جار على الخدين مهمول<br>والأرض مائدة تشكو أسى وجوى  يفقد نوريها والنور مذبول<br>آها وآها على فقد الذي انبلجت  به غياهب وانجابت تضاليل<br>وكان كهفا منيع المستجير به  غوث وغيث له الحاجات مسئول<br>يا راحلا وسواد القلب مسكنه  ليت الفداء فدتك النفس مقبول</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s027" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s027" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s027" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s027"></div></article>
+<article id="s028">
+<div class="q" dir="rtl">قصيدة عتاب وخيبة أمل في وجوه معجبة تبين أنها كدمنة معشبة</div>
+<div class="poem" dir="rtl">لرددت العتاب عليك حتى  سئمت وآخر الود العتاب<br>فلم أبعدك من أدب ولكن  شهاب في التخلف ما شهاب<br>وحان عليك سخطي حين تغدو  بعرض ليس تقتله الكلاب<br>وهل يشفي السباب من ابن لؤم  دنيء ليس يؤلمه السباب<br>فعمران استه جم ولكن  له قدامه أير خراب</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s028" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s028" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s028" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s028"></div></article>
+<article id="s029">
+<div class="q" dir="rtl">قصيدة عن شباب زاروا خمارة ليلا وصاحبتها حنون</div>
+<div class="poem" dir="rtl">يا شقيق النفس من حكم  نمت عن ليلي ولم أنم<br>فاسقني الخمر التي اختمرت  بخمار الشيب في الرحم<br>ثمت انصات الشباب لها  بعدما جازت مدى الهرم<br>فهي لليوم الذي بزلت  وهي ترب الدهر في القدم<br>عتقت حتى لو اتصلت  بلسان ناطق وفم<br>لا احتبت في القوم ماثلة  ثم قصت قصة الأمم<br>قرعتها بالمزاج يد  خلقت للكأس والقلم<br>في ندامى سادة نجب  أخذوا اللذات من أمم<br>فتمشت في مفاصلهم  كتمشي البرء في السقم<br>فعلت في البيت إذ مزجت  مثل فعل الصبح في الظلم</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s029" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s029" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s029" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s029"></div></article>
+<article id="s030">
+<div class="q" dir="rtl">قصيدة عن جمال حدائق باريس التي شبهها الشاعر بالجنة المسروقة بسحر أهلها</div>
+<div class="poem" dir="rtl">رزق الله أهل باريس خيرا  وأرى العقل خير ما رزقوه<br>عندهم للثمار والزهر مما  تنجب الأرض معرض نسقوه<br>جنة تخلب العقول وروض  تجمع العين منه ما فرقوه<br>من رآه يقول قد حرموا الفر  دوس لكن بسحرهم سرقوه<br>ما ترى الكرم قد تشاكل حتى  لو رآه السقاة ما حققوه<br>يسكر الناظرين كرما ولما  تعتصره يد ولا عتقوه<br>صوروه كما يشاؤون حتى  عجب الناس كيف لم ينطقوه<br>يجد المتقي يد الله فيه  ويقول الجحود قد خلقوه</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s030" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s030" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s030" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s030"></div></article>
+<article id="s031">
+<div class="q" dir="rtl">قصيدة تأملات في الموت والفناء والفخر بالنسب والرضا بالإياب من الغنيمة</div>
+<div class="poem" dir="rtl">إذا قنع الفتى بذميم عيش  وكان وراء سجف كالبنات<br>ولم يهجم على أسد المنايا  ولم يطعن صدور الصافنات<br>ولم يقر الضيوف إذا أتوه  ولم يرو السيوف من الكماة<br>ولم يبلغ بضرب الهام مجدا  ولم يك صابرا في النائبات<br>فقل للناعيات إذا نعته  ألا فاقصرن ندب النادبات<br>ولا تندبن إلا ليث غاب  شجاعا في الحروب الثائرات<br>دعوني في القتال أمت عزيزا  فموت العز خير من حياة<br>لعمري ما الفخار بكسب مال  ولا يدعى الغني من السراة<br>ستذكرني المعامع كل وقت  على طول الحياة إلى الممات<br>فذاك الذكر يبقى ليس يفنى  مدى الأيام في ماض وآتي</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s031" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s031" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s031" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s031"></div></article>
+<article id="s032">
+<div class="q" dir="rtl">قصيدة استنكار بكاء على من تتابعوا في السوء والدعوة لذكر النبي</div>
+<div class="poem" dir="rtl">لم أبك في مجلس منصور  شوقا إلى الجنة والحور<br>لكن بكائي لبكا شادن  تقيه نفسي كل محذور<br>تنتسب الألسن من وصفه  إلى مدى عجز وتقصير<br>فات لسان الوصف لكن ذا  تفديه نفسي جهد معذور<br>أحسن من مجلس منصور  ضرب بعود وبطنبور<br>نتيج أنوار سماوية  قرين تقديس وتطهير<br>جوهره روح وأعراضه  قد ألفت من مارج النور</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s032" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s032" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s032" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s032"></div></article>
+<article id="s033">
+<div class="q" dir="rtl">شاعر يرفض الشعر الرديء ويعترف بذنوبه دون أن يزكي نفسه.</div>
+<div class="poem" dir="rtl">إِنِّي لَأُكْرِمُ نَفْسِي عَنْ إِهَانَتِهَا  يَوْمًا مِنَ الدَّهْرِ فِيمَا لَيْسَ بِالْبَاقِي<br>وَذَاكَ مِنِّيَ أَنِّي لَمْ أَزَلْ رَجُلًا  لا تَرْتَضِي لِي أَخْلاَقِي بِأَخْلاَقِي</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s033" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s033" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s033" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s033"></div></article>
+<article id="s034">
+<div class="q" dir="rtl">قصيدة فخر الشاعر بقبيلة شجاعة تملأ الأقطار خوفا</div>
+<div class="poem" dir="rtl">لقد سرني أن لا تعد مجاشع  من الفخر إلا عقر ناب بصوأر<br>أنابك أم قوم تفض سيوفهم  على الهام ثنيي بيضة المتجبر<br>لعمري لنعم المستجارون نهشل  وحي القرى للطارق المتنور<br>فوارس لا يدعون يال مجاشع  إذا برزت ذات العريش المخدر<br>وتدعون سلمى يا بني زبد استها  وضمرة لليوم العماس المذكر<br>أولئك خير مصدقا من مجاشع  إذا الخيل جالت في القنا المتكسر<br>لعمري لقد أردى هلال بن عامر  بتنهية المرباع رهط المجشر<br>وما زلت مذ لم تستجب لك نهشل  تلاقي صراحيا من الذل فاصبر<br>وعافت بنو شيبان حوض مجاشع  وشيبان أهل الصفو غير المكدر<br>ولو غضبت في شأن حدراء نهشل  سموها بدهم أو غزوها بأنسر</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s034" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s034" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s034" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s034"></div></article>
+<article id="s035">
+<div class="q" dir="rtl">قصيدة يعبر فيها الشاعر عن حبه لله الذي حير اسمه العقول، وأن محمداً هو الطلسم.</div>
+<div class="poem" dir="rtl">حُبِّي هُوَ اللهُ كَمْ حَيَّرَ بِاسْمِهِ إِسْمُ  حُرُوفُهُ الْخَمْسُ مِنْهَا لِلأَصَابِعِ قِسْمُ<br>يَدٌ تَعَالَتْ مِنَ اللامَيْنِ لاَحَ الْجِسْمُ  مُحَمَّدٌ الْمُصْطَفَى عَنْهَا هُوَ الطَّلْسَمُ</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s035" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s035" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s035" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s035"></div></article>
+<article id="s036">
+<div class="q" dir="rtl">قصيدة عن زوال قوة الحكام السابقين، وأن أحداً لا ينجو من مكائد الدهر.</div>
+<div class="poem" dir="rtl">إِذَا مَا عَرَا خَطْب مِنَ الدَّهْرِ فَاصْطَبَرْ  فَإِنَّ اللَّيَالِيَ بِالخُطُوبِ حَوَامِلٌ<br>فَكُلُّ الَّذِي يَأْتِي بِهِ الدَّهْرُ زَائِلُ  سَرِيعًا فَلا تَجْزَعْ لِمَا هُوَ زَائِلُ</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s036" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s036" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s036" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s036"></div></article>
+<article id="s037">
+<div class="q" dir="rtl">قصيدة حكمة عن الدهر الذي يؤدب بالحوادث وفتن سود الغمام</div>
+<div class="poem" dir="rtl">يؤدبك الدهر بالحادثات  إذا كان شيخاك ما أدبا<br>بدت فتن سود الغمام  ألقت على العالم الهيدبا<br>ومن دونها اختلفت غالب  وأبعد عثمانها جندبا<br>فلا تضحكن ابنة السنبسي  فأوجب من ذاك أن تندبا<br>إذا عامر تبعت صالحا  وزجت بنو قرة الحردبا<br>وأردف حسان في مائح  متى هبطوا مخصبا أجدبا<br>وإن فرعوا جبلا شامخا  فليس يعنف أن يحدبا<br>رأيت نظير الدبى كثرة  قتيرهم كعيون الدبى</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s037" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s037" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s037" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s037"></div></article>
+<article id="s038">
+<div class="q" dir="rtl">قصيدة عن الهجر الذي سببه قلة الوفاء في الناس وليس خطأ من الشاعر.</div>
+<div class="poem" dir="rtl">ظَلُومٌ لَمَّا أَنْ مَلَلْتَ وَحَلَّتْ عَنْ  هَدَّ المَوَدَّةِ قُلْتُ كَانَ وَكَانَا<br>هَجَرْتَنِي هَجْرَ امْرِئٍ مُتَعْتِّبٍ  مَسَى رِضَاهُ عَلَى الهَوَى غَضْبَانَا<br>وَ كُنْتُ حِينَ مَلَلْتُ وَصْلِي قُلْتَ لِي  كَفُفْ فَلَسْتَ مُوَاصِلًا إِنْسَانَا<br>خَزَنْتُ وُدَّكَ فِي الفُؤَادِ وَلَمْ أَزَلْ  كَ حَافِظًا وَمَنَحَتُكَ الهِجْرَانَا</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s038" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s038" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s038" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s038"></div></article>
+<article id="s039">
+<div class="q" dir="rtl">قصيدة يعبر فيها شاعر عن يأسه من إرشاد الناس وعدم تقديرهم لجهوده.</div>
+<div class="poem" dir="rtl">إِلَى جَاهِكَ السَّامِي سَعَتْ بِي حَوَائِجِي  وَفِي بَابِكَ العَالِي أَنِيخَتْ مَطِيَّتِي<br>وَمِثْلُكَ مَنْ لا يُدْرِكُ اليَأْسَ جَارَهُ  إِذَا عَزَّ مَنْ يَرْجُوهُ فِي يَوْمِ شِدَّةٍ<br>وَمَنْ تَكُ يَا خَيْرَ الخَلِيقَةِ جَاهَهُ  جَدِيرٌ بِأَنْ لاَ يَرْجُو كُلَّ الْخَلِيقَةِ</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s039" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s039" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s039" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s039"></div></article>
+<article id="s040">
+<div class="q" dir="rtl">قصيدة يعبر فيها الشاعر عن شدة تعلقه بحب مستوفي، ويطلب من ينقذه من هذا الحب المؤلم.</div>
+<div class="poem" dir="rtl">كَأَنَّكَ أَحْبَبْتُ أَنْ أُسْقَمَا  فَأَتْبَعْتُ بِالأَسْهُمِ الأَسْهُمَا<br>وَأَقْصَدْتَ قَلْبَ فَتًى لَمْ يَزَلْ  بِحُبِّكَ مُشْتَهِرًا مُغْرَمَا<br>فَعِشْ كَيْفَ شِئْتَ وَزِدْنِي هَوًى  فَحَسْبِي مِنْ ذَاكَ أَنْ تُسَلَّمَا<br>سَأَبْلُغُ بِالْحُزْنِ أَقْصَى الدُّمُوعْ  وَأَبْكِيكَ بَعْدَ دُمُوعٍ دَمَا</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s040" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s040" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s040" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s040"></div></article>
+<article id="s041">
+<div class="q" dir="rtl">قصيدة مدح للرسول صلى الله عليه وسلم وأهل بيته، وبيان فضلهم الذي لا ينكره كتاب.</div>
+<div class="poem" dir="rtl">صَلِي عَلَى طَهِّ الرَّسُولِ  رَبِّي وَسَلِّمْ ذُو الْجَلاَلْ<br>وَالْآلِ وَالأَصْحَابِ مِنْ  هُمْ خَيْرُ أَصْحَابٍ وَآلِ<br>مَا رَاقَ مِنْ عَبْدِ الْغَنِي  نَظْمَ الْمَدَائِحِ لِلرِّجَالْ<br>وَاهْتَاجَهُ الصَّوْتُ الرَّخِيمُ  وَهَاجَهُ الصَّوْتُ اللَّجَبُ<br>وَإِذَا سَأَلْتُكَ حَاجَتِي  يَا سَيِّدِي لِي فَاسْتَجِبْ</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s041" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s041" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s041" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s041"></div></article>
+<article id="s042">
+<div class="q" dir="rtl">قصيدة غزل في محبوبة وعدت بالوفاء فكان سرا يخفي التجني</div>
+<div class="poem" dir="rtl">يا غزالا قد رنا واحدة  منه كانت للردى قائدة<br>لم تدع لي بعدها عافية  لا تزدني نظرة ثانية<br>كفت الأولى ووفت ثمني  إن رحت تصغي للعذول وتسمع<br>والود ما بيني وبينك تقطع  يا مليحا بالجفا متولع<br>لك في قلبي حديث مودع  لا عدمت الحب ما أودعني<br>كم ذا تواعدني الوفا لكنه  سر ويخفي ذا التجني ضمنه<br>إن لم تكن تسمح به وثمنه  خذه من جفني عقودا إنه</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s042" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s042" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s042" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s042"></div></article>
+<article id="s043">
+<div class="q" dir="rtl">قصيدة حكمة عن زوال الشباب والشيخ الذي استجد قميص الشيب مجتابا</div>
+<div class="poem" dir="rtl">أين المفر من القضا  ء مشرقا ومغربا<br>انظر ترى لك مذهبا  أو ملجأ أو مهربا<br>سلم لأمر الله وأر  ض به وكن مترقبا<br>ولقل ما تنفك من  حدث يجيء ليذهبا<br>وكذاك لم يزل الزما  ن بأهله متقلبا<br>يزداد من حذر المني  ية بالفرار تقربا<br>فلقد نعاك الشيب يو  م رأيت رأسك أشيبا<br>ذهب الشباب بلهوه  وأتى المشيب مؤدبا<br>وكفاك ما جربته  حسب امرئ ما جربا<br>يمسي ويصبح طالب الدن  يا معنى متعبا</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s043" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s043" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s043" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s043"></div></article>
+<article id="s044">
+<div class="q" dir="rtl">قصيدة هجاء في كنيزة التي هي كالحوت ويابسة الأسافل والأعالي</div>
+<div class="poem" dir="rtl">فقدتك يا كنيزة كل فقد  وذقت الموت أول من يموت<br>فقد أوتيت رحب فم وفرج  كأنك من كلا طرفيك حوت<br>ويابسة الأسافل والأعالي  كأنك في المجالس عنكبوت<br>عظام قد براها السل بريا  فما فيها لبعض الطير قوت<br>وإن غنيت زنيت الندامى  فلا عمرت بحضرتك البيوت<br>رزقتك ليلة فرزقت رزقا  بودي أنه أبدا يفوت<br>سأقترح السكوت عليك دهري  فأحسن ما تغنين السكوت</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s044" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s044" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s044" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s044"></div></article>
+<article id="s045">
+<div class="q" dir="rtl">قصيدة شوق وحنين إلى محبوبة مطلعها كيف يا من بها قوام حياتي</div>
+<div class="poem" dir="rtl">جوانحنا شوقا إليكم جوانح  وألبابنا تصبو لكم والجوارح<br>ومغناكم مغنى الهوى يا سقى الهوى  وأيامه غاد من المزن رائح<br>وخص الصبا حيث الشبيبة أيكة  بأغصانها ورق الأماني صوادح<br>وحيث الحمى روض أطارح أهله  أحاديث أشجاني بهم وتطارح<br>معاهد أحبابي ومربى مآربي  وأوطان أوطاري إذ العيش صالح<br>وإذ أنا من حسانة الجيد ناعما  أغادي الصبا فرط الهوى وأراوح<br>متى ابتسمت عن ذي لمى قلت منشدا  بأدنى ابتسام منك تحيا القرائح</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s045" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s045" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s045" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s045"></div></article>
+<article id="s046">
+<div class="q" dir="rtl">قصيدة تهكم على شاعر أتى بقصيدة مدح مسروقة ثم هجا لما تم تجاهله.</div>
+<div class="poem" dir="rtl">وَافَى إِلَيَّ بِمِدْحَةٍ قَدْ أُخْبِرَتْ  عَنْ كُلِّ بَيْت جِيدٍ مِنْ أَيْنَ جَا<br>فَسَكَتْ عَنْهُ فَجَاءَنِي بِهِجَائِهِ  لِأُجِيّبَهُ هَيْهَاتَ أَخْلَفَهُ الدُّجَى<br>مَنْ كَانَ فِي حَالِ الْمَدَائِحِ سَاقِطًا  عِنْدِي فَكَيْفَ يَكُونُ فِي حَالِ الْهَجَا</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s046" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s046" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s046" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s046"></div></article>
+<article id="s047">
+<div class="q" dir="rtl">شعر في مدح هارون الرشيد الذي أوجد الله له الفضل</div>
+<div class="poem" dir="rtl">أكثر هذي الخطوب أشكال  ويعقب الانصراف إقبال<br>وبعد بعد الطحباب قربهم  وبعد شكو النفوس إبلال<br>لو ردت الحادثات ما أخذت  عاد ثراء وراح إقلال<br>فليت ذاك الحبيب ساعفنا  فكان وصل إن لم يكن مال<br>آليت لا يستفزني الطمع  المغري ولا يستغرني الآل<br>لي ابن عم إذا شددت به  أزري فقل للخطوب لا تالوا<br>تنميه من كعبه وحارثه  أملاك أكرومة وأقيال<br>أحله مخلد ذرى شرف  له على الشعريين إطلال<br>فالله يجزي الحسنى أبا حسن  فهو لثقل الحقوق حمال<br>أزهر من مذحج أرومته  له على المفضلين إفضال</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s047" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s047" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s047" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s047"></div></article>
+<article id="s048">
+<div class="q" dir="rtl">قصيدة فخر بجيش عظيم أركانه تدأكأت وفوارسه تذود</div>
+<div class="poem" dir="rtl">إذا نحن حالفنا شفار البواتر  وسمر القنا فوق الجياد الضوامر<br>على حرب قوم كان فينا كفاية  ولو أنهم مثل البحار الزواخر<br>وما الفخر في جمع الجيوش وإنما  فخار الفتى تفريق جمع العساكر<br>سلي يا ابنة الأعمام عني وقد أتت  قبائل كلب مع غني وعامر<br>تموج كموج البحر تحت غمامة  قد انتسجت من وقع ضرب الحوافر<br>فولوا سراعا والقنا في ظهورهم  تشك الكلى بين الحشا والخواصر<br>وبالسيف قد خلفت في القفر منهم  عظاما ولحما للنسور الكواسر<br>وما راع قومي غير قول ابن ظالم  وكان خبيثا قوله قول ماكر<br>بغى وادعى أن ليس في الأرض مثله  فلما التقينا بان فخر المفاخر<br>أحب بني عبس ولو هدروا دمي  محبة عبد صادق القول صابر</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s048" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s048" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s048" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s048"></div></article>
+<article id="s049">
+<div class="q" dir="rtl">قصيدة معاناة شاعر من خيانة صديق وتفضيله للموت على حياة الأذى</div>
+<div class="poem" dir="rtl">وللموت خير من حياة على أذى  يضيمك فيه صاحب وتراقبه<br>كأن حياة الناس حين ضمنتها  قذى في حقوق العين مني أواربه<br>يخونك ذو القربى مرارا وربما  وفى لك عند الجهل من لا تقاربه<br>وقد رابني قلب يكلفني الصبا  وما كل حين يتبع القلب صاحبه<br>وما قادني في الدهر إلا غلبته  وكيف يلام المرء والحب غالبه<br>وأحور محسود على حسن وجهه  يزين السموط نحره وترائبه</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s049" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s049" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s049" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s049"></div></article>
+<article id="s050">
+<div class="q" dir="rtl">شاعر يصف دموعه التي تسيل كالسيف بسبب نظرة فاتنة من محبوبه أشعلت قلبه.</div>
+<div class="poem" dir="rtl">تَمَتَّعْتُ مِنْ وَجْهِ الْحَبِيبِ بِنَظْرَةٍ  فَأَصْبَحَ فِي عِطْفِيْ هِزَّةُ نَشْوَانِ<br>فَلاَ تُنْكِرُوا سَكْرَى بِرُؤْيَاهُ إِنَّنِي  سَقَتْنِي حَمِيَّ الْحُبِّ رَاحَةَ إِنْسَانِي</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s050" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s050" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s050" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s050"></div></article>
+<article id="s051">
+<div class="q" dir="rtl">قصيدة رثاء عنترة لنفسه وفخره ببطولته وحزنه على عبلة</div>
+<div class="poem" dir="rtl">يا رب قرن قد تركت مجدلا  ضخم الدسيعة رأس حي جحفل<br>وتركت نسوته لهن تفجع  يندبنه أصلا بنوح معول<br>من آل عبس قد شفيت حرارتي  وغنمت كل غنيمة لم تضهل<br>ونجا بعنترة الأغر من الردى  يهوي على عجل هوي الأجدل<br>وتركت عبلة في السواء لفتية  باتوا على كتف الخيول الجول<br>راحوا بهند والوجيهة عنوة  يوم الوقاع على نجائب ذمل</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s051" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s051" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s051" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s051"></div></article>
+<article id="s052">
+<div class="q" dir="rtl">قصيدة يتساءل فيها الشاعر عن تأثير ابتسامة المحبوبة، ويصف قلبه بأنه مستشفى لمجنون الشوق.</div>
+<div class="poem" dir="rtl">كَيْفَ المَرِيضُ الَّذِي تُحْمَى عِيَادَتُهُ  إِنّي عَلَيْهِ لَذُو خَوْف وَإِشْفَاقِ<br>يَرْقَى لِيَسْكُنَ مَا يَلْقَى وَبِي سَقْمُ  مِنْ حُبِّهِ لاَزِمُ مَا إِنْ لَهُ رَاقِ<br>يَا لَيْتَ مَا بِكَ مِنْ سُقَمٍ تَحَولُ بِي  إِنِّي إِلَى ذَاكَ يَا سُؤْلِي بِأَشْوَاقِ</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s052" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s052" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s052" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s052"></div></article>
+<article id="s053">
+<div class="q" dir="rtl">قصيدة تصف مجموعة من الناس فوق جرف متصدع، يعيشون في نعيم بفضل عطاءين.</div>
+<div class="poem" dir="rtl">مُلَمْلَمِينَ فَوْقَ جُرُف هَارِ  قَدْ نُحَتَا وَشَبَّهَنِي فِي نِجَاْرْ<br>دَارًا كَمِثْلِ الْفَلَكِ الدَّوَّارِ  وَأَسْبَلَا ذَيْلًا مِنَ الغُبَارِ<br>فَنَحْنُ فِي رِفْدِهِمَا الْمِدْرَارْ  فِي نِعْمٍ صَافِيَة الأَقْطَارْ</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s053" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s053" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s053" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s053"></div></article>
+<article id="s054">
+<div class="q" dir="rtl">قصيدة تضرع لله وتعبير عن ضيق الحال والمشي ويركب غيري</div>
+<div class="poem" dir="rtl">ألا أيها المقصود في كل حاجة  شكوت إليك الضر فارحم شكايتي<br>ألا يا رجائي أنت تكشف كربتي  فهب لي ذنوب يكلها وافض حاجتي<br>أتيت بأعمال قباح رديئة  وما في الورى عبد جنى كجنايتي<br>أتحرقني بالنار يا غاية المنى  فأين رجائي ثم اين مخافتي</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s054" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s054" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s054" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s054"></div></article>
+<article id="s055">
+<div class="q" dir="rtl">قصيدة غزل يرى فيها الشاعر أن جمال محبوبه هو سبب جمال الطبيعة من حوله.</div>
+<div class="poem" dir="rtl">يُحَرِّكُنَا الْجَمَالَ بِكُلِّ أَمْر  فَهَلْ هُوَ أَكْبَرُ الثَّوْرَاتِ طُرًّا<br>فَمَا مِنْ كَائِنٍ فِي الأَرْضِ إِلاَّ  يُهِيِّجُ الْحُسْنُ فِيْهِ الْحُبَّ بَحْرًا<br>وَمَا مِنْ نَظْرَةٍ فِيهَا جَمَالُ  سِوَى جَعَلَتْ نِيَاطَ القَلْبِ أَسْرَى<br>يَسُودُ الكَوْنُ تَحْسِينَ دَؤُوبِ  لِيُصْبِحَ لِلْجَمِيعِ مُنًى وَبُشْرَى</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s055" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s055" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s055" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s055"></div></article>
+<article id="s056">
+<div class="q" dir="rtl">شاعر يتمنى أن يركع في الظلام خلف حبيبة فاتنة رآها تقرأ في مكان بعيد.</div>
+<div class="poem" dir="rtl">عَيْنِي إِلَى مَنْ أُحِبَّ تَخْتَلِجْ  وَالصَّبْرُ عَنْ حُسْنِ وَجْهِهِ سَمَجُ<br>طَالَ اشْتِيَاقِيْ إِلَى مُنْعَمَةٍ  يَسْتَعْبِدُ الْقَلْبُ طَرْفَهَا الْغَنَجُ<br>لَوْ طَلَعَتْ فِي الظَّلاَمِ غُرَّتُهَا  ظَلَّتْ سُتُورُ الظَّلامِ تَنْفَرِجُ<br>مَتَى أَرَى خَلْوَةً يَظَلُّ بِهَا  رِيقِي بَرِيِقِ الخَلِيلِ يَمْتَزِجُ<br>يَا حُورُ مَا لِلْحَبِيبِ يَفْعَلُ بِي  أَشْيَاءً لاَ يَسْتَحِلُّهَا الْحَرَجُ</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s056" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s056" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s056" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s056"></div></article>
+<article id="s057">
+<div class="q" dir="rtl">شاعر يعبر عن شدة تعلقه بمحبوبته وسعيه للوصول إليها رغم الأهوال.</div>
+<div class="poem" dir="rtl">وَمُسْتَفْتِحُ بَابِ الْبَلاءِ بِنَظْرَةٍ  تُزَوَّدُ مِنْهَا حَسْرَةً آخِرِ الدَّهْرِ<br>فَوَاللهِ مَا يَدْرِي أَتَدْرِي بِمَا جَنَتْ  عَلَى قَلْبِهِ أَوْ أَهْلَكْتِهِ وَمَا تَدْرِي<br>أَنَا الْهَائِمُ الْمَشْغُوفُ بِالْبَدْرِ إِذْ بَدَا  وَهَيْهَاتَ مَنْ لِي بِالسَّبِيلِ إِلَى الْبَدْرِ<br>وَمَا اسْتَمْكَنَتْ عَيْنِي مِنَ النَّظَرِ الَّذِي  أُدَاوِي بِهِ قَلْبِي وَأَشْفِي بِهِ صَدْرِي<br>وَلَوْ كَانَ حُبِيُّهَا كَمَا هِيَ أَهْلُهُ  لَمْتْ وَمَا لِي غَيْرُ ذَلِكَ مِنْ عُذْرِ<br>تَخَاذَلَتِ الأَوْصَالُ مِنِّي فَلَمْ أَطِقْ  نُهُوضًا بِوَقْرِ الحُبِّ وَالحُبُّ ذُو وَقْر<br>وَلِلشَّوْقِ سُلْطَانٌ عَلَى الدَّمْعِ كُلَّمَا  دَعَاهُ تَدَاعَى غَيْرَ وَانٍ وَلا نَزْرِ</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s057" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s057" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s057" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s057"></div></article>
+<article id="s058">
+<div class="q" dir="rtl">قصيدة شوق عاشق لحبيبة لموعد عند ربى نجد</div>
+<div class="poem" dir="rtl">يبشرني منك الرسول بزورة  فإن صح هذا إنني لسعيد<br>ولست إخال الدهر يسخو بهذه  ألا إنها من فعله لبعيد<br>فيا أيها المولى الذي أنا عبده  لقد زاد بي شوق إليك شديد<br>متى تتملى منك عيني بنظرة  وحقك ذاك اليوم عندي عيد</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s058" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s058" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s058" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s058"></div></article>
+<article id="s059">
+<div class="q" dir="rtl">نداء للأحبة الراحلين للعودة ليعلم من قلت أمانته كيف تعود الروح للجسد.</div>
+<div class="poem" dir="rtl">يَا سَادَةً رَحَّلُوا بِالرُّوْحِ عَنْ بَلَدِي  وَخَلَّفُونِي قَتِيلَ الوَجْدِ وَالْكَمَدِ<br>عُودُوا لِيَعْرِفَ مَنْ قَلْتْ أَمَانَتُهُ  بِاللهِ كَيْفَ تَعُودُ الرُّوحُ لِلْجَسَدِ</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s059" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s059" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s059" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s059"></div></article>
+<article id="s060">
+<div class="q" dir="rtl">شاعر يتخذ محبوبته عذراً له، ويتساءل ماذا سيكون عذره إذا رأوها تخونه.</div>
+<div class="poem" dir="rtl">لَقَدْ قَبِلْتُ لِذَاكَ الْعُذْرِ مُفْتَقِرًا  ذَنْبًا مَضَى مِنْ حَبِيبٍ حُبُّهُ اشْتَهِرَا<br>لاَ سِيَّمَا أَرْسِلَ الْحَبِيْبَ مُتَّجِهًا  قَبُولُهُ إِنَّهُ الْقَبُولُ قَدْ ظَهَرَا</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s060" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s060" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s060" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s060"></div></article>
+<article id="s061">
+<div class="q" dir="rtl">قصيدة عتاب صديق كريم قصر في عطائه مطلعها أزر صلة قدمتها أخواتها</div>
+<div class="poem" dir="rtl">أعاذل ما على وجهي قتوم  ولا عرضي لأول من يسوم<br>يفضلني على الفتيان أني  أبيت فلا ألام ولا أليم<br>أعاذل إن يكن برداي رثا  فلا يعدمك بينهما كريم<br>شققت من الصبا واشتق مني  كما اشتقت من الكرم الكروم<br>فلست أسوف اللذات نفسي  مياومة كما دفع الغريم<br>ولا بمدافع بالكأس حتى  يهيجني على الطرب النديم<br>ومتصل بأسباب المعالي  له في كل مكرمة قديم<br>رفعت له النداء بقم فخذها  وقد أخذت مطالعها النجوم<br>بتفدية تذال النفس فيها  وتمتهن الخؤولة والعموم<br>فقام وقمت من أخوين هاجا  على طرب وليلهما بهيم</div>
+<div class="ctl"><span class="lbl">Does this poem satisfy the request?</span><label><input type="radio" name="r_s061" value="2"> 2 &ndash; yes, fully answers the request</label><label><input type="radio" name="r_s061" value="1"> 1 &ndash; partly / arguably</label><label><input type="radio" name="r_s061" value="0"> 0 &ndash; no</label>
+<input class="note" placeholder="note (optional)" name="n_s061"></div></article>
+<div id="bar"><span id="prog"></span><button onclick="dl()">Download CSV</button></div>
+<script>
+const K='poetry_spotcheck_v1';
+function state(){const s={};document.querySelectorAll('input').forEach(i=>{
+ if(i.type==='radio'){if(i.checked)s[i.name]=i.value}else if(i.value)s[i.name]=i.value});return s}
+function save(){localStorage.setItem(K,JSON.stringify(state()));prog()}
+function prog(){const n=document.querySelectorAll('article').length;
+ const d=Object.keys(state()).filter(k=>k.startsWith('r_')).length;
+ document.getElementById('prog').textContent=d+' / '+n+' judged';}
+function load(){const s=JSON.parse(localStorage.getItem(K)||'{}');
+ for(const[k,v]of Object.entries(s)){if(k.startsWith('r_')){
+  const el=document.querySelector(`input[name="${k}"][value="${v}"]`);if(el)el.checked=true;
+ }else{const el=document.querySelector(`input[name="${k}"]`);if(el)el.value=v}}prog()}
+function dl(){const s=state();let out='item_id,satisfies,note\n';
+ document.querySelectorAll('article').forEach(a=>{const id=a.id;
+  const r=s['r_'+id]??'';const n=(s['n_'+id]??'').replace(/"/g,'""');
+  out+=id+','+r+',"'+n+'"\n'});
+ const b=new Blob([out],{type:'text/csv;charset=utf-8'});const u=URL.createObjectURL(b);
+ const a=document.createElement('a');a.href=u;a.download='spotcheck_answers.csv';a.click()}
+document.addEventListener('input',save);load();
+</script></body></html>
