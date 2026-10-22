@@ -1,7 +1,7 @@
-"""E3 - Track B (thematic retrieval) and the cross-track dissociation.
+"""Track B (thematic retrieval) and the cross-track dissociation.
 
 Inputs
-  results/derived/trackB_rejudged.csv   judge scores on the UNIFIED pipeline's retrievals
+  results/derived/trackB_rejudged.csv   judge scores on the unified pipeline's retrievals
   results/derived/eacl_trackA.csv       known-item metrics from the same pipeline
   results/derived/human_annotation_cells.csv   blind human relevance, 20 queries x 3 systems
 

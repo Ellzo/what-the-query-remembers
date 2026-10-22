@@ -14,6 +14,7 @@ from common import DERIVED, ROOT  # noqa: E402
 from eacl_metrics import stars  # noqa: E402
 
 PAPER = os.path.join(ROOT, "paper")
+NA = "n/a"
 ORDER = ["Qwen3-8B", "BGE-M3", "mE5-large", "jina-v3", "silma-sts", "gte", "Qwen3-0.6B",
          "LaBSE", "Muffakir-v2", "BM25"]
 
@@ -36,7 +37,7 @@ def t1_data():
          "Query set & $n$ & len & \\%\\,quote & $C_{\\mathrm{vrs}}$ & $C_{\\mathrm{ai}}$ & "
          "$C_{\\mathrm{ff}}$ \\\\", "\\midrule"]
     for lab, n, ln, vq, cv, ca, cf in rows:
-        cfs = "--" if np.isnan(cf) else f"{cf:.3f}"
+        cfs = NA if np.isnan(cf) else f"{cf:.3f}"
         b.append(f"{lab} & {n} & {ln:.1f} & {vq:.1f} & {cv:.3f} & {ca:.3f} & {cfs} \\\\")
     b += ["\\bottomrule", "\\end{tabular}"]
     w("tab_data.tex", "\n".join(b))
@@ -58,7 +59,7 @@ def t2_tracka():
     def cell(sysname, corpus, mode):
         r = A[(A.system == sysname) & (A.corpus == corpus) & (A["mode"] == mode)]
         if r.empty:
-            return "--"
+            return NA
         r = r.iloc[0]
         s = sig.get((sysname, corpus, f"{mode}_vs_verses"), "")
         s = "" if (isinstance(s, float) and np.isnan(s)) or s == "" else f"$^{{{s}}}$"
@@ -108,8 +109,8 @@ def t3_controlled():
         nm = "\\textbf{BM25}" if s == "BM25" else s
         rl = mech.loc[s, "rho_lexical"] if s in mech.index else np.nan
         re_ = mech.loc[s, "rho_embedding"] if s in mech.index else np.nan
-        lex = "--" if np.isnan(rl) else (f"\\textbf{{{rl:.2f}}}" if rl > re_ else f"{rl:.2f}")
-        emb = "--" if np.isnan(re_) else (f"\\textbf{{{re_:.2f}}}" if re_ >= rl else f"{re_:.2f}")
+        lex = NA if np.isnan(rl) else (f"\\textbf{{{rl:.2f}}}" if rl > re_ else f"{rl:.2f}")
+        emb = NA if np.isnan(re_) else (f"\\textbf{{{re_:.2f}}}" if re_ >= rl else f"{re_:.2f}")
         if s == "gte":            # measure uses gte's own encoder; flag it, see Appendix C
             emb += "$^{\\dagger}$"
         if s in itr.index:
@@ -118,11 +119,11 @@ def t3_controlled():
             if np.isnan(p):                       # the reference encoder itself
                 did = "ref."
             else:
-                did = f"{itr.loc[s, 'DiD_vs_ref']:+.2f}{stars(p)}"
+                did = f"${itr.loc[s, 'DiD_vs_ref']:+.2f}$" + (f"$^{{{stars(p)}}}$" if stars(p) else "")
                 if p < .05:
                     did = f"\\textbf{{{did}}}"
         else:
-            d = did = "--"
+            d = did = NA
         b.append(f"{nm} & {q:.3f} & {nq:.3f} & {d} & {did} & {lex} & {emb} \\\\")
     b += ["\\bottomrule", "\\end{tabular}"]
     w("tab_controlled.tex", "\n".join(b))
@@ -156,12 +157,12 @@ def t4_trackb():
             r = B[(B.corpus == c) & (B.system == s)]
             ta = A.get((c, s), np.nan)
             tb = r["overall_quality"].iloc[0] if not r.empty else np.nan
-            cells += [f"{ta:.3f}" if not np.isnan(ta) else "--",
-                      f"{tb:.2f}" if not np.isnan(tb) else "--"]
+            cells += [f"{ta:.3f}" if not np.isnan(ta) else NA,
+                      f"{tb:.2f}" if not np.isnan(tb) else NA]
         b.append(f"{nm} & {cells[0]} & {cells[1]} & & {cells[2]} & {cells[3]} \\\\")
     if hum:
         b.append("\\midrule\n\\multicolumn{6}{l}{\\textit{blind human relevance of top-3 "
-                 "(0--2), 20 queries}} \\\\")
+                 "(0 to 2), 20 queries}} \\\\")
         for s in ("jina-v3", "hybrid", "BM25"):
             f_ = hum.get(("fannorflop", s), np.nan)
             d_ = hum.get(("diwan", s), np.nan)
@@ -184,7 +185,7 @@ def t5_fusion():
 
     def g(variant, corpus, subset):
         r = F[(F.variant == variant) & (F.corpus == corpus) & (F.subset == subset)]
-        return f"{r['R@5'].iloc[0]:.3f}" if not r.empty else "--"
+        return f"{r['R@5'].iloc[0]:.3f}" if not r.empty else NA
 
     b = ["\\begin{tabular}{l ccc c c}", "\\toprule",
          "& \\multicolumn{3}{c}{\\textit{FannOrFlop}} & & \\textit{Diwan} \\\\",
@@ -197,9 +198,36 @@ def t5_fusion():
     w("tab_fusion.tex", "\n".join(b))
 
 
+def t6_edits():
+    """Edits to the same queries: a verbatim half-verse added, or the quoted wording rewritten."""
+    C = pd.read_csv(os.path.join(DERIVED, "rb_counterfactual.csv"))
+    C = C[(C.metric == "R@5") & (C.subset == "all")].set_index(["variant", "system"])
+    cols = ["inj_open", "inj_mid", "inj_final", "hand_para"]
+
+    def nz(x):                          # signed, no leading zero, to fit one column
+        t = f"{abs(x):.3f}".replace("0.", ".", 1)
+        return ("{+}" if x >= 0 else "{-}") + t
+    b = ["\\begin{tabular}{l ccc c}", "\\toprule",
+         "& \\multicolumn{3}{c}{half-verse added, $n{=}164$} & rewritten \\\\",
+         "\\cmidrule(lr){2-4}",
+         "System & opening & middle & final & $n{=}79$ \\\\", "\\midrule"]
+    for s in ORDER:
+        if s == "BM25":
+            b.append("\\midrule")
+        nm = "\\textbf{BM25}" if s == "BM25" else s
+        b.append(nm + " & " + " & ".join(f"${nz(C.loc[(v, s), 'delta'])}$" for v in cols) + " \\\\")
+    b.append("\\midrule")
+    b.append("difference & " + " & ".join(
+        f"${nz(C.loc[(v, 'BM25'), 'DiD_vs_ref'])}^{{{stars(C.loc[(v, 'BM25'), 'DiD_p'])}}}$"
+        for v in cols) + " \\\\")
+    b += ["\\bottomrule", "\\end{tabular}"]
+    w("tab_edits.tex", "\n".join(b))
+
+
 if __name__ == "__main__":
     t1_data()
     t2_tracka()
     t3_controlled()
     t4_trackb()
     t5_fusion()
+    t6_edits()

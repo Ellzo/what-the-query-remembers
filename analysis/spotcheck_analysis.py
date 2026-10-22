@@ -1,15 +1,16 @@
 """Analyse the blinded known-item spot check: how often is a Track A "failure" actually correct?
 
 Reads spotcheck/key.csv (which item was a failure and which a control) and the annotator's export
-(spotcheck/answers.csv, columns item_id,satisfies,note). The annotator never saw that distinction.
+(spotcheck/spotcheck_answers.csv, columns item_id,satisfies,note). The annotator never saw that
+distinction.
 
 Reported:
-  * control pass rate  - items where the gold poem itself was shown. These should score 2. A low
+  * control pass rate: items where the gold poem itself was shown. These should score 2. A low
     rate means the annotator is strict or the task is unclear, and the failure estimate below is
-    then a lower bound rather than a point estimate.
-  * failure "acceptable" rate - failures scored 2 (strict) and 2-or-1 (lenient). This is the share
-    of apparent Track A failures that are really unlabelled correct answers, i.e. the amount by
-    which single-gold known-item evaluation understates absolute Recall.
+    then a lower bound.
+  * failure "acceptable" rate: failures scored 2 (strict) and 2 or 1 (lenient). This is the share
+    of apparent Track A failures that are unlabelled correct answers, i.e. how much single-gold
+    known-item evaluation understates absolute Recall.
   * a corrected Recall@5 estimate for the system the sample was drawn from.
 
 Writes results/derived/eacl_spotcheck.csv

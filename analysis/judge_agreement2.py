@@ -1,7 +1,7 @@
-"""Agreement between the two Track B judges, and whether the second reproduces the finding.
+"""Agreement between the primary and second Track B judges.
 
-The Track B claim that matters is not any system's absolute score but the ordering, and above all
-that BM25 is last. This script asks whether an open-weights judge, run locally, reproduces it.
+The Track B claim rests on the system ordering, and in particular on BM25's place in it, rather
+than on absolute scores. This script checks whether the open-weights judge reproduces it.
 
 Reports:
   * cell-level Spearman between judge 1 (Gemini 3.5 Flash) and judge 2 (Gemma-3-27B-it), per aspect

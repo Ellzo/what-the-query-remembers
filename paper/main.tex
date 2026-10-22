@@ -1,0 +1,441 @@
+\documentclass[11pt]{article}
+% "preprint" is the non-anonymous version with page numbers, used for arXiv.
+% Use "final" for the camera-ready. Compile with XeLaTeX (babel + Amiri for the Arabic examples).
+\usepackage[preprint]{acl}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{placeins}
+\usepackage{microtype}
+% Font and bidi setup follow the official ACL XeLaTeX/LuaLaTeX template (acl_lualatex.tex).
+% Do not substitute polyglossia: it leaves the body text in Latin Modern rather than the
+% Times-like face the ACL style requires.
+\usepackage[english,bidi=default]{babel}
+\babelfont{rm}{TeXGyreTermesX}          % Times-like, as required
+\babelprovide[import]{arabic}
+\babelfont[*arabic]{rm}{Amiri}          % embedded Arabic face for the verse examples
+\newcommand{\textarabic}[1]{\foreignlanguage{arabic}{#1}}
+
+\title{What the Query Remembers: Query Abstraction Governs\\Lexical and Dense Retrieval of Classical Arabic Poetry}
+
+\author{
+  Omar Farouk Zouak \\
+  National School of Artificial Intelligence \\
+  \texttt{omar.zouak@ensia.edu.dz}
+  \And
+  Selma Mani \\
+  National School of Artificial Intelligence \\
+  \texttt{selma.mani@ensia.edu.dz}
+  \AND
+  Larbi Said Chikh \\
+  National School of Artificial Intelligence \\
+  \texttt{larbi.saidchikh@ensia.edu.dz}
+  \And
+  Raid Abderrezak Ouahioune \\
+  National School of Artificial Intelligence \\
+  \texttt{raid.ouahioune@ensia.edu.dz}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+How well a poetry archive can be searched depends on what the user still remembers, not only on what the model understands. We show this for Classical Arabic poetry, benchmarking nine dense encoders and BM25 over two corpora, three indexing modes and two evaluation protocols. Which retriever wins is governed by how much of a poem's wording the query still carries. On tip-of-the-tongue queries BM25 leads every dense encoder, including an 8B state-of-the-art model (0.746 vs.\ 0.717 Recall@5); on abstract queries it falls to eighth out of ten (0.392 vs.\ 0.748). Editing the wording of the same queries shows that this ranking largely reflects query composition: adding one remembered half-verse raises BM25 by 38 points, rewriting the quoted words by hand leaves BM25 level with the 8B encoder, and BM25's sensitivity to remembered wording is significantly steeper than that of the strongest dense encoder. The same axis controls explanation augmentation, whose effect swings from $+37$ to $-39$ points. The mechanism splits by system type: lexical containment predicts BM25's behaviour, while embedding proximity predicts dense encoders. Finally, the field's two standard protocols, known-item retrieval and thematic relevance, dissociate on the same systems, a result reproduced by two blind human annotators and by two open-weights judges, one of them under a rubric with no literal-match criterion. A benchmark that reports one protocol, or one query register, can give a materially wrong picture.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+Classical Arabic poetry, from the pre-Islamic odes to the Abbasid and Andalusian eras, is a central pillar of Arab cultural heritage and a uniquely rich linguistic archive. It also poses distinctive problems for retrieval. Root-and-pattern morphology yields dense variation; diacritics are usually omitted; and rhetorical devices such as \textit{tawriya} (double meaning) and \textit{jin\=as} (paronomasia) fuse literal and symbolic meaning inside the rigid \textit{bayt} (verse) structure. The surface form of a verse is a poor guide to its meaning, which makes poetry an attractive stress test for embedding models that claim to retrieve by meaning rather than wording.
+
+Arabic NLP has advanced quickly, including poetry, but prior work centres on \emph{classification and generation}: meter classification, authorship attribution, and poem composition. \emph{Retrieval} is largely unstudied for Arabic poetry, despite underpinning digital archives, education, and literary scholarship. We set out to answer a practical question, how well modern embedding models search Classical Arabic poetry by meaning, and found that the question as usually posed lacks a single answer.
+
+\paragraph{The finding.} Results on this task are governed largely by a property of the \emph{queries}. Users arrive with different amounts of remembered text: some half-remember a hemistich, others recall only a theme. Where a query sits on this \emph{query-abstraction spectrum} determines which retriever wins, by how much, and whether a standard improvement technique helps or hurts.
+
+Concretely, on tip-of-the-tongue queries a plain BM25 index beats all nine dense encoders, including Qwen3-Embedding-8B, a state-of-the-art multilingual retriever ($0.746$ vs.\ $0.717$ Recall@5); on abstract queries over another corpus, BM25 falls to eighth of ten and the same 8B encoder leads by 36 points ($0.748$ vs.\ $0.392$, $p<10^{-20}$). Because corpus and query register change together in that comparison, we test the register directly within one corpus. Stratifying one query set by whether the query shares a verbatim three-token span with its target poem, BM25 retrieves the gold poem within the top five for \emph{all $80$} quoting queries, while on the $164$ queries that do not quote it is statistically indistinguishable from the 8B encoder. We then edit the same queries. Appending one verbatim half-verse of the target poem to each non-quoting query raises BM25 by $37.8$ points, against $12.8$ to $23.2$ for the 8B encoder; rewriting the quoted words of the quoting queries by hand, at equal length, brings BM25 down from $1.000$ to $0.646$, level with the 8B encoder.
+
+The same axis governs \emph{explanation augmentation}, the natural remedy for figurative text: indexing a short interpretive gloss of each verse instead of the verse. Its effect ranges from $+37$ points where queries are abstract to $-39$ points where they carry remembered wording, and a purely lexical retriever shows the largest swing in both directions.
+
+Finally, we show that the field's two standard evaluation protocols disagree systematically on the same systems, and that blind human relevance judgments reproduce the disagreement rather than resolving it in favour of either protocol.
+
+\paragraph{Contributions.}
+\begin{enumerate}[noitemsep,topsep=2pt,leftmargin=1.4em]
+\item To our knowledge, the first systematic study of retrieval for Classical Arabic poetry: nine dense encoders and a lexical baseline, two corpora, three indexing modes, two evaluation protocols, all from one reproducible pipeline, with a released query benchmark of $502$ known-item and $200$ thematic queries.
+\item The query-abstraction spectrum as an explanatory variable, established by editing the wording of the same queries and by a within-corpus stratification rather than by a cross-corpus correlation, together with a graded account of the mechanism: surface containment governs the lexical retriever, representational proximity governs dense encoders.
+\item Evidence that the two standard evaluation protocols dissociate, validated by two blind human annotators and three LLM judges from two model families, and a deployment recipe whose correct form depends on the query register a system will serve.
+\end{enumerate}
+
+\section{Related Work}
+\label{sec:related}
+
+Most Arabic encoders \citep{antoun-etal-2020-arabert,abdul-mageed-etal-2021-arbert,inoue-etal-2021-interplay} are trained on prose, news or dialect. Poetry-specific work concentrates on classification and generation: authorship attribution \citep{alqurashi-etal-2025-bert}, meter classification \citep{mutawa2025meter}, rhythm-aware composition \citep{elzohbi2025tahdib}, and resources such as the \textit{Diwan} corpus \citep{alonazi2025diwan}. AraPoemBERT \citep{qarah2024arapoembert} targets poetic understanding but not retrieval, and recent taxonomies of poetry NLP list retrieval as a distinct, unaddressed capability \citep{chalamalasetti2025metricalargs}.
+
+On the dense retrieval side, general-purpose multilingual encoders, including gte \citep{li2023gte,zhang2024mgte}, jina-v3 \citep{sturua2024jina}, LaBSE \citep{feng-etal-2022-labse}, BGE-M3 \citep{chen2024bgem3}, multilingual-E5 \citep{wang2024multilinguale5} and Qwen3-Embedding \citep{zhang2025qwen3embedding}, alongside Arabic-oriented models \citep{silma2024embedding,muffakir2025embedding}, are tuned on similarity data dominated by prose. Arabic-centric benchmarks such as ArabicMTEB \citep{bhatia2024swan} broaden dialect and task coverage, but figurative classical verse is not their focus. \textit{Fann or Flop} \citep{alghallabi2025fannorflop} supplies reference explanations of poems but frames the task as comprehension, not retrieval.
+
+That lexical and dense retrievers have complementary failure modes is established in mainstream IR. BEIR \citep{thakur2021beir} found BM25 a strong out-of-domain baseline that many dense models fail to beat, and \citet{sciavolino-etal-2021-simple} showed dense retrievers underperforming BM25 precisely on entity-centric questions, where success requires matching a specific surface form. Analyses of the representational limits of fixed-width dense encoders \citep{luan-etal-2021-sparse} and attempts to give dense retrievers lexical behaviour \citep{chen2021spar} run along the same axis and motivate the sparse-dense hybrids we evaluate in \S\ref{sec:recipe}. We do not claim to have found the axis. What we add is evidence from editing the queries themselves, within one corpus, rather than from comparing datasets that differ in many ways at once; the finding that the same axis flips the sign of document expansion and makes two standard evaluation protocols dissociate; and a measurement where the gap between query and document wording is widest by construction, in figurative verse rather than factoid text. Because this literature documents the effect on naturally occurring queries, our query sets reproduce a known phenomenon rather than manufacture one.
+
+A complementary line of work addresses the gap between queries and documents through expansion. Indexing generated text alongside or instead of a document is a well-established retrieval device: doc2query predicts queries a document should answer and appends them before indexing \citep{nogueira2019doc2query}, while HyDE expands the opposite side, generating a hypothetical document from the query \citep{gao2022hyde}. Explanation augmentation is document expansion with an interpretive gloss, so the technique itself is not new. We study \emph{when and why} it works: its sign and magnitude are set by the query register, which the expansion literature, developed largely on web and open-domain collections where queries are keyword-like, has had little occasion to isolate.
+
+Closely related is the problem of known-item and tip-of-the-tongue retrieval, where a user searches for a specific half-remembered item. This is a recognised task with its own evaluation tradition, formalised in the ToT known-item setting \citep{arguello2021tot} and the TREC Tip-of-the-Tongue track \citep{arguello2023trectot}. Our known-item queries are deliberately of this kind, which makes the presence of remembered wording a modelled property of the task rather than a defect of the benchmark. It is this property that we manipulate in \S\ref{sec:bridge}.
+
+Finally, our thematic evaluation relies on LLM-based judgement, standard for scoring open-ended output but with reliability caveats that depend on judge capacity and rubric design \citep{zheng2023judging}. We treat the judge as a hypothesis to be tested rather than a ground truth, validating it against blind human judgments and against open-weights judges from two other model families (\S\ref{sec:trackb}).
+
+\section{Experimental Setup}
+\label{sec:data}
+
+\subsection{Task Definition}
+\label{sec:task}
+
+Given a natural-language query in Arabic, the task is to retrieve the poem that best matches it. Each poem is segmented into overlapping three-verse chunks. Each chunk is embedded independently, and chunk scores are max-pooled to the poem level.
+
+\subsection{Data}
+\label{sec:datasubsec}
+
+We use two corpora. \textit{Fann or Flop} \citep{alghallabi2025fannorflop} provides poems together with reference explanations, described by its authors as human-written; we refer to these as \emph{FoF explanations} and make no independent claim about their authorship. We keep the $4{,}687$ of its $6{,}984$ poems that have at most 16 verses: longer poems were costly to explain and embed, would dominate a max-pooled index, and several had repetitive verses or explanations. \textit{Diwan} \citep{alonazi2025diwan} is a 14M-verse corpus; for tractability we sample 70 poems from each of the 50 most frequent poets ($3{,}500$ poems). For both corpora we generate a short AI explanation of every verse with Gemini 2.0 Flash, using a fixed instruction that asks for a faithful prose paraphrase and forbids adding information beyond the verse. A co-author audited $50$ random explanations: $60\%$ were faithful, $32\%$ had a minor error and $8\%$ misread the verse (Appendix~\ref{app:corpus}).
+
+We compare three indexing modes: verses (raw verse text, the baseline), AI explanations, and FoF explanations (\textit{Fann or Flop} only), where the interpretive text replaces the verse before embedding. All explanations are generated independently of the queries, and no retriever sees a query at indexing time.
+
+The benchmark contains two known-item query sets, written by the authors under deliberately different instructions, and one thematic set (Table~\ref{tab:data}). Together these define the \emph{query-abstraction spectrum}, the paper's independent variable. \textit{Fann or Flop} queries simulate a user who \emph{half-remembers the poem}: writers saw the poem and were free to include remembered wording, as a real tip-of-the-tongue searcher would \citep{arguello2021tot}. \textit{Diwan} queries were deliberately written as \emph{abstract descriptions} of what a poem is about, with no quotation. The thematic queries name a topic only (``pride and valour'') and were written before the corpora were inspected, so they have no target poem at all.
+
+\paragraph{Provenance.} Both known-item sets were written from the poem text alone. Writers saw only the verses, not the FoF reference explanations or the AI explanations, which did not exist until after the queries were written. The two instructions differed in register and in nothing else. The target poems do not differ from the rest of their corpus in era, genre or length, nor on \textit{Diwan} in poet (all $p>.05$; Appendix~\ref{app:corpus}). That \textit{Fann or Flop} queries overlap the FoF explanations ($C{=}0.461$) more than the verses they were written from ($0.368$) is therefore an independent convergence, not an artifact of the writing process.
+
+We quantify the spectrum with two statistics per query: the longest verbatim token $n$-gram shared with the target poem, and lexical containment $C(Q,D)=|\mathrm{tok}(Q)\cap\mathrm{tok}(D)|/|\mathrm{tok}(Q)|$ on diacritic-stripped normalised tokens. $32.8\%$ of \textit{Fann or Flop} queries share a verbatim three-gram with their target, against $2.7\%$ for \textit{Diwan}, and mean containment differs correspondingly ($0.368$ vs.\ $0.151$). Representative queries, one per register:
+
+\begin{itemize}\setlength\itemsep{1pt}\small
+  \item \textbf{ToT (quoting):} \textarabic{قصيدة هجاء في حبيبة قبيحة مطلعها أكثري أو فأقلي قد مللناك فملي} \\ \textit{(``A satirical poem about an ugly beloved, opening \emph{Say more or say less, we have tired of you, so desist}'')} the opening hemistich is quoted verbatim.
+  \item \textbf{Abstract:} \textarabic{قصيدة فلسفية ترفض فكرة تناسخ الأرواح وتنصح بعدم تصديق ما لا يؤيده العقل} \\ \textit{(``A philosophical poem rejecting the transmigration of souls, counselling trust only in what reason supports'')} no wording is shared with the poem.
+  \item \textbf{Thematic:} \textarabic{الشيب وأثره على نفسية الإنسان} \\ \textit{(``Greying hair and its effect on the psyche'')} no target poem exists.
+\end{itemize}
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\input{tab_data}
+\caption{The query-abstraction spectrum. \%\,quote is the share of queries sharing a verbatim three-token span with the target poem; $C$ is mean query-document containment against verses, AI explanations and FoF explanations. Thematic queries ($n{=}200$) have no target poem and are used only in Track~B.}
+\label{tab:data}
+\end{table}
+
+\subsection{Evaluation}
+\label{sec:eval}
+
+We evaluate under two complementary protocols. Track A is known-item retrieval on the two gold query sets, measured by Recall@1/@5, MRR and nDCG@10 with bootstrap 95\% confidence intervals ($10^4$ resamples) and paired exact McNemar tests. It is judge-independent. Because we report many comparisons, $p$-values for the mode contrasts of Table~\ref{tab:main}, for the quotation-slope differences of \S\ref{sec:bridge} and for the Track~B system comparisons are Holm-corrected within family, a family being the set of comparisons a reader would scan together (Appendix~\ref{app:mult}). Three contrasts that pass uncorrected do not survive this and are shown unstarred. Uncorrected values are labelled where we give them. Track B is thematic exploratory search on the 200 blind topical queries, where no single poem is correct. Retrieved sets are scored by an LLM judge on seven aspects, each scored from 1 to 5, validated against blind human relevance judgments and replicated with two open-weights judges (\S\ref{sec:trackb}).
+
+All systems, corpora, modes and query sets run through a single pipeline that dumps per-query ranked lists, so no table mixes sources. Dense encoders receive diacritic and tatweel stripping only; BM25 additionally receives the orthographic unification standard for Arabic lexical matching. This split is deliberate and measured. Stripping diacritics is essential for every encoder we tested ($+27$ to $+47$ Recall@5 points); the further unification of \textit{alef}, \textit{ya} and \textit{ta-marbuta} hurts all three but varies fourfold in size, from $1.9$ to $8.9$ points (Appendix~\ref{app:norm}). Each encoder uses the query/passage convention prescribed by its own model card.
+
+\section{Track A: Known-Item Retrieval}
+\label{sec:tracka}
+
+In Track A, which system ranks first depends on the query set (Table~\ref{tab:main}). On \textit{Fann or Flop}, BM25 ranks above every dense encoder, including Qwen3-8B ($0.746$ vs.\ $0.717$ Recall@5, a gap that is not itself significant, $p{=}.47$). On \textit{Diwan} the ordering reverses: BM25 falls to eighth of ten and Qwen3-8B leads it by 36 points ($p<10^{-20}$). Corpus and query register change together between these two columns, so this comparison alone cannot say which of them is responsible; \S\ref{sec:bridge} separates them within one corpus. Scaling within one family from Qwen3-0.6B to Qwen3-8B adds $17$ and $22$ points respectively, yet the 8B model still does not surpass BM25 on \textit{Fann or Flop}: capacity alone does not close the gap.
+
+This query-dependence extends to explanation augmentation. On \textit{Diwan}, replacing verses with AI explanations improves every system, by up to $+37$ points (BM25 $0.392\!\rightarrow\!0.760$; all ten gains significant at $p<10^{-4}$). On \textit{Fann or Flop} the same substitution hurts most systems, most severely BM25 ($0.746\!\rightarrow\!0.357$, $-39$ points). The richer FoF explanations behave differently again, helping on \textit{Fann or Flop} where the AI explanations hurt.
+
+\begin{table*}[t]
+\centering\small
+\input{tab_main}
+\caption{Track A, Recall@5, one pipeline throughout. Stars mark a significant change from that system's verse baseline (paired exact McNemar, Holm-corrected across the ten systems within each corpus and contrast): $^{*}p{<}.05$, $^{**}p{<}.01$, $^{***}p{<}.001$. Confidence intervals in Appendix~\ref{app:full}. BM25 ranks first on \textit{Fann or Flop} and eighth on \textit{Diwan}; augmentation reverses sign between the two.}
+\label{tab:main}
+\end{table*}
+
+\section{The Query-Abstraction Effect}
+\label{sec:bridge}
+
+The pattern in \S\ref{sec:tracka} suggests a hypothesis. A query succeeds against a figurative verse to the extent that some bridge exists between them: remembered wording supplies one directly, an interpretive gloss indirectly, by restating the verse in the prose register queries use. If so, retrieval should track the amount of bridge available, the sign of augmentation should follow whether a gloss adds or removes it, and a retriever with no notion of meaning should show the effect most strongly. We test this in two steps within \textit{Fann or Flop}: first by stratifying its existing queries, which shows an association, and then by editing the wording of the same queries, which tests the effect directly.
+
+\subsection{Stratifying the existing queries}
+\label{sec:strat}
+
+We split the 244 \textit{Fann or Flop} queries by whether they share a verbatim three-token span with the target poem (80 do, 164 do not) and re-evaluate every system on each subset (Table~\ref{tab:controlled}). BM25 retrieves the gold poem within the top five for all $80$ quoting queries and drops to $0.622$ without quotation, a swing of $37.8$ points. This is close to a tautology for BM25, but dense encoders do \emph{not} saturate on the same queries (the best reaches $0.863$), and the quantity of interest is the \emph{slope} between the subsets, which is comparable across systems in a way a ceiling is not.
+
+Every system loses accuracy when quotation is removed ($13.5$ to $37.8$ points), so the axis is real for dense encoders too; but BM25's loss is the largest of the ten, and significantly larger than the strongest dense encoder's (difference-in-differences $+16.2$ points, paired bootstrap over $10^4$ resamples, uncorrected $p{=}.005$, Holm-corrected across the nine comparisons $p{=}.045$). No other system differs significantly from Qwen3-8B on this measure. Our claim concerns this interaction rather than either main effect. BM25's slope is also the steepest of the ten under Recall@1, MRR and nDCG@10, with differences of $+0.18$, $+0.16$ and $+0.14$ against Qwen3-8B (uncorrected $p{=}.009$, $.006$, $.009$; Holm-corrected $.085$, $.050$, $.079$; Appendix~\ref{app:robust}).
+
+On this split, \textit{Fann or Flop}'s aggregate ranking reflects its query mix. BM25's overall lead comes entirely from the quoting subset: it beats Qwen3-8B there ($1.000$ vs.\ $0.863$, exact McNemar $p{=}.001$), while on the $164$ non-quoting queries the two are statistically indistinguishable ($0.622$ vs.\ $0.646$, $p{=}.69$), as are their aggregate scores ($0.746$ vs.\ $0.717$, $p{=}.47$). Repeating the split at spans of two to five tokens leaves BM25's slope significantly steeper than Qwen3-8B's throughout ($p$ between $.0001$ and $.049$; Appendix~\ref{app:threshold}).
+
+\subsection{Editing the same queries}
+\label{sec:edits}
+
+A stratification compares different queries, which may also differ in specificity or in the difficulty of their target poems. We therefore change the wording of the same queries while keeping each information need and target poem fixed (Table~\ref{tab:edits}; construction details in Appendix~\ref{app:edits}).
+
+\paragraph{Adding wording.} To each of the 164 non-quoting queries we append one verbatim half-verse of its target poem, taken from the opening, a middle or the final verse. BM25 gains $37.8$ points at every position and reaches $1.000$, so its gain is capped. Qwen3-8B gains $23.2$, $20.7$ and $12.8$ points, and the difference is significant at every position ($p\leq.004$). Dense encoders gain most from opening half-verses and least from final ones; BM25 gains the same wherever the half-verse comes from. Only gte, at the opening position, gains slightly more than BM25.
+
+\paragraph{Removing wording.} A co-author rewrote by hand the quoted words of the 80 quoting queries, keeping the information need and any proper names. Of the 80, 79 were usable (one query is a quotation from start to end), and mean query length is preserved ($10.9$ to $11.3$ tokens). BM25 falls from $1.000$ to $0.646$ and Qwen3-8B from $0.861$ to $0.671$, a significant difference ($-0.165$, $p{=}.007$) that leaves the two level, as on the non-quoting subset. Rewrites produced by an LLM and checked by a second co-author agree ($55$ valid rewrites, $p{=}.006$). One system falls further than BM25: gte drops from $0.785$ to $0.405$, so BM25 is the most wording-dependent system on average but not uniquely so.
+
+\begin{table}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\input{tab_edits}
+\caption{Change in Recall@5 on \textit{Fann or Flop} when the same queries are edited. Left: one verbatim half-verse of the target poem appended to each non-quoting query, taken from the opening, a middle or the final verse. Right: the quoted words of the quoting queries rewritten by hand at equal length. Last row: BM25's change minus Qwen3-8B's (paired bootstrap; $^{**}p{<}.01$, $^{***}p{<}.001$).}
+\label{tab:edits}
+\end{table}
+
+\paragraph{Other query properties.} In a per-query logistic model over all 502 known-item queries, controlling for query length, proper nouns, target-poem length, target confusability (similarity of the target to its nearest neighbour in the corpus) and corpus leaves the containment coefficient essentially unchanged for all ten systems, and the overlap features account for $59$ to $85\%$ of the explained variance (Appendix~\ref{app:robust}).
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{2.25pt}
+\input{tab_controlled}
+\caption{Left: verse-mode Recall@5 on \textit{Fann or Flop}, stratified by verbatim quotation, with slope $\Delta$ and its difference against Qwen3-8B (paired bootstrap). Right: within-query Spearman $\rho$ between overlap change and retrieval change (\textit{Diwan}, AI explanations); bold marks the better predictor. $\dagger$gte's $\rho_{\mathrm{emb}}$ is not independent of the measure (Appendix~\ref{app:pred}).}
+\label{tab:controlled}
+\end{table}
+
+\subsection{A graded mechanism}
+\label{sec:graded}
+
+The augmentation effect follows the same axis: substituting AI explanations costs BM25 $55$ points on quoting queries but only $31$ without them, and becomes positive for several dense encoders once quotation is removed. The effect is graded, not binary (Figure~\ref{fig:mech}a): verse-mode Recall@5 rises monotonically across query-verse containment quartiles on both corpora, and AI explanations flatten the \textit{Diwan} curve, lifting the most figurative quartile from $0.271$ to $0.726$. Augmentation helps most where the raw verse offers the least.
+
+Retrieval here is not only surface matching. For each query we compute the change in query-document overlap produced by an explanation under two measures: lexical containment and the cosine between query and document embeddings. We then correlate each with the per-query change in retrieval success (Table~\ref{tab:controlled}, right; Figure~\ref{fig:pred}).
+
+Both measures predict retrieval success, and every correlation is positive, but they split cleanly by system type. For BM25, lexical containment is the stronger predictor ($\rho=0.61$ vs.\ $0.35$ on \textit{Diwan}), and its lexical $\rho$ exceeds that of every dense encoder in all three settings. The embedding measure is the better predictor for all nine dense encoders on \textit{Diwan} and eight of nine on \textit{Fann or Flop} (a near-tie for Qwen3-0.6B). The bridge is therefore a surface phenomenon for the lexical retriever and a representational one for dense encoders, and the lexical measure alone would overstate the case.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig_mechanism_a.pdf}\\[6pt]
+\includegraphics[width=\columnwidth]{figures/fig_mechanism_b.pdf}
+\caption{Top: Verse-mode Recall@5 rises monotonically with query-verse containment on both corpora; AI explanations flatten the curve on \textit{Diwan}. Bottom: The same systems on \textit{Fann or Flop}, split by whether the query quotes the poem.}
+\label{fig:mech}
+\end{figure}
+
+\section{Track B: Thematic Retrieval}
+\label{sec:trackb}
+
+Track A measures whether a system can recover a specific poem, but cannot say whether retrieved poems are actually about what was asked. That is what an exploratory user wants, and what Track B evaluates. Here we score each system's top-3 results on the 200 blind thematic queries, for which no gold poem exists, using Gemini 3.5 Flash as judge on seven aspects scored from 1 to 5. Each poem is shown to the judge as its first six verses. Track B claims are restricted to verse mode, where no model-generated text is shown to the judge, so self-preference toward our AI explanations, which a different version of the same model family generated, cannot arise.
+
+\input{sec_trackb_results}
+
+\section{The Dissociation}
+\label{sec:dissoc}
+
+\input{sec_dissociation}
+
+\section{Fusion and Deployment}
+\label{sec:recipe}
+
+If the query register decides which signal is useful, a practical system should combine signals rather than choose one. We test reciprocal-rank fusion \citep{cormack2009rrf} over a verse index, an explanation index and a BM25 arm (Table~\ref{tab:fusion}, strongest encoder). Fusing explanations with verses helps everywhere, making it a safe default. Adding a lexical arm does not. Comparing the best configuration that includes a BM25 arm against the best that excludes one, the lexical arm is worth $+6.1$ points on \textit{Fann or Flop} ($0.885$ vs.\ $0.824$) and costs $9.7$ on \textit{Diwan} ($0.833$ vs.\ $0.930$, where the explanation index alone is best). The best \textit{Fann or Flop} configuration reaches $0.885$, against $0.746$ for the best single system. The pattern holds with every dense encoder in place of Qwen3-8B: the lexical arm helps on \textit{Fann or Flop} for all nine ($+6.1$ to $+23.4$ points) and hurts on \textit{Diwan} for all nine ($-2.7$ to $-9.7$).
+
+No single recipe is best everywhere. An archive serving readers who half-remember lines should keep a lexical arm; one serving thematic browsing should not.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\input{tab_fusion}
+\caption{Reciprocal-rank fusion over index configurations, Qwen3-8B. $\oplus$ denotes RRF ($k{=}60$). Fusing explanations is safe everywhere; adding a lexical arm helps only where queries carry remembered wording.}
+\label{tab:fusion}
+\end{table}
+
+\section{Discussion}
+\label{sec:discussion}
+
+A single Recall@5 figure for ``semantic search over Arabic poetry'' is not a property of a system alone. It is a joint property of the system and the register of the queries it was measured on, and the two standard protocols in use disagree on the same systems.
+
+On the benchmarking side, query provenance should be reported and, ideally, manipulated. The verbatim-overlap statistic we use costs nothing to compute and exposes the confound directly; we recommend reporting it alongside any known-item result on literary text. Known-item retrieval and thematic relevance should also be reported together, since each alone supports a defensible but opposite claim about whether dense retrieval is worth its cost.
+
+Our queries were written by the authors. The results therefore show how retrieval systems behave under quotation-like and abstract queries, not how often each kind occurs among real users of a poetry archive. Measuring that mix, with queries collected from real users, is the natural next step, and it would tell an archive which recipe of \S\ref{sec:recipe} to deploy.
+
+The queries are also in contemporary Arabic, while the poems range from the pre-Islamic period to the modern era. On \textit{Fann or Flop}, at equal lexical overlap and query length, dense encoders do worse on older poetry ($+0.27$ log-odds of success per era step towards the present, $p{=}.010$), while BM25 shows no such trend ($p{=}.14$; interaction $p{=}.015$; Appendix~\ref{app:corpus}). This fits a temporal gap between modern queries and classical vocabulary that affects learned representations more than exact matching. It rests on one corpus and four coarse era bins, so we treat it as exploratory.
+
+On the modelling side, current encoders are strong when queries are abstract, but an 8B model still cannot beat a bag of words when the query carries remembered wording, because surface matching is nearly optimal there. The open problem is the non-quoting, most figurative queries, where the best system reaches roughly $0.65$, and our benchmark isolates that slice.
+
+\section{Conclusion}
+
+We presented what is, to our knowledge, the first systematic study of retrieval over Classical Arabic poetry. Which retriever wins, and whether explanation augmentation helps, is governed by how much of a poem's wording the query still carries. Editing the same queries confirms it: adding remembered wording helps the lexical retriever far more than the strongest dense encoder, and removing it erases the lexical retriever's lead. A corpus-level ranking therefore reports its query mix as much as its systems. The two evaluation protocols dissociate, a result reproduced by two human annotators and three LLM judges.
+
+\section*{Limitations}
+
+Known-item evaluation assumes one correct poem per query, although abstract queries may admit several acceptable poems. On $50$ queries where the strongest system missed the gold poem, a blind annotator judged that system's top-1 result a fully acceptable answer in $34\%$ of cases (95\% CI $[22,48]$) and at least partly acceptable in $72\%$. Twelve control items showing the gold poem itself, shuffled among the rest, were judged fully acceptable in $11$ of $12$, so the annotator was discriminating rather than lenient. The rate is higher on the abstract corpus ($0.40$) than on the tip-of-the-tongue one ($0.28$). Applying each corpus its own rate, absolute Recall@5 for the best system is conservative ($0.717\!\rightarrow\!0.813$ on \textit{Fann or Flop}, $0.748\!\rightarrow\!0.834$ on \textit{Diwan}), and the quotation interaction of \S\ref{sec:strat} shrinks from $+0.16$ to $+0.11$ but keeps its sign. Paired system comparisons are unaffected.
+
+Both query sets were written by the authors rather than elicited from real users. The tip-of-the-tongue set simulates remembered wording, and the abstract set reflects one team's notion of abstractness, so while the query-abstraction spectrum is real and measured, its endpoints are constructed, and we cannot say how often each register occurs in real use. The edits of \S\ref{sec:edits} hold the information need fixed, but the hand rewrites come from a single co-author.
+
+Human relevance annotation covers 126 items over 20 queries. Two authors graded all of them with moderate agreement (quadratic-weighted $\kappa{=}0.53$), which supports the overall Track~B ordering but not fine-grained comparisons. The open-weights judges cover half of the thematic queries, and the judges agree least on the two aspects that call for the most interpretation (metaphor understanding, literal match), so per-aspect claims are weaker than the overall ordering. The third judge, Qwen3-32B, comes from the same model family as two of the retrievers, although it never sees system identity.
+
+The AI explanations come from a single model and are imperfect: in our audit $8\%$ misread the verse and $20\%$ added substantive content. BM25, which is insensitive to explanation quality, reproduces the same augmentation pattern, so the pattern is unlikely to be an artifact of explanation quality, but we did not test other generators. The \textit{Diwan} sample over-represents frequent poets, does not represent the full corpus, and contains $274$ poems whose text duplicates another poem's; counting a duplicate of the gold poem as correct changes verse-mode Recall@5 by at most $0.4$ points for one system and not at all for the other nine. Finally, the model that generated our explanations was withdrawn from its API during this work, so that step cannot be rerun with the same model; we release the generated text and all per-query judge outputs for this reason.
+
+\section*{Ethical Considerations}
+
+This work supports the preservation, exploration and teaching of Classical Arabic poetry. Automated retrieval and model-generated explanations can misread metaphorical, religious or culturally sensitive language; our own analysis shows that current systems often match on surface form rather than meaning, and that a minority of generated explanations misread the verse, so such tools should aid rather than replace human literary expertise. Our \textit{Diwan} sample over-represents frequently anthologised poets and may underperform on marginal traditions. Annotation was performed by two of the authors; no external annotators were recruited or compensated.
+
+\section*{AI Usage Disclosure}
+
+AI assistants were used for coding support and for drafting and editing prose. All experiments were designed and run by the authors, and every number in this paper is recomputed from per-query logs by the released scripts.
+
+\section*{Author Contributions}
+
+Omar Farouk Zouak conceived and designed the study, built the query benchmark and the explanation-augmented corpora, wrote the retrieval and evaluation code, ran most of the experiments, carried out the analysis and wrote most of the paper. Omar Farouk Zouak also designed and ran the additional experiments reported here (the edited queries, the third judge and neutral rubric, the covariate models and the corpus checks) and prepared the human evaluation tasks.
+
+Selma Mani, Larbi Said Chikh and Raid Abderrezak Ouahioune contributed to parts of the writing, ran evaluations of some models with the existing code, and ran the open-weights judges. Of the three, Selma Mani contributed the most and Raid Abderrezak Ouahioune the least. In addition, Selma Mani graded all 126 thematic items as the second annotator and independently recomputed the judge-agreement analysis; Larbi Said Chikh wrote the hand rewrites of the quoting queries and independently reimplemented the slope and edited-query tests; and Raid Abderrezak Ouahioune audited 50 generated explanations, rated the LLM rewrites and independently reimplemented the covariate regression.
+
+% acl.sty already issues \bibliographystyle{acl_natbib}. Declaring it again here puts a second
+% \bibstyle in main.aux, which makes BibTeX abort and produces a PDF with no References section.
+\bibliography{refs}
+
+\appendix
+
+\section{Reproducibility}
+\label{app:repro}
+Code, per-query ranked lists, all judges' per-query outputs, the annotation and spot-check guidelines with their completed judgments, the edited queries, and the query benchmark are available at \url{https://github.com/Ellzo/what-the-query-remembers}. Every number is recomputed from per-query rank dumps by released scripts. The pipeline emits one file per (system, corpus, indexing mode, query set) containing the top-100 poem ids, scores and the rank of the gold poem; all metrics, confidence intervals, significance tests, stratifications, fusion variants and figures are derived from those files.
+
+\paragraph{Computational budget.} All local computation ran on one NVIDIA GeForce RTX 5090 (32\,GB). No model was trained or fine-tuned; every model is used off the shelf for inference. Indexing and retrieval for the nine dense encoders, over both corpora, all indexing modes and both query sets, takes $1{,}568$\,s of GPU time in total, of which Qwen3-Embedding-8B alone accounts for $852$\,s; BM25 runs on CPU in under a minute. The second Track~B judge, Gemma-3-27B-it quantised to 4 bits, takes $66$ minutes for its $2{,}000$ judgments at batch size 6. The third judge, Qwen3-32B quantised to 4 bits, runs on the same GPU. The normalisation ablation of Appendix~\ref{app:norm} adds under $40$ minutes of wall clock, including model downloads. Figures reported here are wall clock on an otherwise idle machine.
+
+\section{Normalisation Ablation}
+\label{app:norm}
+Measured on \textit{Diwan}, verse mode, under three settings: raw text with diacritics retained; light normalisation, stripping diacritics and tatweel; and full normalisation, which additionally unifies \textit{alef}/\textit{ya}/\textit{ta-marbuta} and deletes non-Arabic characters.
+
+\begin{center}\small
+\begin{tabular}{lccc}
+\toprule
+Recall@5 & raw & light & full \\
+\midrule
+jina-v3 & 0.178 & \textbf{0.523} & 0.434 \\
+gte & 0.023 & \textbf{0.488} & 0.469 \\
+LaBSE & 0.093 & \textbf{0.368} & 0.333 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Two conclusions, of different strength. Diacritic removal is essential, and the effect is very large and consistent across all three encoders ($+27$ to $+47$ Recall@5 points), which is unsurprising: \textit{Diwan} verses are diacritised and the models' subword vocabularies are not. The further orthographic unification points the same way for all three but varies in size by a factor of four, costing $8.9$ points on jina-v3, $3.5$ on LaBSE and $1.9$ on gte. It is also not uniformly harmful: gte's Recall@1 improves under it ($0.256\!\rightarrow\!0.318$) while LaBSE's falls ($0.209\!\rightarrow\!0.167$). We therefore apply light normalisation to every dense encoder, which is the better Recall@5 setting for all three, and full normalisation to BM25 and the lexical overlap measures, where collapsing orthographic variants is standard. The nine-point cost measured on jina-v3 should not be generalised to dense encoders as a class.
+
+\section{Which Overlap Measure Predicts}
+\label{app:pred}
+Figure~\ref{fig:pred} shows, per system, the within-query Spearman correlation between the change in query-document overlap induced by an explanation and the change in retrieval success, under a lexical and an embedding measure (\textit{Diwan}, AI-explanation mode). BM25 is the only system for which the lexical measure is the stronger predictor.
+
+Among dense encoders on \textit{Diwan}, the more capable the model, the less its behaviour is governed by surface overlap ($\rho=-0.73$ between verse-mode Recall@5 and lexical $\rho$, $p=.025$, $n=9$). This does not hold on \textit{Fann or Flop} ($p>0.5$), so it is a property of the abstract-query regime only, and it rests on nine points.
+
+One caveat on the embedding measure. It is computed with a single fixed encoder (gte) for every system, so that all systems are scored on the same axis. gte is itself one of the ten systems, and its own $\rho_{\mathrm{emb}}$ is consequently the highest in all three settings ($0.60$, $0.56$, $0.57$ against a next-highest of $0.50$, $0.41$, $0.38$); that row is not independent of the measure and should not be read as evidence about gte. Every conclusion above survives dropping it: the embedding measure still predicts better for the remaining eight dense encoders on \textit{Diwan} and seven of eight on \textit{Fann or Flop}, and BM25 remains the only system whose behaviour the lexical measure predicts best, with a lexical $\rho$ above every dense encoder's.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig_predictors.pdf}
+\caption{Within-query $\rho$ per system under a lexical and an embedding overlap measure.}
+\label{fig:pred}
+\end{figure}
+
+\section{Multiple Comparisons}
+\label{app:mult}
+We report $57$ hypothesis tests in six families: the mode contrasts of Table~\ref{tab:main} (one family per corpus and contrast, ten systems each), the quotation-slope differences of \S\ref{sec:strat} (nine systems against the reference encoder), and the Track~B comparisons of BM25 against each dense encoder (one family per corpus). Holm-Bonferroni correction within each family leaves $36$ of the $39$ nominally significant tests significant. The three that do not survive are all \textit{Fann or Flop} AI-explanation contrasts, for BGE-M3 ($p{=}.009\!\rightarrow\!.051$), mE5-large ($.033\!\rightarrow\!.136$) and Muffakir-v2 ($.027\!\rightarrow\!.136$); Table~\ref{tab:main} shows them unstarred. No claim in the paper depends on them. The interaction of \S\ref{sec:strat} is the smallest $p$-value in its family, so Holm and Bonferroni coincide there at $p{=}.045$. Per-test and corrected values for all $57$ are released as \texttt{eacl\_multiplicity.csv}. The edited-query tests of \S\ref{sec:edits} and the analyses of Appendices~\ref{app:robust} and~\ref{app:corpus} are reported uncorrected, except the metric-robustness test, which is Holm-corrected across the nine comparisons within each metric.
+
+\section{Threshold Robustness of the Stratification}
+\label{app:threshold}
+\S\ref{sec:strat} splits \textit{Fann or Flop} on whether the query shares a verbatim three-token span with the target poem. Table~\ref{tab:appthreshold} repeats the split at spans of two to five tokens. Two things are stable: BM25 retrieves the gold poem within the top five for \emph{every} quoting query at the three-, four- and five-token thresholds (and for $140$ of $146$ at two tokens), and its quotation slope stays significantly steeper than Qwen3-8B's ($p{=}.0001$, $.005$, $.006$, $.049$ for thresholds two to five). The non-quoting comparison behaves as the graded account predicts: at a two-token threshold the non-quoting subset is the most abstract and Qwen3-8B leads it significantly ($0.571$ vs.\ $0.429$, $p{=}.039$); as the threshold rises, queries with two- and three-token overlaps re-enter the non-quoting subset and the gap closes to parity. BM25's slope is bounded above by its perfect quoting-subset score, so at the four- and five-token thresholds, where its non-quoting score has risen to $0.70$ and $0.72$, three weaker encoders show nominally larger slopes; its slope remains significantly larger than that of the strongest dense encoder throughout.
+
+\begin{table}[h]
+\centering\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\input{tab_app_threshold}
+\caption{Verse-mode Recall@5 on \textit{Fann or Flop}, split at verbatim spans of $\geq$2 to $\geq$5 tokens. Subset sizes are given under each threshold.}
+\label{tab:appthreshold}
+\end{table}
+
+\section{Construction of the Edited Queries}
+\label{app:edits}
+All edits apply to \textit{Fann or Flop}, verse mode, and are run through the same pipeline as the main results. Before any edited run, the unedited queries are re-run and must reproduce the released ranks of all ten systems exactly.
+
+\paragraph{Adding a half-verse.} Each of the 164 non-quoting queries is extended with the phrase \textarabic{ومن أبياتها:} (``and among its verses:'') followed by one verbatim half-verse of the target poem. Three variants take the half-verse from the opening verse, a middle verse or the final verse. Nothing else in the query changes.
+
+\paragraph{Hand rewrites.} A co-author rewrote the quoted words of each of the 80 quoting queries in their own words, keeping the information need and any proper names, with a live check that no verbatim three-token span of the target poem remained. One query is a quotation from start to end and was marked impossible, leaving 79.
+
+\paragraph{LLM rewrites.} Qwen3-32B rewrote only the quoted span of each quoting query under the same constraints. A second co-author rated every rewrite for whether it kept the information need and whether remembered wording was left. On the $55$ rewrites judged to keep the information need at least in part and to leave at most part of the quoted wording, BM25 loses $0.473$ and Qwen3-8B $0.255$ ($p{=}.006$).
+
+\paragraph{Deletion (control).} Deleting the tokens a quoting query shares with its poem removes information as well as wording and shortens the queries from $10.9$ to $6.4$ tokens on average, so we report it only as a control: BM25 loses $0.600$ and Qwen3-8B $0.413$ ($p{=}.008$).
+
+\section{Metric Robustness and Query Covariates}
+\label{app:robust}
+Table~\ref{tab:appmetrics} repeats the quotation-slope test of \S\ref{sec:strat} on four metrics. BM25's slope is the steepest of the ten on all four. After Holm correction across the nine comparisons, Recall@5 and MRR are at or below $.05$ and Recall@1 and nDCG@10 are at about $.08$.
+
+\begin{table}[h]
+\centering\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\input{tab_app_metrics}
+\caption{Quotation slope (quoting minus non-quoting subset) on \textit{Fann or Flop}, verse mode, and BM25's difference against Qwen3-8B (paired bootstrap, $10^4$ resamples).}
+\label{tab:appmetrics}
+\end{table}
+
+For the covariate analysis we fit, per system, a logistic model of Recall@5 success over the 502 known-item queries, with z-scored predictors and standard errors clustered by query. The controls are query length, the number of proper nouns in the query (tagged by Qwen3-32B, a noisy covariate), target-poem length, target confusability (TF-IDF cosine between the target and its nearest other poem, computed without the query) and a corpus indicator. Adding them changes the containment coefficient by less than $0.07$ log-odds per standard deviation for every system, and it stays significant at $p<10^{-4}$ for all ten. A Shapley decomposition attributes $59$ to $85\%$ of each system's explained variance to the overlap features (containment, longest shared span, quoted fraction). In a pooled model, the interaction of containment with BM25 is $+2.99$ log-odds per standard deviation ($p<10^{-15}$).
+
+\section{Full Track A Results}
+\label{app:full}
+Table~\ref{tab:apptracka} gives Recall@1/@5, MRR and nDCG@10 with bootstrap 95\% confidence intervals ($10^4$ resamples) for every system, corpus and indexing mode. Per-subset results are released with the code as \texttt{eacl\_trackA.csv}.
+
+\begin{table*}[t]
+\centering\scriptsize
+\setlength{\tabcolsep}{3pt}
+\input{tab_app_trackA}
+\caption{Track A in full, with bootstrap 95\% confidence intervals.}
+\label{tab:apptracka}
+\end{table*}
+
+\section{The Second and Third Judges}
+\label{app:judge2}
+Track B was repeated with Gemma-3-27B-it, quantised to 4 bits and run on one consumer GPU, over a random $100$ of the $200$ thematic queries for all ten systems and both corpora ($2{,}000$ cells, no parse failures). The rubric text is identical to the primary judge's; only the response format differs, in that the second judge returns the seven scores with a single short justification rather than seven, which keeps local decoding tractable. Table~\ref{tab:appjudge2} gives system means under both judges and Table~\ref{tab:appjudge2rho} the cell-level agreement per aspect.
+
+Agreement is high on the five aspects that ask about aboutness ($\rho$ between $0.65$ and $0.71$) and much lower on metaphor understanding ($0.26$) and literal match ($0.29$). The two aspects on which the judges agree least are the two that ask for the most interpretive judgement, and conclusions that rest on them are correspondingly weaker. The overall-quality ordering, which carries the Track B claim, is not one of them.
+
+The third judge, Qwen3-32B quantised to 4 bits, scores the same 100 queries twice: once with the original rubric, and once with a neutral rubric that removes the literal-match aspect and its sentence about implicit meaning and changes nothing else. Table~\ref{tab:appjudges} gives system means on the shared queries under all judges.
+
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\input{tab_app_judges}
+\caption{Track B overall quality on the 100 thematic queries scored by every judge, verse mode: Gemini 3.5 Flash (Gem.), Gemma-3-27B-it (Gem-3), and Qwen3-32B under the original (Q-orig) and neutral (Q-neut) rubrics. The last row gives Kendall $\tau$ of each system ordering with Gemini's.}
+\label{tab:appjudges}
+\end{table*}
+
+\begin{table*}[!t]
+\centering\small
+\input{tab_app_trackb}
+\caption{Track B by judge aspect, verse mode, $n{=}200$ queries per cell. All aspects are scored from 1 to 5 with 5 highest; on \textit{lit.\ match} a high score means the results repeat the query's wording, which the rubric treats as evidence against implicit understanding. Lexical overlap can coexist with genuine relevance, and no claim in the paper rests on this aspect: the ordering from the aboutness aspects alone matches the overall one.}
+\label{tab:appaspects}
+\end{table*}
+
+\begin{table}[h]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\input{tab_app_judge2}
+\caption{Track B overall quality under the primary judge (Gemini 3.5 Flash, $n{=}200$) and the open-weights second judge (Gemma-3-27B-it, $n{=}100$). Scales differ; the orderings do not (Kendall $\tau{=}{+}0.85$ and ${+}0.81$).}
+\label{tab:appjudge2}
+\end{table}
+
+\begin{table}[t!]
+\centering\small
+\input{tab_app_judge2_rho}
+\caption{Cell-level Spearman agreement between the two judges, $n{=}2{,}000$ paired cells.}
+\label{tab:appjudge2rho}
+\end{table}
+
+\section{Track B by Judge Aspect}
+\label{app:aspects}
+Table~\ref{tab:appaspects} breaks Track B out by all seven rubric aspects. Two patterns matter for internal validity. First, BM25 is last of ten on every aspect that requires aboutness on \textit{Fann or Flop} and on all but one on \textit{Diwan}, with its largest deficits on metaphor understanding and semantic coverage ($1.1$ to $1.2$ points below the best system), which is where an aboutness-blind system should fail. Second, on \emph{direct textual relevance}, the aspect that measures how far a system's results simply repeat the query's wording, BM25 scores highest of all ten systems on both corpora ($4.26$ on \textit{Fann or Flop}, $4.48$ on \textit{Diwan}). The judge therefore identifies BM25 as the most surface-matching system while scoring it lowest overall. This confirms the mechanism through a separate measurement channel, and it shows that the low overall score is not a general dislike of lexical retrieval.
+
+\section{Human Annotation}
+\label{app:human}
+\textbf{Thematic relevance.} Twenty thematic queries, ten per corpus, were pooled across three systems (BM25, jina-v3 and their reciprocal-rank fusion), top 3 each, deduplicated to 126 items and shuffled with system identity removed. Two authors graded every item independently on the 0 to 2 scale of Appendix~\ref{app:annot}. They agree moderately: quadratic-weighted $\kappa{=}0.53$, with $90\%$ of items within one point. The second rater is more lenient (mean $0.90$ against $0.68$), but both rank the systems the same way, with BM25 below jina-v3 for each rater ($p{=}.005$ and $p{=}.028$, paired Wilcoxon), and both agree with the judge's overall-quality score on the $40$ shared cells ($\rho{=}0.75$ and $0.64$).
+
+\textbf{Known-item spot check.} For $50$ queries where the strongest system missed the gold poem, one author judged whether that system's top-1 result would satisfy the query, blind to which items were controls. The results are given in the Limitations section.
+
+\section{Corpus Checks}
+\label{app:corpus}
+\textbf{Where the quoted spans sit.} Of the $80$ quoted spans in \textit{Fann or Flop}, $37$ come from the opening verse, $41$ from a middle verse and $2$ from the final verse, and $77$ occur in no other poem of the corpus. BM25 retrieves the gold poem for all of them. The edits of \S\ref{sec:edits} vary the position directly.
+
+\textbf{Era.} On \textit{Fann or Flop}, we group the era labels into four ordered bins and fit a logistic model of Recall@5 success that controls for query-verse containment and query length. Pooled over the nine dense encoders (system fixed effects, errors clustered by query), success rises by $+0.27$ log-odds per step towards the present ($p{=}.010$). BM25 shows no such trend ($-0.36$, $p{=}.14$), and the difference between the two is significant ($p{=}.015$).
+
+\textbf{Poet frequency.} As a rough proxy for exposure during pretraining, the number of poems a poet has in \textit{Fann or Flop} (from $1$ to $612$) is unrelated to retrieval success for every system ($|\rho|\leq.08$, all $p>.2$). \textit{Diwan} cannot test this, since every poet contributes $70$ poems.
+
+\textbf{Target selection.} The gold poems do not differ from the rest of their corpus in era, genre or length on \textit{Fann or Flop}, nor in era, genre, length or poet on \textit{Diwan} (chi-square and Mann-Whitney tests, all $p>.05$).
+
+\textbf{Duplicates.} In \textit{Diwan}, $274$ of the $3{,}500$ poems share their normalised text with another poem ($135$ groups), and $28$ gold poems have such a twin. Counting a twin of the gold poem as correct changes verse-mode Recall@5 by $0.4$ points for one system and leaves the other nine unchanged. \textit{Fann or Flop} has no duplicates.
+
+\textbf{Explanation audit.} A co-author rated $50$ random verse explanations against their verses. Of these, $60\%$ were faithful, $32\%$ had a minor error and $8\%$ misread the verse; $20\%$ added substantive content not in the verse. The failure modes were inverted meaning, invented names and classical vocabulary read in its modern sense.
+
+\section{Annotation Guidelines}
+\label{app:annot}
+\textbf{Thematic relevance.} Annotators saw a theme and a shuffled, deduplicated pool of poems retrieved for it by several anonymised systems, and graded each poem: 2 = clearly on-theme, 1 = partly or tangentially on-theme, 0 = off-theme. The instructions stated explicitly that lexical overlap with the theme is not evidence of relevance, that a poem repeating the theme's words while being about something else scores 0, and that a poem never using them while genuinely being about the theme scores 2.
+
+\textbf{Known-item spot check.} Each item showed one query and one retrieved poem, and asked only whether that poem would satisfy someone issuing the query: 2 = yes, 1 = partly or arguably, 0 = no. The instructions stated that the annotator would not be told which items showed the labelled gold poem and that guessing was counter-productive, and that a query may legitimately describe more than one poem, so a genuine answer scores 2 even if a different poem was intended. Both guideline documents and the completed judgments are released.
+
+\section{LLM Prompts and Rubric}
+\label{app:prompts}
+\textbf{Explanation generation.} Each verse is paired with a fixed instruction asking for a concise, faithful prose paraphrase of the verse's meaning in Arabic, adding no information beyond the verse.
+
+\textbf{Judge rubric.} The judge receives a query and the retrieved poems, each given as its first six verses, and scores seven aspects from 1 to 5, each with a one-line justification: semantic relevance, thematic coherence, metaphor understanding, semantic coverage, direct textual relevance (where 1 is best, i.e.\ least literal matching), precision, and overall quality. The neutral rubric used with the third judge drops direct textual relevance. Exact prompt strings are released with the code.
+
+\end{document}

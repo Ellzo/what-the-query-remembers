@@ -1,16 +1,14 @@
-"""The lexical-bridge mechanism (paper Section 5), recomputed on the unified pipeline.
+"""The lexical-bridge mechanism (paper section 5.3), on the unified pipeline.
 
 Three analyses:
-  (a) WITHIN-QUERY: per-query change in query-document lexical containment (explanation minus
+  (a) Within query: per-query change in query-document lexical containment (explanation minus
       verses) against the per-query change in retrieval success, Spearman, per corpus and model.
-      This is the length-robust core of the claim: a query benefits from augmentation to the
-      degree the explanation raises its overlap with the target.
-  (b) DOSE-RESPONSE: R@5 by quartile of query-verse containment.
-  (c) EMBEDDING-LEVEL CONTROL (N3): the same within-query analysis using a *semantic* overlap
-      measure (cosine between the query embedding and the gold document embedding) instead of
-      lexical containment. If lexical containment predicts the retrieval change at least as well
-      as the embedding measure does, the bridge really is a surface-form effect - which is the
-      predictable "containment is a crude proxy" objection, answered with a number.
+      A query benefits from augmentation to the degree the explanation raises its overlap with
+      the target.
+  (b) Dose-response: R@5 by quartile of query-verse containment.
+  (c) Embedding control: the same within-query analysis with a semantic overlap measure (cosine
+      between the query embedding and the gold document embedding) instead of lexical
+      containment, to test whether the bridge is a surface-form effect for every system.
 
 Writes results/derived/eacl_mechanism.csv and eacl_dose_response.csv
 """

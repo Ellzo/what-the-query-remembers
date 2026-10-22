@@ -1,0 +1,12 @@
+\begin{tabular}{l cc c c cc}
+\toprule
+& \multicolumn{2}{c}{slope $\Delta$} & & & & \\
+\cmidrule(lr){2-3}
+Metric & BM25 & Qwen3-8B & difference & 95\% CI & $p$ & $p_{\mathrm{Holm}}$ \\
+\midrule
+R@1 & 0.419 & 0.237 & $+0.182$ & [0.040, 0.325] & 0.009 & 0.085 \\
+R@5 & 0.378 & 0.216 & $+0.162$ & [0.046, 0.285] & 0.005 & 0.045 \\
+MRR & 0.389 & 0.229 & $+0.160$ & [0.045, 0.277] & 0.006 & 0.050 \\
+nDCG@10 & 0.371 & 0.231 & $+0.140$ & [0.035, 0.247] & 0.009 & 0.079 \\
+\bottomrule
+\end{tabular}

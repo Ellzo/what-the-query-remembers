@@ -1,9 +1,11 @@
-"""Appendix tables. These do not count against the 8-page limit, and every prior review round
-asked for at least one of them (CIs, judge rubric detail, reproducibility).
+"""Appendix tables, written to paper/tab_app_*.tex.
 
-  tab_app_threshold.tex  the quotation split repeated at n-gram thresholds 2..5   (§5 robustness)
+  tab_app_threshold.tex  the quotation split repeated at n-gram thresholds 2..5
   tab_app_trackA.tex     full Track A: R@1/R@5/MRR/nDCG@10 with bootstrap 95% CIs
   tab_app_trackb.tex     Track B broken out by all seven judge aspects
+  tab_app_judge2*.tex    the second judge: system means and per-aspect agreement
+  tab_app_metrics.tex    the quotation-slope test on R@1, R@5, MRR and nDCG@10
+  tab_app_judges.tex     Track B overall quality under every judge and rubric
 
 All read results/derived/*.csv, so nothing here is hand-entered.
 """
@@ -147,7 +149,7 @@ def t_judge2():
         for c in ("fannorflop", "diwan"):
             r = J[(J.corpus == c) & (J.system == s)]
             cells += ([f"{r.judge1_overall.iloc[0]:.2f}", f"{r.judge2_overall.iloc[0]:.2f}"]
-                      if not r.empty else ["--", "--"])
+                      if not r.empty else ["n/a", "n/a"])
         nm = "\\textbf{BM25}" if s == "BM25" else s
         b_rows.append(f"{nm} & {cells[0]} & {cells[1]} & & {cells[2]} & {cells[3]} \\\\")
     b_rows += ["\\bottomrule", "\\end{tabular}"]
@@ -169,8 +171,57 @@ def t_judge2():
     w("tab_app_judge2_rho.tex", "\n".join(rows))
 
 
+def t_metrics():
+    """Quotation slope on four metrics, BM25 against Qwen3-8B, Holm over the nine comparisons."""
+    S = pd.read_csv(os.path.join(DERIVED, "rb_slope_metrics.csv")).set_index(["metric", "system"])
+    b = ["\\begin{tabular}{l cc c c cc}", "\\toprule",
+         "& \\multicolumn{2}{c}{slope $\\Delta$} & & & & \\\\", "\\cmidrule(lr){2-3}",
+         "Metric & BM25 & Qwen3-8B & difference & 95\\% CI & $p$ & $p_{\\mathrm{Holm}}$ \\\\",
+         "\\midrule"]
+    for m in ("R@1", "R@5", "MRR", "nDCG@10"):
+        r, q = S.loc[(m, "BM25")], S.loc[(m, "Qwen3-8B")]
+        b.append(f"{m} & {r.delta:.3f} & {q.delta:.3f} & ${r.DiD_vs_ref:+.3f}$ & "
+                 f"[{r.DiD_lo:.3f}, {r.DiD_hi:.3f}] & {r.p:.3f} & {r.p_holm:.3f} \\\\")
+    b += ["\\bottomrule", "\\end{tabular}"]
+    w("tab_app_metrics.tex", "\n".join(b))
+
+
+def t_judges():
+    """Track B overall quality under all three judges and both rubrics, on the shared 100 queries."""
+    J = pd.read_csv(os.path.join(DERIVED, "rb_judge_agreement.csv"))
+    NICE = {"gte": "gte", "jina": "jina-v3", "silma": "silma-sts", "labse": "LaBSE",
+            "muffakir": "Muffakir-v2", "qwen3": "Qwen3-0.6B", "qwen3_8b": "Qwen3-8B",
+            "bgem3": "BGE-M3", "e5": "mE5-large", "bm25": "BM25"}
+    J["sys"] = J.system.map(NICE)
+    judges = ["judge1", "judge2", "judge3o", "judge3n"]
+    mean = J[J.quantity == "mean_overall"].set_index(["corpus", "judge_or_pair", "sys"]).value
+    b = ["\\begin{tabular}{l cccc c cccc}", "\\toprule",
+         "& \\multicolumn{4}{c}{\\textit{FannOrFlop}} & & \\multicolumn{4}{c}{\\textit{Diwan}} \\\\",
+         "\\cmidrule(lr){2-5}\\cmidrule(lr){7-10}",
+         "System & Gem.\\ & Gem-3 & Q-orig & Q-neut & & Gem.\\ & Gem-3 & Q-orig & Q-neut \\\\",
+         "\\midrule"]
+    for s in ORDER:
+        if s == "BM25":
+            b.append("\\midrule")
+        nm = "\\textbf{BM25}" if s == "BM25" else s
+        cells = []
+        for c in ("fannorflop", "diwan"):
+            cells.append(" & ".join(f"{mean[(c, j, s)]:.2f}" for j in judges))
+        b.append(f"{nm} & {cells[0]} & & {cells[1]} \\\\")
+    tau = J[J.quantity == "kendall_tau"].set_index(["corpus", "judge_or_pair"]).value
+    b.append("\\midrule")
+    row = []
+    for c in ("fannorflop", "diwan"):
+        row.append(" & ".join(["ref."] + [f"{tau[(c, 'judge1-' + j)]:.2f}" for j in judges[1:]]))
+    b.append(f"$\\tau$ with Gemini & {row[0]} & & {row[1]} \\\\")
+    b += ["\\bottomrule", "\\end{tabular}"]
+    w("tab_app_judges.tex", "\n".join(b))
+
+
 if __name__ == "__main__":
     t_threshold()
     t_tracka()
     t_trackb_aspects()
     t_judge2()
+    t_metrics()
+    t_judges()

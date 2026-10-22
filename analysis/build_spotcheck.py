@@ -1,21 +1,19 @@
-"""Build the blinded false-negative spot-check for known-item evaluation.
+"""Build the blinded false-negative spot check for known-item evaluation.
 
-The problem. Track A assumes exactly one correct poem per query. In corpora of 3.5k-4.7k poems an
-abstract query may describe several poems, so a "failure" (gold poem outside the top 5) may be a
-system returning a perfectly good answer that happens not to be the one we labelled. Limitations
-currently concedes this in words. This task measures it.
+Track A assumes exactly one correct poem per query. In corpora of 3.5k to 4.7k poems an abstract
+query may describe several poems, so a "failure" (gold poem outside the top 5) may be a system
+returning a good answer that is not the one we labelled. This task measures how often.
 
-Design.
+Design:
   * Failures: queries where the strongest system (Qwen3-8B, verse mode) ranked the gold poem
     outside the top 5. We show its top-1 retrieved poem, never the gold one.
   * Controls: queries where the same system ranked the gold poem first. We show that poem, which
-    is by construction a correct answer. Controls are indistinguishable from failures in the UI.
+    is by construction a correct answer. Controls look the same as failures in the interface.
   * Everything is shuffled together and stripped of provenance, so the annotator cannot tell a
     failure item from a control.
 
-The controls are the point of the design: they calibrate leniency. If controls score 2 and failure
-items score 0, the annotator is discriminating and the failure rate is trustworthy. If controls and
-failures score alike, the annotator is not discriminating and the estimate is reported as such.
+The controls measure leniency. If controls score 2 and failure items score 0, the annotator is
+discriminating and the failure rate can be trusted. If they score alike, it cannot.
 
 Outputs (spotcheck/): task.csv, key.csv (not shown to the annotator), spotcheck.html, GUIDELINES.md
 """
@@ -162,7 +160,7 @@ document.addEventListener('input',save);load();
 
 
 def write_guidelines():
-    g = """# Spot-check guidelines — does the retrieved poem satisfy the request?
+    g = """# Spot-check guidelines: does the retrieved poem satisfy the request?
 
 Each card shows one **search request** (an Arabic description of a poem someone is looking for) and
 **one poem** that a retrieval system returned for it.

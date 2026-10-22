@@ -1,7 +1,6 @@
-"""Shared IO + parsing helpers for the ArabicNLP 2026 analysis.
+"""Shared IO and parsing helpers: path constants, Arabic normalisation and tokenisation.
 
-All numbers in the paper are re-derived from results/ and data/ via these helpers.
-No hand-entered numbers anywhere.
+All numbers in the paper are derived from results/ and data/ via these helpers.
 """
 import ast
 import csv
@@ -44,7 +43,7 @@ def normalize_ar(text: str) -> str:
     Retained for BM25 and for the lexical-overlap measures, where collapsing orthographic
     variants is the standard choice. NOT used for dense encoders: unifying ta-marbuta and
     alef-maqsura produces strings outside the models' subword vocabularies and costs ~9 R@5
-    points (measured; see PROGRESS.md 2026-08-01 normalisation ablation).
+    points on jina-v3 (measured; see norm_ablation.py).
     """
     if not isinstance(text, str):
         return ""
@@ -144,7 +143,7 @@ def parse_retrieved(cell: str):
     return ids
 
 
-# ------- prompt / gold-id loaders -------
+# prompt and gold-id loaders
 def load_prompts():
     """Return dict of the three query sets."""
     out = {}

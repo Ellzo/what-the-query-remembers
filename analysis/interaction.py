@@ -1,21 +1,17 @@
-"""The query-register x system interaction (§5), and its robustness to the split threshold.
+"""The query-register x system interaction (paper section 5.1) and its robustness to the split
+threshold.
 
-Why this script exists. The earlier draft claimed the FannOrFlop headline ranking "reverses" on
-the non-quoting subset (Qwen3-8B 0.646 vs BM25 0.622). That difference is not significant
-(exact McNemar p = 0.69, n = 164), and it does not survive a change of the n-gram threshold that
-defines the split. The claim the data *does* support is the interaction: BM25's sensitivity to
-remembered wording is significantly larger than any dense encoder's, and the crossover between
-BM25 and the best dense encoder is significant at both ends of the spectrum (quoting queries;
-abstract Diwan queries).
+On Fann or Flop, BM25 and Qwen3-8B do not differ significantly on the non-quoting subset
+(exact McNemar p = 0.69, n = 164). What the data support is the interaction: BM25's sensitivity
+to remembered wording is significantly larger than that of the strongest dense encoder.
 
 Reported here, all from analysis/runs/*__gold.json.gz:
 
   1. Per system, the quotation effect  Delta = R@5(quote) - R@5(no-quote)  with bootstrap 95% CI.
   2. The difference-in-differences against the reference dense encoder (Qwen3-8B), with a paired
-     bootstrap p-value. This is the interaction test; it is what the section now claims.
+     bootstrap p-value. This is the interaction test.
   3. Exact McNemar for BM25 vs Qwen3-8B on every subset, including the non-significant ones.
-  4. The same split repeated at n-gram thresholds 2..5, so the threshold dependence is disclosed
-     rather than discovered by a reviewer.
+  4. The same split repeated at n-gram thresholds 2..5.
 
 Writes:
   results/derived/eacl_interaction.csv      per-system Delta, CI, DiD, p        (threshold 3)
@@ -53,7 +49,7 @@ def main():
     succ = {s: success_by_qid(s, CORPUS) for s in SYSTEMS}
     succ = {s: v for s, v in succ.items() if v is not None}
 
-    # ---- threshold sweep -------------------------------------------------------------------
+    # threshold sweep
     sweep = []
     for thr in THRESHOLDS:
         quote = [q for q in qf.index if qf.loc[q, "lcn_verses"] >= thr]
@@ -79,7 +75,7 @@ def main():
                       f"p_vs_{NICE[REF]}_{label}"] = round(p, 4)
     sweep.to_csv(os.path.join(DERIVED, "eacl_threshold_sweep.csv"), index=False)
 
-    # ---- interaction, at the paper's threshold and at every threshold in the sweep ----------
+    # interaction, at the paper's threshold and at every threshold in the sweep
     def interaction_at(thr):
         """Per-system quotation slope and its DiD against the reference encoder."""
         quote = [q for q in qf.index if qf.loc[q, "lcn_verses"] >= thr]

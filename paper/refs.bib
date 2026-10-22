@@ -1,0 +1,398 @@
+% Bibliography rebuilt from scratch for EACL 2027.
+% Every entry below was checked against its ACL Anthology page, DOI record, arXiv abstract page,
+% or official model card. No entry is carried over unverified. Removed in the rebuild:
+%   - 7 unmodified ACL template boilerplate entries (Aho:72, APA:83, Chandra:81, Gusfield:97,
+%     Ando2005, andrew2007scalable, rasooli-tetrault-2015) and ~24 uncited entries
+%   - inoue2021camelbert   : FABRICATED title and author list (copied from the ARBERT entry)
+%   - arapoembert2024      : no author field, rendered as "(ara, 2024)"
+%   - antoun2020arabert    : wrong title ("AraBERTv2 ...")
+%   - abdulmageed2021arbert: journal={ACL Anthology}
+%   - jinaembeddingsv3     : garbled author list ("Xiao, Han" twice, invented names)
+%   - conneau2019xlmr      : duplicated a real paper with wrong year/venue/authors
+%   - wang2024multilingual : placeholder-shaped arXiv id (2403.00001)
+
+% ---------------------------------------------------------------- Arabic encoders
+@inproceedings{antoun-etal-2020-arabert,
+    title = "{A}ra{BERT}: Transformer-based Model for {A}rabic Language Understanding",
+    author = "Antoun, Wissam and Baly, Fady and Hajj, Hazem",
+    booktitle = "Proceedings of the 4th Workshop on Open-Source Arabic Corpora and Processing Tools, with a Shared Task on Offensive Language Detection",
+    month = may,
+    year = "2020",
+    address = "Marseille, France",
+    publisher = "European Language Resources Association",
+    pages = "9--15",
+    url = "https://aclanthology.org/2020.osact-1.2/"
+}
+
+@inproceedings{abdul-mageed-etal-2021-arbert,
+    title = "{ARBERT} {\&} {MARBERT}: Deep Bidirectional Transformers for {A}rabic",
+    author = "Abdul-Mageed, Muhammad and Elmadany, AbdelRahim and Nagoudi, El Moatez Billah",
+    booktitle = "Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)",
+    month = aug,
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    pages = "7088--7105",
+    doi = "10.18653/v1/2021.acl-long.551",
+    url = "https://aclanthology.org/2021.acl-long.551/"
+}
+
+@inproceedings{inoue-etal-2021-interplay,
+    title = "The Interplay of Variant, Size, and Task Type in {A}rabic Pre-trained Language Models",
+    author = "Inoue, Go and Alhafni, Bashar and Baimukan, Nurpeiis and Bouamor, Houda and Habash, Nizar",
+    booktitle = "Proceedings of the Sixth Arabic Natural Language Processing Workshop",
+    month = apr,
+    year = "2021",
+    address = "Kyiv, Ukraine (Virtual)",
+    publisher = "Association for Computational Linguistics",
+    pages = "92--104",
+    url = "https://aclanthology.org/2021.wanlp-1.10/"
+}
+
+@misc{qarah2024arapoembert,
+    title = {{AraPoemBERT}: A Pretrained Language Model for {A}rabic Poetry Analysis},
+    author = {Qarah, Faisal},
+    year = {2024},
+    eprint = {2403.12392},
+    archivePrefix = {arXiv},
+    primaryClass = {cs.CL},
+    url = {https://arxiv.org/abs/2403.12392}
+}
+
+% ---------------------------------------------------------------- Arabic poetry resources & tasks
+@article{alonazi2025diwan,
+    title = {``{D}iwan'': Constructing the Largest Annotated Corpus for {A}rabic Poetry},
+    author = {Al-Onazi, Badriyya B. and Nashir, Wadee A. and Al-Shargabi, Asma A.},
+    journal = {IEEE Access},
+    volume = {13},
+    pages = {58927--58941},
+    year = {2025},
+    doi = {10.1109/ACCESS.2025.3551161}
+}
+
+@inproceedings{alghallabi2025fannorflop,
+    title = "Fann or Flop: A Multigenre, Multiera Benchmark for {A}rabic Poetry Understanding in {LLM}s",
+    author = "Al Ghallabi, Wafa  and
+      Thawkar, Ritesh  and
+      Ghaboura, Sara  and
+      More, Ketan Pravin  and
+      Thawakar, Omkar  and
+      Cholakkal, Hisham  and
+      Khan, Salman  and
+      Anwer, Rao Muhammad",
+    editor = "Christodoulopoulos, Christos  and
+      Chakraborty, Tanmoy  and
+      Rose, Carolyn  and
+      Peng, Violet",
+    booktitle = "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2025",
+    address = "Suzhou, China",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.emnlp-main.1023/",
+    doi = "10.18653/v1/2025.emnlp-main.1023",
+    pages = "20224--20244",
+    ISBN = "979-8-89176-332-6",
+    abstract = "Arabic poetry stands as one of the most sophisticated and culturally embedded forms of expression in the Arabic language, known for its layered meanings, stylistic diversity, and deep historical continuity. Although large language models (LLMs) have demonstrated strong performance across languages and tasks, their ability to understand Arabic poetry remains largely unexplored. In this work, we introduce ``Fann or Flop'', the first benchmark designed to assess the comprehension of Arabic poetry by LLMs in twelve historical eras, covering 21 core poetic genres and a variety of metrical forms, from classical structures to contemporary free verse. The benchmark comprises a curated corpus of poems with explanations that assess semantic understanding, metaphor interpretation, prosodic awareness, and cultural context. We argue that poetic comprehension offers a strong indicator for testing how good the LLM is in understanding classical Arabic through the Arabic poetry. Unlike surface-level tasks, this domain demands deeper interpretive reasoning and cultural sensitivity. Our evaluation of state-of-the-art LLMs shows that most models struggle with poetic understanding despite strong results on standard Arabic benchmarks. We release ``Fann or Flop'' along with the evaluation suite as an open-source resource to enable rigorous evaluation and advancement for Arabic-capable language models."
+}
+
+@inproceedings{alqurashi-etal-2025-bert,
+    title = "{BERT}-based Classical {A}rabic Poetry Authorship Attribution",
+    author = "Alqurashi, Lama  and
+      Sharoff, Serge  and
+      Watson, Janet  and
+      Blakesley, Jacob",
+    editor = "Rambow, Owen  and
+      Wanner, Leo  and
+      Apidianaki, Marianna  and
+      Al-Khalifa, Hend  and
+      Eugenio, Barbara Di  and
+      Schockaert, Steven",
+    booktitle = "Proceedings of the 31st International Conference on Computational Linguistics",
+    month = jan,
+    year = "2025",
+    address = "Abu Dhabi, UAE",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.coling-main.409/",
+    pages = "6105--6119",
+    abstract = "This study introduces a novel computational approach to authorship attribution (AA) in Arabic poetry, using the entire Classical Arabic Poetry corpus for the first time and offering a direct analysis of real cases of misattribution. AA in Arabic poetry has been a significant issue since the 9th century, particularly due to the loss of pre-Islamic poetry and the misattribution of post-Islamic works to earlier poets. While previous research has predominantly employed qualitative methods, this study uses computational techniques to address these challenges. The corpus was scraped from online sources and enriched with manually curated Date of Death (DoD) information to overcome the problematic traditional sectioning. Additionally, we applied Embedded Topic Modeling (ETM) to label each poem with its topic contributions, further enhancing the dataset{'}s value. An ensemble model based on CAMeLBERT was developed and tested across three dimensions: topic, number of poets, and number of training examples. After parameter optimization, the model achieved F1 scores ranging from 0.97 to 1.0. The model was also applied to four pre-Islamic misattribution cases, producing results consistent with historical and literary studies."
+}
+}
+
+@article{mutawa2025meter,
+    title = {Determining the meter of classical {A}rabic poetry using deep learning: a performance analysis},
+    author = {Mutawa, A. M. and Alrumaih, Ayshah},
+    journal = {Frontiers in Artificial Intelligence},
+    volume = {8},
+    pages = {1523336},
+    year = {2025},
+    doi = {10.3389/frai.2025.1523336}
+}
+
+@inproceedings{elzohbi2025tahdib,
+   title={Tahdib: A Rhythm-Aware Phrase Insertion for Classical Arabic Poetry Composition},
+   url={http://dx.doi.org/10.18653/v1/2025.arabicnlp-main.15},
+   DOI={10.18653/v1/2025.arabicnlp-main.15},
+   booktitle={Proceedings of The Third Arabic Natural Language Processing Conference},
+   publisher={Association for Computational Linguistics},
+   author={Elzohbi, Mohamad and Zhao, Richard},
+   year={2025},
+   pages={194–202} }
+
+@misc{chalamalasetti2025metricalargs,
+    title = {{M}etrical{ARGS}: A Taxonomy for Studying Metrical Poetry with {LLM}s},
+    author = {Chalamalasetti, Kranti and Vajjala, Sowmya},
+    year = {2025},
+    eprint = {2510.08188},
+    archivePrefix = {arXiv},
+    primaryClass = {cs.CL},
+    url = {https://arxiv.org/abs/2510.08188}
+}
+
+% ---------------------------------------------------------------- Dense retrieval models
+@misc{li2023gte,
+    title = {Towards General Text Embeddings with Multi-stage Contrastive Learning},
+    author = {Li, Zehan and Zhang, Xin and Zhang, Yanzhao and Long, Dingkun and Xie, Pengjun and Zhang, Meishan},
+    year = {2023},
+    eprint = {2308.03281},
+    archivePrefix = {arXiv},
+    primaryClass = {cs.CL},
+    url = {https://arxiv.org/abs/2308.03281}
+}
+
+@misc{zhang2024mgte,
+    title = {m{GTE}: Generalized Long-Context Text Representation and Reranking Models for Multilingual Text Retrieval},
+    author = {Zhang, Xin and Zhang, Yanzhao and Long, Dingkun and Xie, Wen and Dai, Ziqi and Tang, Jialong and Lin, Huan and Yang, Baosong and Xie, Pengjun and Huang, Fei and Zhang, Meishan and Li, Wenjie and Zhang, Min},
+    year = {2024},
+    eprint = {2407.19669},
+    archivePrefix = {arXiv},
+    primaryClass = {cs.CL},
+    url = {https://arxiv.org/abs/2407.19669}
+}
+
+@misc{sturua2024jina,
+    title = {jina-embeddings-v3: Multilingual Embeddings With Task {LoRA}},
+    author = {Sturua, Saba and Mohr, Isabelle and Akram, Mohammad Kalim and G{\"u}nther, Michael and Wang, Bo and Krimmel, Markus and Wang, Feng and Mastrapas, Georgios and Koukounas, Andreas and Wang, Nan and Xiao, Han},
+    year = {2024},
+    eprint = {2409.10173},
+    archivePrefix = {arXiv},
+    primaryClass = {cs.CL},
+    url = {https://arxiv.org/abs/2409.10173}
+}
+
+@inproceedings{feng-etal-2022-labse,
+    title = "Language-agnostic {BERT} Sentence Embedding",
+    author = "Feng, Fangxiaoyu and Yang, Yinfei and Cer, Daniel and Arivazhagan, Naveen and Wang, Wei",
+    booktitle = "Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = may,
+    year = "2022",
+    address = "Dublin, Ireland",
+    publisher = "Association for Computational Linguistics",
+    pages = "878--891",
+    doi = "10.18653/v1/2022.acl-long.62",
+    url = "https://aclanthology.org/2022.acl-long.62/"
+}
+
+@misc{zhang2025qwen3embedding,
+    title = {{Qwen3} Embedding: Advancing Text Embedding and Reranking Through Foundation Models},
+    author = {Zhang, Yanzhao and Li, Mingxin and Long, Dingkun and Zhang, Xin and Lin, Huan and Yang, Baosong and Xie, Pengjun and Yang, An and Liu, Dayiheng and Lin, Junyang and Huang, Fei and Zhou, Jingren},
+    year = {2025},
+    eprint = {2506.05176},
+    archivePrefix = {arXiv},
+    primaryClass = {cs.CL},
+    url = {https://arxiv.org/abs/2506.05176}
+}
+
+@misc{chen2024bgem3,
+    title = {{M3}-Embedding: Multi-Linguality, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation},
+    author = {Chen, Jianlv and Xiao, Shitao and Zhang, Peitian and Luo, Kun and Lian, Defu and Liu, Zheng},
+    year = {2024},
+    eprint = {2402.03216},
+    archivePrefix = {arXiv},
+    primaryClass = {cs.CL},
+    url = {https://arxiv.org/abs/2402.03216}
+}
+
+@misc{wang2024multilinguale5,
+    title = {Multilingual {E5} Text Embeddings: A Technical Report},
+    author = {Wang, Liang and Yang, Nan and Huang, Xiaolong and Yang, Linjun and Majumder, Rangan and Wei, Furu},
+    year = {2024},
+    eprint = {2402.05672},
+    archivePrefix = {arXiv},
+    primaryClass = {cs.CL},
+    url = {https://arxiv.org/abs/2402.05672}
+}
+
+@inproceedings{bhatia2024swan,
+  title = "Swan and {A}rabic{MTEB}: Dialect-Aware, {A}rabic-Centric, Cross-Lingual, and Cross-Cultural Embedding Models and Benchmarks",
+    author = "Bhatia, Gagan  and
+      Nagoudi, El Moatez Billah  and
+      El Mekki, Abdellah  and
+      Alwajih, Fakhraddin  and
+      Abdul-Mageed, Muhammad",
+    editor = "Chiruzzo, Luis  and
+      Ritter, Alan  and
+      Wang, Lu",
+    booktitle = "Findings of the Association for Computational Linguistics: NAACL 2025",
+    month = apr,
+    year = "2025",
+    address = "Albuquerque, New Mexico",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.findings-naacl.263/",
+    doi = "10.18653/v1/2025.findings-naacl.263",
+    pages = "4669--4685",
+    ISBN = "979-8-89176-195-7",
+    abstract = "In this paper, we introduce Swan, a family of embedding models centred around the Arabic language, addressing both small-scale and large-scale use cases. Swan includes two variants: Swan-Small, based on ARBERTv2, and Swan-Large, built on ArMistral, a pretrained Arabic large language model. To evaluate these models, we propose ArabicMTEB, a comprehensive benchmark suite that assesses cross-lingual, multi-dialectal, multi-domain, and multi-cultural Arabic text embedding performance, covering eight diverse tasks and spanning 94 datasets. Swan-Large achieves state-of-the-art results, outperforming Multilingual-E5-large in most Arabic tasks, while the Swan-Small consistently surpasses Multilingual-E5-base. Our extensive evaluations demonstrate that Swan models are dialectally and culturally aware, excelling across various Arabic domains while offering significant monetary efficiency. This work significantly advances the field of Arabic language modelling and provides valuable resources for future research and applications in Arabic natural language processing. Our models and benchmarks will be made publicly accessible for research."
+}
+}
+
+@misc{silma2024embedding,
+    author = {{SILMA AI}},
+    title = {silma-embedding-sts-v0.1},
+    year = {2024},
+    howpublished = {Hugging Face model card},
+    url = {https://huggingface.co/silma-ai/silma-embedding-sts-v0.1}
+}
+
+@misc{muffakir2025embedding,
+    author = {Khaled, Mohamed},
+    title = {{Muffakir\_Embedding\_V2}},
+    year = {2025},
+    howpublished = {Hugging Face model card},
+    url = {https://huggingface.co/mohamed2811/Muffakir_Embedding_V2}
+}
+
+% ---------------------------------------------------------------- Lexical retrieval, expansion, fusion
+@article{robertson2009bm25,
+    title = {The Probabilistic Relevance Framework: {BM25} and Beyond},
+    author = {Robertson, Stephen and Zaragoza, Hugo},
+    journal = {Foundations and Trends in Information Retrieval},
+    volume = {3},
+    number = {4},
+    pages = {333--389},
+    year = {2009},
+    doi = {10.1561/1500000019}
+}
+
+@misc{nogueira2019doc2query,
+    title = {Document Expansion by Query Prediction},
+    author = {Nogueira, Rodrigo and Yang, Wei and Lin, Jimmy and Cho, Kyunghyun},
+    year = {2019},
+    eprint = {1904.08375},
+    archivePrefix = {arXiv},
+    primaryClass = {cs.IR},
+    url = {https://arxiv.org/abs/1904.08375}
+}
+
+@misc{gao2022hyde,
+    title = "Precise Zero-Shot Dense Retrieval without Relevance Labels",
+    author = "Gao, Luyu  and
+      Ma, Xueguang  and
+      Lin, Jimmy  and
+      Callan, Jamie",
+    editor = "Rogers, Anna  and
+      Boyd-Graber, Jordan  and
+      Okazaki, Naoaki",
+    booktitle = "Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = jul,
+    year = "2023",
+    address = "Toronto, Canada",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2023.acl-long.99/",
+    doi = "10.18653/v1/2023.acl-long.99",
+    pages = "1762--1777",
+    abstract = "While dense retrieval has been shown to be effective and efficient across tasks and languages, it remains difficult to create effective fully zero-shot dense retrieval systems when no relevance labels are available. In this paper, we recognize the difficulty of zero-shot learning and encoding relevance. Instead, we propose to pivot through Hypothetical Document Embeddings (HyDE). Given a query, HyDE first zero-shot prompts an instruction-following language model (e.g., InstructGPT) to generate a hypothetical document. The document captures relevance patterns but is ``fake'' and may contain hallucinations. Then, an unsupervised contrastively learned encoder (e.g., Contriever) encodes the document into an embedding vector. This vector identifies a neighborhood in the corpus embedding space, from which similar real documents are retrieved based on vector similarity. This second step grounds the generated document to the actual corpus, with the encoder{'}s dense bottleneck filtering out the hallucinations. Our experiments show that HyDE significantly outperforms the state-of-the-art unsupervised dense retriever Contriever and shows strong performance comparable to fine-tuned retrievers across various tasks (e.g. web search, QA, fact verification) and in non-English languages (e.g., sw, ko, ja, bn)."
+}
+
+
+@inproceedings{cormack2009rrf,
+    title = {Reciprocal rank fusion outperforms condorcet and individual rank learning methods},
+    author = {Cormack, Gordon V. and Clarke, Charles L. A. and Buettcher, Stefan},
+    booktitle = {Proceedings of the 32nd International ACM SIGIR Conference on Research and Development in Information Retrieval},
+    year = {2009},
+    address = {Boston, MA, USA},
+    publisher = {ACM},
+    pages = {758--759},
+    doi = {10.1145/1571941.1572114}
+}
+
+% ---------------------------------------------------------------- Known-item / tip-of-the-tongue retrieval
+@inproceedings{arguello2021tot,
+    title = {Tip of the Tongue Known-Item Retrieval: A Case Study in Movie Identification},
+    author = {Arguello, Jaime and Ferguson, Adam and Fine, Emery and Mitra, Bhaskar and Zamani, Hamed and Diaz, Fernando},
+    booktitle = {Proceedings of the 2021 Conference on Human Information Interaction and Retrieval (CHIIR)},
+    year = {2021},
+    publisher = {ACM},
+    pages = {5--14},
+    doi = {10.1145/3406522.3446021}
+}
+
+@inproceedings{arguello2023trectot,
+    title = {Overview of the {TREC} 2023 Tip-of-the-Tongue Track},
+    author = {Arguello, Jaime and Bhargav, Samarth and Diaz, Fernando and Kanoulas, Evangelos and Mitra, Bhaskar},
+    booktitle = {Proceedings of the Thirty-Second Text REtrieval Conference (TREC 2023)},
+    year = {2023},
+    publisher = {NIST},
+    url = {https://trec.nist.gov/pubs/trec32/papers/Overview_tot.pdf}
+}
+
+% ---------------------------------------------------------------- LLM-as-judge
+@inproceedings{zheng2023judging,
+    title = {Judging {LLM}-as-a-Judge with {MT}-Bench and Chatbot Arena},
+    author = {Zheng, Lianmin and Chiang, Wei-Lin and Sheng, Ying and Zhuang, Siyuan and Wu, Zhanghao and Zhuang, Yonghao and Lin, Zi and Li, Zhuohan and Li, Dacheng and Xing, Eric P. and Zhang, Hao and Gonzalez, Joseph E. and Stoica, Ion},
+    booktitle = {Proceedings of the 37th International Conference on Neural Information Processing Systems},
+    year = {2023},
+    eprint = {2306.05685},
+    archivePrefix = {arXiv},
+    url = {https://arxiv.org/abs/2306.05685}
+}
+
+@misc{google2026gemini,
+    author = {{Google DeepMind}},
+    title = {{Gemini} models},
+    year = {2026},
+    howpublished = {Model documentation, Google AI for Developers},
+    url = {https://ai.google.dev/gemini-api/docs/models}
+}
+
+@misc{thakur2021beir,
+       title = {{BEIR}: A Heterogeneous Benchmark for Zero-shot Evaluation of Information Retrieval Models},
+    author = {Thakur, Nandan and Reimers, Nils and R{\"u}ckl{\'e}, Andreas and Srivastava, Abhishek and Gurevych, Iryna},
+      year={2021},
+      eprint={2104.08663},
+      archivePrefix={arXiv},
+      primaryClass={cs.IR},
+      url={https://arxiv.org/abs/2104.08663}, 
+}
+
+@inproceedings{sciavolino-etal-2021-simple,
+    title = {Simple Entity-Centric Questions Challenge Dense Retrievers},
+    author = {Sciavolino, Christopher and Zhong, Zexuan and Lee, Jinhyuk and Chen, Danqi},
+    booktitle = {Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing},
+    pages = {6138--6148},
+    year = {2021},
+    doi = {10.18653/v1/2021.emnlp-main.496},
+    url = {https://aclanthology.org/2021.emnlp-main.496/}
+}
+
+@article{luan-etal-2021-sparse,
+    title = {Sparse, Dense, and Attentional Representations for Text Retrieval},
+    author = {Luan, Yi and Eisenstein, Jacob and Toutanova, Kristina and Collins, Michael},
+    journal = {Transactions of the Association for Computational Linguistics},
+    volume = {9},
+    address = {Cambridge, MA},
+    publisher = {MIT Press},
+    pages = {329--345},
+    year = {2021},
+    url = {https://aclanthology.org/2021.tacl-1.20/}
+}
+
+@misc{chen2021spar,
+    title = {Salient Phrase Aware Dense Retrieval: Can a Dense Retriever Imitate a Sparse One?},
+    author = {Chen, Xilun and Lakhotia, Kushal and O{\u{g}}uz, Barlas and Gupta, Anchit and Lewis, Patrick and Peshterliev, Stan and Mehdad, Yashar and Gupta, Sonal and Yih, Wen-tau},
+    year={2022},
+    eprint={2110.06918},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL},
+    url={https://arxiv.org/abs/2110.06918}, 
+}

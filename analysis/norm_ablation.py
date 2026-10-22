@@ -1,14 +1,12 @@
-"""Normalisation ablation across more than one encoder.
+"""Normalisation ablation across several dense encoders.
 
-The paper claims that unifying alef / ya / ta-marbuta costs *dense encoders* about nine Recall@5
-points. That was measured on jina-v3 alone, so as written it generalises from a single model. This
-script repeats the three normalisation settings on several encoders so the claim can either be
-stated for the models it holds for, or narrowed to the one it was measured on.
+Repeats three normalisation settings on several encoders, so that the cost of unifying
+alef / ya / ta-marbuta is measured per model rather than generalised from one.
 
 Settings (Diwan, verse mode, the same chunking and max-pooling as the main pipeline):
   raw     no normalisation at all (diacritics retained)
-  light   diacritics + tatweel only            <- what the paper uses for dense encoders
-  full    light + unify alef/ya/ta-marbuta + drop non-Arabic   <- what BM25 uses
+  light   diacritics + tatweel only            <- used for dense encoders
+  full    light + unify alef/ya/ta-marbuta + drop non-Arabic   <- used for BM25
 
 Writes results/derived/eacl_norm_ablation.csv
 """

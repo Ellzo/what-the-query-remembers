@@ -1,10 +1,9 @@
-"""Figures for the EACL 2027 paper. All values are read from results/derived/*.csv.
+"""Figures for the paper, written to paper/figures/. All values are read from results/derived/*.csv.
 
-F1  two panels: (a) dose-response, verse-mode R@5 by query-verse overlap quartile, both corpora;
-                (b) the controlled test, FannOrFlop R@5 on quote vs no-quote queries per system.
-F2  the dissociation: Track A R@5 against Track B judge score, one point per system, per corpus,
-    with the human-annotated systems marked.
-F3  (appendix) per-system within-query rho, lexical vs embedding predictor.
+fig_mechanism_a     verse-mode R@5 by query-verse containment quartile, both corpora
+fig_mechanism_b     Fann or Flop R@5 on quoting vs non-quoting queries, per system
+fig_dissociation_*  Track A R@5 against Track B judge score, one point per system, per corpus
+fig_predictors      per-system within-query rho, lexical vs embedding predictor (appendix)
 """
 import os
 import sys
@@ -48,7 +47,7 @@ def fig1():
     a.set_xticks(range(4))
     a.set_xticklabels(["Q1\nfigurative", "Q2", "Q3", "Q4\nliteral"])
     a.set_ylabel("Recall@5")
-    a.set_xlabel("query–verse lexical containment quartile")
+    a.set_xlabel("query-verse lexical containment quartile")
     a.legend(fontsize=7, frameon=False)
     a.set_ylim(0, 1)
     fig.savefig(os.path.join(FIGS, "fig_mechanism_a.pdf"))
@@ -100,7 +99,7 @@ def fig2():
                        textcoords="offset points", xytext=(5, 3), fontsize=6.5,
                        fontweight="bold" if lex else "normal")
         a.set_xlabel("Track A: known-item Recall@5")
-        a.set_ylabel("Track B: thematic judge score (1–5)")
+        a.set_ylabel("Track B: thematic judge score (1 to 5)")
         a.margins(x=.18, y=.14)
         tau = g.kendall_tau.iloc[0]
         a.set_title(f"{'Diwan' if corp=='diwan' else 'FannOrFlop'}  "

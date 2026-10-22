@@ -1,22 +1,19 @@
-"""X1 - Unified retrieval pipeline for EACL 2027.
+"""The retrieval pipeline: one harness for every system (dense encoders and BM25), both corpora,
+every indexing mode and both query sets. It dumps per-query ranked lists, and all downstream
+analysis (metrics, CIs, McNemar, stratification, fusion, annotation sampling) reads those files.
 
-ONE pipeline for every system (dense + BM25), every corpus, every indexing mode, and both
-query sets. Dumps per-query ranked lists so all downstream analysis (metrics, CIs, McNemar,
-stratification, fusion, hybrid, annotation sampling) is derived from the same artifact.
-
-Fixes carried over from the audit:
-  * chunk_versic dropped tail verses at some poem lengths -> now covers the tail.
-  * accuracy_prompts.csv has one duplicated prompt string (poem_6232 / poem_5171) -> the
-    duplicate is dropped at load time (n 245 -> 244) and the choice is logged.
-  * mode='explanations' meant HUMAN on FannOrFlop but AI on Diwan -> canonical mode vocabulary
-    {verses, expl_ai, expl_ff} is used everywhere.
-  * BM25 runs inside this harness (same corpus, same chunking, same max-pool), so lexical and
-    dense numbers are finally like-for-like.
-  * Normalisation is per-system and deliberate, not incidental: dense encoders get diacritic
-    and tatweel stripping only (normalize_ar_light), because the additional letter unification
-    (alef/ya/ta-marbuta) produces strings outside their subword vocabularies and costs ~9 R@5
-    points; BM25 gets the full normalisation, where collapsing orthographic variants is the
-    standard and helpful choice. Both are reported as an ablation.
+Details:
+  * Poems are split into overlapping three-verse chunks, including the tail verses; chunk scores
+    are max-pooled to the poem. BM25 uses the same chunks and pooling as the dense encoders.
+  * accuracy_prompts.csv has one duplicated prompt string (poem_6232 / poem_5171). The duplicate
+    is dropped at load time (n 245 -> 244) and the choice is logged.
+  * Indexing modes are {verses, expl_ai, expl_ff}: the verses, our generated explanations, and
+    the reference explanations distributed with Fann or Flop (Fann or Flop only).
+  * Normalisation is per system: dense encoders get diacritic and tatweel stripping only
+    (normalize_ar_light), because the additional letter unification (alef/ya/ta-marbuta) produces
+    strings outside their subword vocabularies and costs up to ~9 R@5 points; BM25 gets the full
+    normalisation, where collapsing orthographic variants is standard. norm_ablation.py measures
+    the difference.
 
 Usage:
   python3 analysis/unified_run.py --systems all --corpora all
@@ -58,7 +55,7 @@ E5_TASK = "Given a search query describing a poem, retrieve the poem that matche
 TOPK_DUMP = 100
 
 
-# --------------------------------------------------------------------------- corpora
+# corpora
 def load_units(corpus, mode, norm=None):
     """poem_id -> list of indexable units (one per verse) under the given mode.
 
@@ -130,9 +127,9 @@ def load_queries(corpus, qset):
     return t[["qid", "prompt", "gold_pid"]].reset_index(drop=True)
 
 
-# --------------------------------------------------------------------------- chunking
+# chunking
 def chunk_versic(units, n=3, o=1):
-    """Overlapping windows of n verses, step n-o. Covers the tail (the old version did not)."""
+    """Overlapping windows of n verses, step n-o, including the tail verses."""
     units = [u for u in units if u]
     if not units:
         return []
@@ -155,7 +152,7 @@ def build_chunks(units_map):
     return texts, pids
 
 
-# --------------------------------------------------------------------------- retrievers
+# retrievers
 class BM25:
     """Okapi BM25, self-contained (no external deps) so the released code has no hidden state."""
 
@@ -199,7 +196,7 @@ def encode(model, key, texts, is_query, bs=64):
                         show_progress_bar=False, convert_to_numpy=True, **kw)
 
 
-# --------------------------------------------------------------------------- run
+# run
 def dump(system, corpus, mode, qset, queries, uniq_pids, score_matrix):
     """score_matrix: (n_queries, n_poems). Writes top-K ids/scores + rank_of_gold."""
     rows = []

@@ -1,4 +1,4 @@
-# Spot-check guidelines — does the retrieved poem satisfy the request?
+# Spot-check guidelines: does the retrieved poem satisfy the request?
 
 Each card shows one **search request** (an Arabic description of a poem someone is looking for) and
 **one poem** that a retrieval system returned for it.

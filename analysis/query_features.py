@@ -1,14 +1,13 @@
-"""Per-query lexical features for the query-abstraction spectrum (E2 / §3 / §5).
+"""Per-query lexical features for the query-abstraction spectrum.
 
 For each gold query we measure, against each indexing mode of its target poem:
   containment C(Q,D) = |tok(Q) & tok(D)| / |tok(Q)|      (the paper's bridge measure)
   jaccard    J(Q,D)                                       (length-robust check)
-  lcn        longest verbatim n-gram shared with the doc   (the ToT / quotation measure)
+  lcn        longest verbatim n-gram shared with the doc   (the quotation measure)
 
-`lcn` against the *verses* is the variable that separates the two query sets by design:
-FannOrFlop queries simulate a half-remembered poem and often quote it; Diwan queries were
-deliberately written as abstract descriptions. `has_verbatim3 = lcn >= 3` defines the subset
-used for the controlled test in §5.
+`lcn` against the verses separates the two query sets by design: Fann or Flop queries simulate a
+half-remembered poem and often quote it; Diwan queries were written as abstract descriptions.
+`has_verbatim3 = lcn >= 3` defines the quoting subset used in section 5.1.
 
 Writes results/derived/query_features.csv
 """

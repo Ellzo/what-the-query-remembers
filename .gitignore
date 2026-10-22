@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+# created on import of analysis/common.py
+figures_new/
+# corpora, distributed as corpora.zip on the release page
+data/flipp_flop_ai.csv
+data/diwan_with_explanations.csv
+# LaTeX build files
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.log
+paper/*.out
+paper/*.pdf

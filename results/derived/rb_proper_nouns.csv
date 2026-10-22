@@ -1,0 +1,503 @@
+corpus,qid,names,pn_llm,pn_in_poem,parsed
+fannorflop,g0,,0,0,True
+fannorflop,g1,,0,0,True
+fannorflop,g2,أبي محمد,2,1,True
+fannorflop,g3,عنترة|عبلة,2,1,True
+fannorflop,g4,آدم,1,1,True
+fannorflop,g5,,0,0,False
+fannorflop,g6,,0,0,True
+fannorflop,g7,راحة سوسن,2,2,True
+fannorflop,g8,بني جحش|يوم المجيمر,4,4,True
+fannorflop,g9,مصر,1,1,True
+fannorflop,g10,ابن حفص|العتيك,3,3,True
+fannorflop,g11,بني بغيض,2,1,True
+fannorflop,g12,,0,0,True
+fannorflop,g13,نصر,1,1,True
+fannorflop,g14,نبات بنت سباك,3,3,True
+fannorflop,g15,,0,0,False
+fannorflop,g16,الله,1,0,True
+fannorflop,g17,المدام|صده|دونك,3,1,True
+fannorflop,g18,بني عوف,2,2,True
+fannorflop,g19,ابن القرم|عثمان بن عفان,5,3,True
+fannorflop,g20,,0,0,False
+fannorflop,g21,صخر,1,1,True
+fannorflop,g22,حنين|جلق|باب الفراديس,4,2,True
+fannorflop,g23,,0,0,True
+fannorflop,g24,,0,0,True
+fannorflop,g25,عماد الدين,2,2,True
+fannorflop,g26,خير الخلق,2,2,True
+fannorflop,g27,جواد سواك,2,2,True
+fannorflop,g28,بني عفان|شهاب|حبيب,4,4,True
+fannorflop,g29,بدر بن عمار,3,3,True
+fannorflop,g30,,0,0,True
+fannorflop,g31,,0,0,True
+fannorflop,g32,,0,0,True
+fannorflop,g33,,0,0,False
+fannorflop,g34,ليلى المهاة|سعدة البيضاء|سلامة الغزال المربب,7,1,True
+fannorflop,g35,حسن,1,1,True
+fannorflop,g36,نجاح|مسيلمة,2,2,True
+fannorflop,g37,أزر,1,1,True
+fannorflop,g38,هيفاء,1,1,True
+fannorflop,g39,باريس,1,1,True
+fannorflop,g40,مغير,1,1,True
+fannorflop,g41,,0,0,True
+fannorflop,g42,,0,0,True
+fannorflop,g43,,0,0,True
+fannorflop,g44,آدم,1,1,True
+fannorflop,g45,,0,0,True
+fannorflop,g46,اليراعة|البراعة|الفصاحة,3,0,True
+fannorflop,g47,صلاح الدين الأيوبي,3,2,True
+fannorflop,g48,,0,0,True
+fannorflop,g49,أمين الله,2,2,True
+fannorflop,g50,سهيل بن سالم|حماد بن نهيا,6,6,True
+fannorflop,g51,,0,0,True
+fannorflop,g52,حكمة|ابن الجرجرائي,3,2,True
+fannorflop,g53,,0,0,True
+fannorflop,g54,,0,0,True
+fannorflop,g55,خمارة|حنون,2,0,True
+fannorflop,g56,سليمى,1,1,True
+fannorflop,g57,,0,0,True
+fannorflop,g58,جمال الدين,2,2,True
+fannorflop,g59,أمير المؤمنين,2,2,True
+fannorflop,g60,,0,0,True
+fannorflop,g61,العنان,1,1,True
+fannorflop,g62,,0,0,True
+fannorflop,g63,أبي حفص,2,1,True
+fannorflop,g64,إسماعيل|الطريد,2,2,True
+fannorflop,g65,,0,0,True
+fannorflop,g66,,0,0,True
+fannorflop,g67,,0,0,True
+fannorflop,g68,بدر الدجى,2,2,True
+fannorflop,g69,,0,0,True
+fannorflop,g70,ابن أبي الوليد,3,3,True
+fannorflop,g71,عنترة|عبلة,2,2,True
+fannorflop,g72,,0,0,True
+fannorflop,g73,,0,0,True
+fannorflop,g74,,0,0,True
+fannorflop,g75,,0,0,True
+fannorflop,g76,,0,0,True
+fannorflop,g77,جعفر|أبي الحسن,3,1,True
+fannorflop,g78,,0,0,True
+fannorflop,g79,حكمة,1,0,True
+fannorflop,g80,الدل|برود,2,2,True
+fannorflop,g81,بني عادية,2,1,True
+fannorflop,g82,هارون الرشيد,2,0,True
+fannorflop,g83,عبد الله|الفاروق|ابن أروى,5,4,True
+fannorflop,g84,,0,0,True
+fannorflop,g85,,0,0,True
+fannorflop,g86,قضاعة|معد,2,2,True
+fannorflop,g87,الفرزدق|بني عبد عمرو,4,4,True
+fannorflop,g88,مصر,1,1,True
+fannorflop,g89,صخر|رمس,2,2,True
+fannorflop,g90,,0,0,False
+fannorflop,g91,رشيد,1,1,True
+fannorflop,g92,,0,0,True
+fannorflop,g93,قيس|عيلان|صقعة|المعاويل,4,3,True
+fannorflop,g94,ماجد,1,1,True
+fannorflop,g95,الزوراء,1,1,True
+fannorflop,g96,,0,0,True
+fannorflop,g97,,0,0,True
+fannorflop,g98,علي,1,1,True
+fannorflop,g99,أبي حسين,2,2,True
+fannorflop,g100,كوكب سعيد,2,0,True
+fannorflop,g101,أبي الجبار,2,1,True
+fannorflop,g102,,0,0,True
+fannorflop,g103,عمرو,1,1,True
+fannorflop,g104,,0,0,True
+fannorflop,g105,طارق|العقيلي,2,1,True
+fannorflop,g106,,0,0,True
+fannorflop,g107,,0,0,True
+fannorflop,g108,أبو عمرو,2,2,True
+fannorflop,g109,,0,0,False
+fannorflop,g110,ديار قحطان|عثمان بن عثمان,5,3,True
+fannorflop,g111,,0,0,True
+fannorflop,g112,,0,0,True
+fannorflop,g113,,0,0,True
+fannorflop,g114,الله,1,0,True
+fannorflop,g115,أبي حسن,2,2,True
+fannorflop,g116,,0,0,True
+fannorflop,g117,,0,0,True
+fannorflop,g118,البدر,1,1,True
+fannorflop,g119,,0,0,True
+fannorflop,g120,ابن أبي الشوارب|السبال,4,3,True
+fannorflop,g121,,0,0,True
+fannorflop,g122,,0,0,True
+fannorflop,g123,,0,0,True
+fannorflop,g124,أَحمد,1,1,True
+fannorflop,g125,,0,0,True
+fannorflop,g126,الصهباء|الأشمط,2,1,True
+fannorflop,g127,,0,0,True
+fannorflop,g128,,0,0,True
+fannorflop,g129,,0,0,True
+fannorflop,g130,بيضاء|المدينة|حمولة|مجحد,4,3,True
+fannorflop,g131,,0,0,True
+fannorflop,g132,,0,0,True
+fannorflop,g133,,0,0,True
+fannorflop,g134,دار الحبيب,2,2,True
+fannorflop,g135,,0,0,True
+fannorflop,g136,,0,0,True
+fannorflop,g137,,0,0,True
+fannorflop,g138,,0,0,True
+fannorflop,g139,,0,0,True
+fannorflop,g140,ابن أكثم,2,2,True
+fannorflop,g141,,0,0,True
+fannorflop,g142,,0,0,False
+fannorflop,g143,,0,0,True
+fannorflop,g144,علي,1,1,True
+fannorflop,g145,,0,0,True
+fannorflop,g146,,0,0,True
+fannorflop,g147,,0,0,True
+fannorflop,g148,,0,0,True
+fannorflop,g149,بني بجاد,2,2,True
+fannorflop,g150,,0,0,True
+fannorflop,g151,القرقر,1,1,True
+fannorflop,g152,,0,0,True
+fannorflop,g153,,0,0,True
+fannorflop,g154,محمود|بدر,2,2,True
+fannorflop,g155,غالب,1,1,True
+fannorflop,g156,صالح بن الفضل|كسرى,4,3,True
+fannorflop,g157,رمزي,1,0,True
+fannorflop,g158,,0,0,True
+fannorflop,g159,بني تميم,2,2,True
+fannorflop,g160,عقيم,1,0,True
+fannorflop,g161,بني علة,2,0,True
+fannorflop,g162,الصبا,1,1,True
+fannorflop,g163,,0,0,True
+fannorflop,g164,,0,0,True
+fannorflop,g165,بكر,1,1,True
+fannorflop,g166,,0,0,True
+fannorflop,g167,,0,0,True
+fannorflop,g168,صخر|آبي الهضيمة,3,3,True
+fannorflop,g169,,0,0,True
+fannorflop,g170,,0,0,True
+fannorflop,g171,بالِس,1,1,True
+fannorflop,g172,طلحة,1,1,True
+fannorflop,g173,,0,0,True
+fannorflop,g174,عتيبة بن مالك,3,2,True
+fannorflop,g175,قمرية,1,1,True
+fannorflop,g176,,0,0,True
+fannorflop,g177,الشام,1,0,True
+fannorflop,g178,رضوى,1,0,True
+fannorflop,g179,كنيزة,1,1,True
+fannorflop,g180,,0,0,True
+fannorflop,g181,,0,0,False
+fannorflop,g182,عقيل,1,0,True
+fannorflop,g183,,0,0,True
+fannorflop,g184,معاوية بن عمرو|صخر,4,3,True
+fannorflop,g185,,0,0,True
+fannorflop,g186,,0,0,True
+fannorflop,g187,آل خثعم,2,1,True
+fannorflop,g188,هارون الرشيد,2,0,True
+fannorflop,g189,ثعلب,1,1,True
+fannorflop,g190,,0,0,True
+fannorflop,g191,,0,0,True
+fannorflop,g192,بني حنيفة,2,0,True
+fannorflop,g193,,0,0,True
+fannorflop,g194,حكمة,1,0,True
+fannorflop,g195,بني حنيفة|سفيان بن عمرو,5,4,True
+fannorflop,g196,,0,0,True
+fannorflop,g197,,0,0,True
+fannorflop,g198,,0,0,True
+fannorflop,g199,,0,0,True
+fannorflop,g200,,0,0,True
+fannorflop,g201,شهاب الدين,2,2,True
+fannorflop,g202,النبي محمد,2,1,True
+fannorflop,g203,أبي بكر الصديق,3,1,True
+fannorflop,g204,,0,0,True
+fannorflop,g205,غمدان,1,0,True
+fannorflop,g206,ابن حمدون بن إسماعيل,4,3,True
+fannorflop,g207,,0,0,True
+fannorflop,g208,إيلياء|واسط|ابن يوسف القطوب,5,4,True
+fannorflop,g209,عمرو بن بيض,3,2,True
+fannorflop,g210,كليب,1,1,True
+fannorflop,g211,علي بن أبي طالب|الفتح|النضير|بدر,7,1,True
+fannorflop,g212,صنعاء|مارب,2,0,True
+fannorflop,g213,,0,0,True
+fannorflop,g214,,0,0,True
+fannorflop,g215,ربى|نجد,2,2,True
+fannorflop,g216,,0,0,True
+fannorflop,g217,,0,0,True
+fannorflop,g218,,0,0,True
+fannorflop,g219,سلمى,1,1,True
+fannorflop,g220,,0,0,True
+fannorflop,g221,,0,0,True
+fannorflop,g222,,0,0,True
+fannorflop,g223,,0,0,True
+fannorflop,g224,,0,0,True
+fannorflop,g225,,0,0,True
+fannorflop,g226,,0,0,True
+fannorflop,g227,العلياء|الجوزاء,2,2,True
+fannorflop,g228,,0,0,True
+fannorflop,g229,,0,0,True
+fannorflop,g230,ثقيف,1,1,True
+fannorflop,g231,,0,0,True
+fannorflop,g232,,0,0,True
+fannorflop,g233,,0,0,False
+fannorflop,g234,,0,0,True
+fannorflop,g235,,0,0,True
+fannorflop,g236,,0,0,False
+fannorflop,g237,,0,0,True
+fannorflop,g238,,0,0,True
+fannorflop,g239,سيف الدولة,2,0,True
+fannorflop,g240,قطا|مران,2,2,True
+fannorflop,g241,,0,0,True
+fannorflop,g242,,0,0,True
+fannorflop,g243,,0,0,True
+diwan,g0,,0,0,True
+diwan,g1,,0,0,True
+diwan,g2,,0,0,True
+diwan,g3,,0,0,True
+diwan,g4,,0,0,True
+diwan,g5,,0,0,True
+diwan,g6,,0,0,True
+diwan,g7,سمرقند,1,1,True
+diwan,g8,,0,0,True
+diwan,g9,,0,0,True
+diwan,g10,,0,0,True
+diwan,g11,,0,0,True
+diwan,g12,,0,0,True
+diwan,g13,,0,0,True
+diwan,g14,,0,0,True
+diwan,g15,,0,0,True
+diwan,g16,,0,0,True
+diwan,g17,,0,0,True
+diwan,g18,,0,0,True
+diwan,g19,أديب,1,0,True
+diwan,g20,,0,0,True
+diwan,g21,,0,0,True
+diwan,g22,,0,0,True
+diwan,g23,,0,0,True
+diwan,g24,الرسول,1,1,True
+diwan,g25,,0,0,True
+diwan,g26,,0,0,True
+diwan,g27,,0,0,False
+diwan,g28,قتادة,1,1,True
+diwan,g29,,0,0,True
+diwan,g30,يمن,1,1,True
+diwan,g31,,0,0,True
+diwan,g32,أبي حفص,2,1,True
+diwan,g33,,0,0,True
+diwan,g34,,0,0,True
+diwan,g35,,0,0,True
+diwan,g36,,0,0,True
+diwan,g37,,0,0,True
+diwan,g38,,0,0,True
+diwan,g39,,0,0,True
+diwan,g40,,0,0,True
+diwan,g41,,0,0,True
+diwan,g42,,0,0,True
+diwan,g43,,0,0,True
+diwan,g44,,0,0,True
+diwan,g45,,0,0,True
+diwan,g46,,0,0,True
+diwan,g47,,0,0,True
+diwan,g48,مصر,1,1,True
+diwan,g49,حلب,1,1,True
+diwan,g50,,0,0,True
+diwan,g51,,0,0,True
+diwan,g52,,0,0,True
+diwan,g53,,0,0,True
+diwan,g54,الكندي,1,1,True
+diwan,g55,,0,0,True
+diwan,g56,,0,0,True
+diwan,g57,سليمان المدعي,2,1,True
+diwan,g58,,0,0,True
+diwan,g59,,0,0,True
+diwan,g60,,0,0,True
+diwan,g61,,0,0,True
+diwan,g62,,0,0,True
+diwan,g63,,0,0,True
+diwan,g64,,0,0,True
+diwan,g65,,0,0,True
+diwan,g66,,0,0,True
+diwan,g67,شمس الدين,2,2,True
+diwan,g68,,0,0,True
+diwan,g69,,0,0,True
+diwan,g70,,0,0,True
+diwan,g71,فؤاد,1,0,True
+diwan,g72,,0,0,True
+diwan,g73,,0,0,True
+diwan,g74,,0,0,True
+diwan,g75,,0,0,True
+diwan,g76,,0,0,True
+diwan,g77,سعد|صاعد|عبيد الله,4,2,True
+diwan,g78,,0,0,True
+diwan,g79,,0,0,True
+diwan,g80,,0,0,True
+diwan,g81,,0,0,True
+diwan,g82,,0,0,True
+diwan,g83,,0,0,True
+diwan,g84,,0,0,True
+diwan,g85,,0,0,True
+diwan,g86,القدس,1,1,True
+diwan,g87,,0,0,True
+diwan,g88,,0,0,True
+diwan,g89,مستوفي,1,1,True
+diwan,g90,,0,0,True
+diwan,g91,,0,0,True
+diwan,g92,,0,0,True
+diwan,g93,,0,0,True
+diwan,g94,,0,0,True
+diwan,g95,,0,0,True
+diwan,g96,,0,0,True
+diwan,g97,,0,0,True
+diwan,g98,,0,0,True
+diwan,g99,,0,0,True
+diwan,g100,,0,0,True
+diwan,g101,,0,0,True
+diwan,g102,,0,0,True
+diwan,g103,,0,0,True
+diwan,g104,,0,0,True
+diwan,g105,,0,0,True
+diwan,g106,,0,0,True
+diwan,g107,,0,0,True
+diwan,g108,,0,0,True
+diwan,g109,,0,0,True
+diwan,g110,,0,0,True
+diwan,g111,,0,0,True
+diwan,g112,يوم الحساب,2,1,True
+diwan,g113,الجوزاء,1,1,True
+diwan,g114,,0,0,True
+diwan,g115,ابن الوليد,2,2,True
+diwan,g116,,0,0,True
+diwan,g117,,0,0,True
+diwan,g118,,0,0,True
+diwan,g119,,0,0,True
+diwan,g120,خليل,1,1,True
+diwan,g121,,0,0,True
+diwan,g122,,0,0,True
+diwan,g123,,0,0,True
+diwan,g124,,0,0,True
+diwan,g125,إبليس,1,0,True
+diwan,g126,,0,0,True
+diwan,g127,,0,0,True
+diwan,g128,,0,0,True
+diwan,g129,الجنة,1,0,True
+diwan,g130,,0,0,True
+diwan,g131,,0,0,True
+diwan,g132,,0,0,True
+diwan,g133,,0,0,True
+diwan,g134,,0,0,True
+diwan,g135,,0,0,True
+diwan,g136,,0,0,False
+diwan,g137,,0,0,True
+diwan,g138,,0,0,True
+diwan,g139,صاعد,1,0,True
+diwan,g140,,0,0,True
+diwan,g141,,0,0,True
+diwan,g142,الله,1,1,True
+diwan,g143,,0,0,True
+diwan,g144,,0,0,True
+diwan,g145,,0,0,True
+diwan,g146,حنين|أنس|الأصحاب,3,0,True
+diwan,g147,,0,0,True
+diwan,g148,,0,0,True
+diwan,g149,الله,1,0,True
+diwan,g150,,0,0,True
+diwan,g151,,0,0,True
+diwan,g152,,0,0,True
+diwan,g153,الله,1,1,True
+diwan,g154,,0,0,True
+diwan,g155,آل حنا ضاهر,3,3,True
+diwan,g156,,0,0,True
+diwan,g157,,0,0,True
+diwan,g158,,0,0,True
+diwan,g159,منصور|المعوشي|الجنة,3,2,True
+diwan,g160,المسيح,1,0,True
+diwan,g161,,0,0,True
+diwan,g162,,0,0,True
+diwan,g163,,0,0,True
+diwan,g164,,0,0,True
+diwan,g165,,0,0,True
+diwan,g166,,0,0,True
+diwan,g167,,0,0,True
+diwan,g168,,0,0,True
+diwan,g169,,0,0,True
+diwan,g170,,0,0,True
+diwan,g171,حماة,1,0,True
+diwan,g172,بعلبك|زينب|مصر,3,3,True
+diwan,g173,,0,0,False
+diwan,g174,,0,0,True
+diwan,g175,,0,0,True
+diwan,g176,الله,1,0,True
+diwan,g177,,0,0,True
+diwan,g178,سالم|عمرو,2,2,True
+diwan,g179,,0,0,True
+diwan,g180,,0,0,True
+diwan,g181,,0,0,True
+diwan,g182,,0,0,True
+diwan,g183,,0,0,True
+diwan,g184,آل البيت|الإمام الكاظم,4,1,True
+diwan,g185,,0,0,True
+diwan,g186,,0,0,True
+diwan,g187,,0,0,True
+diwan,g188,,0,0,True
+diwan,g189,,0,0,True
+diwan,g190,السمور,1,1,True
+diwan,g191,,0,0,True
+diwan,g192,قيصر,1,1,True
+diwan,g193,,0,0,True
+diwan,g194,إرواء العطشى,2,0,True
+diwan,g195,,0,0,True
+diwan,g196,خمرية|البدر,2,0,True
+diwan,g197,,0,0,True
+diwan,g198,,0,0,True
+diwan,g199,يوسف الحسن,2,2,True
+diwan,g200,,0,0,True
+diwan,g201,,0,0,True
+diwan,g202,,0,0,True
+diwan,g203,,0,0,True
+diwan,g204,,0,0,True
+diwan,g205,,0,0,True
+diwan,g206,,0,0,True
+diwan,g207,,0,0,True
+diwan,g208,,0,0,True
+diwan,g209,رحبة مالك,2,1,True
+diwan,g210,,0,0,True
+diwan,g211,,0,0,True
+diwan,g212,,0,0,True
+diwan,g213,,0,0,True
+diwan,g214,ظبية,1,0,True
+diwan,g215,الله,1,0,True
+diwan,g216,,0,0,True
+diwan,g217,محمداً,1,0,True
+diwan,g218,,0,0,True
+diwan,g219,,0,0,True
+diwan,g220,محمد,1,0,True
+diwan,g221,سعد,1,0,True
+diwan,g222,الندامى,1,1,True
+diwan,g223,,0,0,True
+diwan,g224,,0,0,True
+diwan,g225,,0,0,True
+diwan,g226,,0,0,True
+diwan,g227,,0,0,True
+diwan,g228,,0,0,True
+diwan,g229,,0,0,True
+diwan,g230,,0,0,True
+diwan,g231,,0,0,True
+diwan,g232,,0,0,True
+diwan,g233,,0,0,True
+diwan,g234,,0,0,True
+diwan,g235,إبراهيم|سيف النصر,3,1,True
+diwan,g236,,0,0,True
+diwan,g237,,0,0,True
+diwan,g238,الله,1,0,True
+diwan,g239,,0,0,True
+diwan,g240,,0,0,True
+diwan,g241,,0,0,True
+diwan,g242,الله,1,0,True
+diwan,g243,,0,0,True
+diwan,g244,,0,0,True
+diwan,g245,,0,0,True
+diwan,g246,,0,0,True
+diwan,g247,,0,0,True
+diwan,g248,,0,0,True
+diwan,g249,,0,0,True
+diwan,g250,,0,0,True
+diwan,g251,,0,0,True
+diwan,g252,,0,0,True
+diwan,g253,,0,0,True
+diwan,g254,,0,0,True
+diwan,g255,,0,0,True
+diwan,g256,,0,0,True
+diwan,g257,,0,0,True

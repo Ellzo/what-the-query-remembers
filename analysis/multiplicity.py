@@ -1,14 +1,12 @@
-"""Holm-Bonferroni correction over every family of tests the paper reports.
+"""Holm-Bonferroni correction within each family of tests the paper reports.
 
-A reviewer who counts p-values will find a lot of them. Rather than claim a correction we did not
-apply, this script applies Holm within each family and reports whether any conclusion changes.
 Families are defined by what a reader compares side by side:
 
   A  mode contrasts in Table 2: within each (corpus, contrast), across the 10 systems
-  B  the quotation-slope interaction of §5: 9 systems against the reference encoder
+  B  the quotation-slope interaction of section 5.1: 9 systems against the reference encoder
   C  Track B: BM25 against each of the 9 dense encoders, within each corpus
 
-Writes results/derived/eacl_multiplicity.csv and prints anything whose significance label moves.
+Writes results/derived/eacl_multiplicity.csv and prints anything whose significance label changes.
 """
 import os
 import sys

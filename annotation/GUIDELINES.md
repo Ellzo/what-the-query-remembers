@@ -1,4 +1,4 @@
-# Annotation guidelines — thematic relevance
+# Annotation guidelines: thematic relevance
 
 You will see a series of **themes** (short Arabic phrases). Under each theme are several poems,
 retrieved by different search systems. The systems are anonymised and the poems are shuffled, so

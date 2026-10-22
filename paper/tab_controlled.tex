@@ -1,0 +1,20 @@
+\begin{tabular}{l cccc cc}
+\toprule
+& \multicolumn{2}{c}{FannOrFlop R@5} & \multicolumn{2}{c}{slope} & \multicolumn{2}{c}{$\rho$} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+System & quote & no-qt. & $\Delta$ & vs.\,ref & lex. & emb. \\
+& \scriptsize $n{=}80$ & \scriptsize $n{=}164$ & & & & \\
+\midrule
+Qwen3-8B & 0.863 & 0.646 & 0.22 & ref. & 0.17 & \textbf{0.32} \\
+BGE-M3 & 0.875 & 0.604 & 0.27 & $+0.06$ & 0.22 & \textbf{0.35} \\
+mE5-large & 0.713 & 0.512 & 0.20 & $-0.02$ & 0.25 & \textbf{0.46} \\
+jina-v3 & 0.787 & 0.579 & 0.21 & $-0.01$ & 0.29 & \textbf{0.45} \\
+silma-sts & 0.750 & 0.476 & 0.27 & $+0.06$ & 0.32 & \textbf{0.36} \\
+gte & 0.775 & 0.457 & 0.32 & $+0.10$ & 0.32 & \textbf{0.60}$^{\dagger}$ \\
+Qwen3-0.6B & 0.700 & 0.476 & 0.22 & $+0.01$ & 0.30 & \textbf{0.42} \\
+LaBSE & 0.525 & 0.207 & 0.32 & $+0.10$ & 0.37 & \textbf{0.50} \\
+Muffakir-v2 & 0.300 & 0.165 & 0.14 & $-0.08$ & 0.30 & \textbf{0.36} \\
+\midrule
+\textbf{BM25} & 1.000 & 0.622 & 0.38 & \textbf{$+0.16$$^{**}$} & \textbf{0.61} & 0.35 \\
+\bottomrule
+\end{tabular}

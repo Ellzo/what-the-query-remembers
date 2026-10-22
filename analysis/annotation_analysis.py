@@ -1,4 +1,4 @@
-"""E4 - analyse the blinded human relevance annotation.
+"""Analyse the blinded human relevance annotation of the thematic track.
 
 Per-system score = for each query, the mean graded relevance (0/1/2) of that system's top-3
 retrieved poems; then averaged over queries. Because the annotation pool is deduplicated, one

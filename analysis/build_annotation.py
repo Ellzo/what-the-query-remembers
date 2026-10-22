@@ -1,21 +1,19 @@
-"""E4 - build the blinded human relevance annotation task.
+"""Build the blinded human relevance annotation task for the thematic track.
 
-Purpose: an independent, judge-free test of the thematic-track result. The LLM judge says BM25
-collapses on thematic queries while dense encoders do not. If a human annotator, blind to system
-identity, reproduces that ordering, the thematic track is validated. If not, the finding becomes
-"the judge's rubric penalises lexical systems", which is reported instead. Decided in advance.
+It gives a judge-free test of the thematic-track result: if annotators who are blind to system
+identity reproduce the judge's ordering, the ordering does not depend on the judge's rubric.
 
 Design:
   * 20 thematic queries, 10 per corpus, stratified across the query list.
-  * 3 systems in verse mode from the UNIFIED pipeline: bm25, jina-v3, and RRF(bm25, jina).
-  * top-3 poems each -> pooled, deduplicated, shuffled; all system identity stripped.
+  * 3 systems in verse mode from the unified pipeline: bm25, jina-v3, and RRF(bm25, jina).
+  * top-3 poems each, pooled, deduplicated and shuffled, with all system identity stripped.
   * graded relevance 0/1/2 against the theme, plus a free-text note.
 
 Outputs:
-  annotation/task.csv         canonical file (item_id, corpus, query, poem_id, verses, relevance, note)
-  annotation/key.csv          which systems retrieved each item, at which rank  (NOT shown to annotator)
-  annotation/annotate.html    self-contained offline UI that exports the filled task.csv
-  annotation/GUIDELINES.md    instructions (goes in the paper appendix)
+  annotation/task.csv         item_id, corpus, query, poem_id, verses, relevance, note
+  annotation/key.csv          which systems retrieved each item, at which rank (not shown to annotators)
+  annotation/annotate.html    self-contained offline page that exports the filled task.csv
+  annotation/GUIDELINES.md    instructions for annotators
 """
 import ast
 import gzip
@@ -183,7 +181,7 @@ document.addEventListener('input',save);load();
 
 
 def write_guidelines():
-    g = """# Annotation guidelines — thematic relevance
+    g = """# Annotation guidelines: thematic relevance
 
 You will see a series of **themes** (short Arabic phrases). Under each theme are several poems,
 retrieved by different search systems. The systems are anonymised and the poems are shuffled, so

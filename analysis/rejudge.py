@@ -1,28 +1,21 @@
-"""E3/N4 - re-run the LLM judge on the UNIFIED pipeline's thematic retrievals.
+"""The primary LLM judge (Gemini 3.5 Flash) over the unified pipeline's thematic retrievals.
 
-Why re-judge instead of reusing results/*/gemini_results__*: those judgments were produced on the
-old Chroma/LlamaIndex retrievals, so reusing them would silently mix pipelines in exactly the way
-this revision exists to eliminate. Re-judging makes Track A and Track B pipeline-consistent.
+Judging runs on the same rank dumps as Track A, so the two tracks are pipeline-consistent.
+Details of the setup:
+  1. The judge sees each system's top 3 poems, and the prompt says 3.
+  2. Verse mode only, so no model-generated explanation is shown to the judge and self-preference
+     toward our Gemini-generated explanations cannot arise.
+  3. Each poem is shown as its first 6 verses.
 
-Two defects in the original judging setup are fixed here, both documented in the paper:
-  1. The prompt said "5 retrieved results" and asked whether all FIVE were relevant, while the
-     code passed top_k=3. The judge was scoring precision over items it never saw.
-  2. The prompt told the judge each result contains "the verses and their explanation". We judge
-     VERSE MODE ONLY, where no model-generated explanation is shown, so the self-preference
-     concern (Gemini generated the AI explanations) cannot apply to any Track B claim.
+The rubric has 7 aspects scored 1-5 with justifications; direct_textual_relevance has an
+inverted scale (1 = best = least literal matching).
 
-Otherwise the rubric is verbatim the original: 7 metrics, 1-5, with justifications, and
-direct_textual_relevance keeps its inverted scale (1 = best = least literal matching).
-
-Resumable: already-scored (system, corpus, qid) rows are skipped on re-run.
+Resumable: already-scored (system, corpus, qid) rows are skipped on rerun.
 
 Usage:
   python3 analysis/rejudge.py --systems all --corpora all --model gemini-3.5-flash
 
-Auth: Vertex AI with application-default credentials (the public Gemini API retired
-gemini-2.0-flash, the model the original judgments used, so those can no longer be reproduced
-with their own judge; this is itself reported in the paper as a reproducibility argument for
-releasing per-query judge outputs).
+Auth: Vertex AI with application-default credentials; set VERTEX_PROJECT.
 """
 import argparse
 import ast

@@ -1,5 +1,5 @@
 """Track A metrics from the unified rank dumps: R@1/@5, MRR, nDCG@10 with bootstrap 95% CIs,
-paired exact McNemar between indexing modes, and the verbatim-quotation stratification (E2).
+paired exact McNemar between indexing modes, and the split by verbatim quotation.
 
 Everything is derived from analysis/runs/*__gold.json.gz, so no table can mix pipelines.
 
@@ -152,7 +152,7 @@ def main():
             print(f"  {r.system:12s} R@1={getattr(r,'_6'):.3f}  "
                   f"R@5={r._9:.3f} [{r._10:.3f},{r._11:.3f}]  n={r.n}")
 
-    print("\n=== E2 CONTROLLED TEST: FannOrFlop verse-mode R@5 by quotation subset ===")
+    print("\nFannOrFlop verse-mode R@5 by quotation subset")
     ff = A[(A.corpus == "fannorflop") & (A["mode"] == "verses")]
     p = ff.pivot_table(index="system", columns="subset", values="R@5")
     p["n_quote"] = ff[ff.subset == "quote"].set_index("system")["n"]

@@ -1,17 +1,15 @@
-"""N1 - fusion and hybrid retrieval, evaluated on Track A from the unified rank dumps.
+"""Fusion and hybrid retrieval, evaluated on Track A from the unified rank dumps.
 
-Two combinations, both standard and both free given the dumps:
+Two combinations:
   FUSE(verses, expl)   reciprocal-rank fusion of a model's verse index and its explanation
-                       index. Tests whether indexing both beats choosing between them, i.e.
-                       whether the practitioner needs to know which regime they are in.
-  HYBRID(BM25, dense)  reciprocal-rank fusion of BM25 and a dense model, both verse mode.
-                       The standard lexical+dense baseline a retrieval reviewer expects.
+                       index: does indexing both beat choosing between them?
+  HYBRID(BM25, dense)  reciprocal-rank fusion of BM25 and a dense model, both verse mode, with
+                       and without an explanation index.
 
 RRF score(d) = sum_r 1/(k + rank_r(d)), k=60 (Cormack et al. 2009).
 
-Reported per corpus and, on FannOrFlop, split by whether the query quotes the poem verbatim -
-the point is which recipe is safe at every point of the query-abstraction spectrum, not which
-one wins on average.
+Reported per corpus and, on Fann or Flop, split by whether the query quotes the poem verbatim,
+to show which recipe is safe at every point of the query-abstraction spectrum.
 
 Writes results/derived/eacl_fusion.csv
 """

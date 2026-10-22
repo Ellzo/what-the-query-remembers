@@ -1,16 +1,12 @@
-"""Second Track B judge: an open-weights model run locally, as a judge-independence control.
+"""Second Track B judge: an open-weights model (Gemma-3-27B-it, 4-bit) run locally.
 
-Why. Every prior review round objected to a single LLM judge, and the objection is sharpened here
-by the fact that Gemini 2.0 Flash, which generated our explanations, was withdrawn from the API
-during this work: judgments made with a proprietary judge cannot be re-derived once the model is
-retired. An open-weights judge with fixed weights does not have that property, so this run is both
-a robustness check and a permanently reproducible one.
+A proprietary judge cannot be rerun once the model is retired, as happened to Gemini 2.0 Flash
+during this work. A judge with fixed open weights can always be rerun.
 
-Design. The rubric text is byte-identical to the primary judge's prompt (`rejudge.py`), so any
-disagreement is attributable to the model rather than to the instructions. The only deviation is the
-response format: with `--brief` the model returns the seven scores plus one short overall
-justification instead of seven justifications, which keeps local decoding tractable. This is
-reported in the paper.
+The rubric text is identical to the primary judge's prompt (`rejudge.py`), so any disagreement
+comes from the model rather than the instructions. The only difference is the response format:
+with `--brief` the model returns the seven scores plus one short overall justification instead of
+seven justifications, which keeps local decoding tractable.
 
 Usage:
   python3 analysis/judge2.py --nqueries 100            # 100 queries x 10 systems x 2 corpora

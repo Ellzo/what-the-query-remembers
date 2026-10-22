@@ -1,0 +1,56 @@
+\paragraph{The judge agrees with blind human judgments.} Twenty thematic queries were pooled across
+BM25, jina-v3 and their fusion, deduplicated to 126 poems, shuffled with system identity removed,
+and graded by two authors independently, who were told that lexical overlap is not evidence of
+relevance (Appendix~\ref{app:human}). The raters agree moderately (quadratic-weighted
+$\kappa{=}0.53$, $90\%$ within one point). Across the 40 system-query cells covered by both, the
+first rater's grades and the judge's overall-quality score agree strongly (Spearman $\rho{=}0.75$,
+$p{=}2\times10^{-8}$; $\rho{=}0.64$ for the second rater), and both raters rank the annotated
+systems as the judge does. Human raters who ignore surface matching reach the judge's ordering,
+which argues against the concern that the rubric alone produces it.
+
+\paragraph{Results.} Table~\ref{tab:trackb} gives Track B scores for all ten systems on both
+corpora, complete-case over all 200 queries with no judge failures. The picture is the reverse of
+Track A's. \textbf{BM25 is last of ten on both corpora} ($1.90$ on \textit{Fann or Flop}, $1.70$ on
+\textit{Diwan}), and is beaten significantly by eight of the nine dense encoders on each (paired
+Wilcoxon, Holm-corrected; $\Delta$ up to $-1.04$ against Qwen3-8B, $p{=}2\times10^{-18}$). The
+exception on both corpora is LaBSE, the weakest dense encoder, which BM25 is statistically
+indistinguishable from ($p{=}.35$ on \textit{Diwan}, $p{=}.054$ on \textit{Fann or Flop}). The blind
+human judgments give the same ordering on the systems they cover: on \textit{Fann or Flop}, jina-v3
+$0.93$, the RRF hybrid $0.83$, BM25 $0.50$ for the first rater (paired Wilcoxon BM25 vs.\ jina-v3
+$p{=}.016$; pooled over both corpora $\Delta{=}-0.45$, $p{=}.005$, and $p{=}.028$ for the second
+rater).
+
+\paragraph{Two open-weights judges replicate it.} A proprietary judge cannot be re-run once
+withdrawn, so we repeat Track B locally over a random half of the thematic queries ($2{,}000$ cells
+per judge). The second judge, Gemma-3-27B-it, uses the identical rubric. It agrees with the primary
+judge at the cell level (Spearman $\rho{=}0.67$ on overall quality) and on system ordering (Kendall
+$\tau{=}{+}0.85$ on \textit{Diwan}, ${+}0.81$ on \textit{Fann or Flop}), and it tracks the blind
+human judgments too ($\rho{=}0.70$). Under it BM25 is \emph{ninth} of ten rather than last, still
+significantly below eight of nine dense encoders on both corpora, displaced by LaBSE, the one
+system the primary judge could not separate from BM25 either. Both of these judges are Google
+models, so the third, Qwen3-32B, comes from another family. It also places BM25 ninth of ten on
+both corpora, above LaBSE only ($\tau{=}0.67$ and $0.89$ with the primary judge). We then remove
+the literal-match aspect and its framing from the rubric and change nothing else. Under this
+neutral rubric BM25 is tenth on \textit{Fann or Flop} and ninth on \textit{Diwan}, and the ordering
+barely moves ($\tau{=}0.90$ and $0.97$ against the original rubric). Dropping the aspect raises
+every system's score, BM25's the least ($+0.10$ against up to $+0.27$). The literal-match aspect is
+therefore not what places BM25 near the bottom (Appendix~\ref{app:judge2}).
+
+\paragraph{The judge separates matching from aboutness.} BM25 is last of ten on every aspect
+requiring knowledge of what a poem is about, with its largest deficits on metaphor understanding and
+semantic coverage; but on \emph{direct textual relevance}, which measures how far retrieved poems
+merely repeat the query's wording, it is \emph{first} of ten on both corpora ($4.26$, $4.48$;
+second of ten under the second judge, behind LaBSE; Appendix~\ref{app:aspects}). The judge
+identifies BM25 as the most surface-matching system while ranking it last overall. This supports
+\S\ref{sec:bridge} through a channel that shares nothing with our lexical statistics, and it argues
+against the reading that the judge merely penalises lexical retrieval.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\input{tab_trackb}
+\caption{Track A (known-item Recall@5) beside Track B (thematic judge score, 1 to 5), verse mode,
+$n{=}200$ queries per cell with no judge failures. The lower block gives the first rater's blind
+human relevance of the top-3 (0 to 2) for the three annotated systems.}
+\label{tab:trackb}
+\end{table}
