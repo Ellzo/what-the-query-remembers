@@ -14,9 +14,13 @@
 % Do not substitute polyglossia: it leaves the body text in Latin Modern rather than the
 % Times-like face the ACL style requires.
 \usepackage[english,bidi=default]{babel}
-\babelfont{rm}{TeXGyreTermesX}          % Times-like, as required
+% Fonts are loaded by file name so the build does not depend on the system font list
+% (arXiv's does not list them). Amiri ships in fonts/ under the SIL Open Font License.
+\babelfont{rm}[Extension=.otf, UprightFont=*-Regular, BoldFont=*-Bold, ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic]{TeXGyreTermesX}          % Times-like, as required
 \babelprovide[import]{arabic}
-\babelfont[*arabic]{rm}{Amiri}          % embedded Arabic face for the verse examples
+\babelfont[*arabic]{rm}[Path=fonts/, Extension=.ttf, UprightFont=*-Regular,
+  BoldFont=*-Bold]{Amiri}          % embedded Arabic face for the verse examples
 \newcommand{\textarabic}[1]{\foreignlanguage{arabic}{#1}}
 
 \title{What the Query Remembers: Query Abstraction Governs\\Lexical and Dense Retrieval of Classical Arabic Poetry}
@@ -43,7 +47,7 @@
 \maketitle
 
 \begin{abstract}
-How well a poetry archive can be searched depends on what the user still remembers, not only on what the model understands. We show this for Classical Arabic poetry, benchmarking nine dense encoders and BM25 over two corpora, three indexing modes and two evaluation protocols. Which retriever wins is governed by how much of a poem's wording the query still carries. On tip-of-the-tongue queries BM25 leads every dense encoder, including an 8B state-of-the-art model (0.746 vs.\ 0.717 Recall@5); on abstract queries it falls to eighth out of ten (0.392 vs.\ 0.748). Editing the wording of the same queries shows that this ranking largely reflects query composition: adding one remembered half-verse raises BM25 by 38 points, rewriting the quoted words by hand leaves BM25 level with the 8B encoder, and BM25's sensitivity to remembered wording is significantly steeper than that of the strongest dense encoder. The same axis controls explanation augmentation, whose effect swings from $+37$ to $-39$ points. The mechanism splits by system type: lexical containment predicts BM25's behaviour, while embedding proximity predicts dense encoders. Finally, the field's two standard protocols, known-item retrieval and thematic relevance, dissociate on the same systems, a result reproduced by two blind human annotators and by two open-weights judges, one of them under a rubric with no literal-match criterion. A benchmark that reports one protocol, or one query register, can give a materially wrong picture.
+How well a poetry archive can be searched depends on what the user still remembers, not only on what the model understands. We show this for Classical Arabic poetry, benchmarking nine dense encoders and BM25 over two corpora, three indexing modes and two evaluation protocols. Which retriever wins is governed by how much of a poem's wording the query still carries. On tip-of-the-tongue queries BM25 leads every dense encoder, including an 8B state-of-the-art model (0.746 vs.\ 0.717 Recall@5); on abstract queries it falls to eighth out of ten (0.392 vs.\ 0.748). Editing the wording of the same queries shows that this ranking largely reflects query composition: adding one remembered half-verse raises BM25 by 38 points, rewriting the quoted words by hand leaves BM25 level with the 8B encoder, and BM25's sensitivity to remembered wording is significantly steeper than that of the strongest dense encoder. The same axis controls explanation augmentation, whose effect swings from $+37$ to $-39$ points. The mechanism splits by system type: lexical containment predicts BM25's behaviour, while embedding proximity predicts dense encoders. Finally, the field's two standard protocols, known-item retrieval and thematic relevance, dissociate on the same systems, a result reproduced by two blind human annotators and by two open-weights judges, one of them under a rubric with no literal-match criterion. A benchmark that reports one protocol, or one query register, can give a materially wrong picture. Code and data are available at \url{https://github.com/Ellzo/what-the-query-remembers}.
 \end{abstract}
 
 \section{Introduction}
@@ -235,7 +239,7 @@ Our queries were written by the authors. The results therefore show how retrieva
 
 The queries are also in contemporary Arabic, while the poems range from the pre-Islamic period to the modern era. On \textit{Fann or Flop}, at equal lexical overlap and query length, dense encoders do worse on older poetry ($+0.27$ log-odds of success per era step towards the present, $p{=}.010$), while BM25 shows no such trend ($p{=}.14$; interaction $p{=}.015$; Appendix~\ref{app:corpus}). This fits a temporal gap between modern queries and classical vocabulary that affects learned representations more than exact matching. It rests on one corpus and four coarse era bins, so we treat it as exploratory.
 
-On the modelling side, current encoders are strong when queries are abstract, but an 8B model still cannot beat a bag of words when the query carries remembered wording, because surface matching is nearly optimal there. The open problem is the non-quoting, most figurative queries, where the best system reaches roughly $0.65$, and our benchmark isolates that slice.
+On the modelling side, the open problem is the non-quoting, most figurative queries, where the best system reaches roughly $0.65$, and our benchmark isolates that slice.
 
 \section{Conclusion}
 
