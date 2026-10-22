@@ -34,7 +34,7 @@ paper/                 the LaTeX source, so the tables and figures can be regene
 ACL style files, which come from the [official template](https://github.com/acl-org/acl-style-files).
 Every `tab_*.tex` is written by `make_tables.py` or `appendix_tables.py` from `results/derived/`, so
 you can delete them and regenerate them. The paper builds with XeLaTeX, which the Arabic examples
-need. The Amiri font is included in `paper/fonts/` (SIL Open Font License); TeXGyreTermesX comes with
+need. The Amiri font is included in `paper/` (SIL Open Font License, `Amiri-OFL.txt`); TeXGyreTermesX comes with
 TeX Live (newtx).
 
 ## Data

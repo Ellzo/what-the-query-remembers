@@ -14,12 +14,12 @@
 % Do not substitute polyglossia: it leaves the body text in Latin Modern rather than the
 % Times-like face the ACL style requires.
 \usepackage[english,bidi=default]{babel}
-% Fonts are loaded by file name so the build does not depend on the system font list
-% (arXiv's does not list them). Amiri ships in fonts/ under the SIL Open Font License.
+% Fonts are loaded by file name, as arXiv requires (it registers almost no fonts by name).
+% Amiri-*.ttf sit next to this file (SIL Open Font License, see Amiri-OFL.txt); TeX Live also ships them.
 \babelfont{rm}[Extension=.otf, UprightFont=*-Regular, BoldFont=*-Bold, ItalicFont=*-Italic,
   BoldItalicFont=*-BoldItalic]{TeXGyreTermesX}          % Times-like, as required
 \babelprovide[import]{arabic}
-\babelfont[*arabic]{rm}[Path=fonts/, Extension=.ttf, UprightFont=*-Regular,
+\babelfont[*arabic]{rm}[Extension=.ttf, UprightFont=*-Regular,
   BoldFont=*-Bold]{Amiri}          % embedded Arabic face for the verse examples
 \newcommand{\textarabic}[1]{\foreignlanguage{arabic}{#1}}
 
