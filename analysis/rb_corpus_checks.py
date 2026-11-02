@@ -112,6 +112,8 @@ def main():
             for pid in g.pid:
                 twins[pid] = set(g.pid) - {pid}
     gold_ids = dq.poem_id.astype(str)
+    fkey = ff.poem_verses.map(normalize_ar)
+    add("duplicates", "fannorflop", "n_poems_with_twin", int((fkey.map(fkey.value_counts()) > 1).sum()))
     add("duplicates", "diwan", "n_gold_with_twin", int(gold_ids.drop_duplicates().isin(twins).sum()))
     for s in SYSTEMS:
         r = load_run(s, "diwan", "verses")

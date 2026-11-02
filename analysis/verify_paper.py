@@ -163,7 +163,8 @@ def claims():
     N = load("eacl_norm_ablation.csv")
     if N is not None:
         piv = N.pivot_table(index="system", columns="normalisation", values="R@5")
-        for sysname, raw, light, full in (("gte", 0.023, 0.488, 0.469),
+        for sysname, raw, light, full in (("jina", 0.178, 0.523, 0.434),
+                                          ("gte", 0.023, 0.488, 0.469),
                                           ("labse", 0.093, 0.368, 0.333)):
             if sysname in piv.index:
                 add((f"norm raw {sysname}", raw, round(float(piv.loc[sysname, "raw"]), 3)))
@@ -171,6 +172,12 @@ def claims():
                 add((f"norm full {sysname}", full, round(float(piv.loc[sysname, "full"]), 3)))
         gaps = (piv["light"] - piv["full"])
         add(("min light-vs-full gap", 0.019, round(float(gaps.min()), 3)))
+        add(("jina light-vs-full gap (pts)", 8.9, round(100 * float(gaps["jina"]), 1)))
+        add(("labse light-vs-full gap (pts)", 3.5, round(100 * float(gaps["labse"]), 1)))
+        r1 = N.pivot_table(index="system", columns="normalisation", values="R@1")
+        for sysname, light, full in (("gte", 0.256, 0.318), ("labse", 0.209, 0.167)):
+            add((f"norm R@1 light {sysname}", light, round(float(r1.loc[sysname, "light"]), 3)))
+            add((f"norm R@1 full {sysname}", full, round(float(r1.loc[sysname, "full"]), 3)))
 
     # Limitations: the blinded known-item spot check
     SP = load("eacl_spotcheck.csv")
@@ -406,6 +413,7 @@ def edit_claims():
         add(("target tests all p > .05", 1, int(CC[CC.check == "targets"].value.min() > 0.05)))
         add(("FoF poems kept", 4687, int(cc[("fof_filter", "all", "n_poems")])))
         add(("FoF max verses", 16, int(cc[("fof_filter", "all", "max_verses")])))
+        add(("FoF poems with a twin", 0, int(cc[("duplicates", "fannorflop", "n_poems_with_twin")])))
         add(("Diwan poems with a twin", 274, int(cc[("duplicates", "diwan", "n_poems_with_twin")])))
         add(("Diwan twin groups", 135, int(cc[("duplicates", "diwan", "n_groups")])))
         add(("gold poems with a twin", 28, int(cc[("duplicates", "diwan", "n_gold_with_twin")])))
@@ -423,6 +431,24 @@ def edit_claims():
         add(("minor error (%)", 32, round(100 * (au.faithful == 1).mean())))
         add(("misread (%)", 8, round(100 * (au.faithful == 0).mean())))
         add(("substantive additions (%)", 20, round(100 * (au.adds == 2).mean())))
+
+    # best dense encoder on the quoting subset (section 5.1)
+    q = A[(A.corpus == "fannorflop") & (A["mode"] == "verses") & (A.subset == "quote")
+          & (A.system != "BM25")].set_index("system")["R@5"]
+    add(("best dense on quoting subset is BGE-M3", 1, int(q.idxmax() == "BGE-M3")))
+    add(("its R@5", 0.875, float(q.max())))
+
+    # BM25's rank on the aboutness aspects (section 6)
+    J1 = load("trackB_rejudged.csv")
+    if J1 is not None:
+        about = ["semantic_relevance", "thematic_coherence", "metaphor_understanding",
+                 "semantic_coverage", "precision"]
+        for corp, n_last in (("fannorflop", 5), ("diwan", 4)):
+            g = J1[J1.corpus == corp].groupby("system")[about].mean()
+            add((f"aboutness aspects with BM25 last, {corp}", n_last,
+                 int(sum(g[a].rank(ascending=False)["bm25"] == 10 for a in about))))
+        g = J1[J1.corpus == "diwan"].groupby("system")["precision"].mean()
+        add(("BM25 precision rank on Diwan", 9, int(g.rank(ascending=False)["bm25"])))
 
     # spot check controls (Limitations)
     kf = os.path.join(ROOT, "spotcheck", "key.csv")

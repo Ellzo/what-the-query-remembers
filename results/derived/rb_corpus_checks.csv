@@ -39,6 +39,7 @@ fof_filter,all,n_poems,4687.0
 fof_filter,all,max_verses,16.0
 duplicates,diwan,n_poems_with_twin,274.0
 duplicates,diwan,n_groups,135.0
+duplicates,fannorflop,n_poems_with_twin,0.0
 duplicates,diwan,n_gold_with_twin,28.0
 duplicates,gte,R@5_change_if_twin_counts,0.0
 duplicates,jina,R@5_change_if_twin_counts,0.0
