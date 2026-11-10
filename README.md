@@ -44,7 +44,7 @@ TeX Live (newtx).
 | File | n | Register |
 |---|---|---|
 | `accuracy_prompts.csv` | 244 | tip of the tongue, written from the poem, may quote it |
-| `diwan_prompts_final.csv` | 258 | abstract description of what a poem is about, no quotation |
+| `diwan_prompts_final.csv` | 258 | abstract description of what a poem is about, little quotation |
 | `gemini_prompts.csv` | 200 | thematic topics, written before the corpora were inspected |
 
 The first two are known-item sets with a gold poem id. The thematic set has no target poem and is

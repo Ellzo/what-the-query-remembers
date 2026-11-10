@@ -450,6 +450,47 @@ def edit_claims():
         g = J1[J1.corpus == "diwan"].groupby("system")["precision"].mean()
         add(("BM25 precision rank on Diwan", 9, int(g.rank(ascending=False)["bm25"])))
 
+    # section 3.2: the abstract example query shares two isolated words with its poem
+    if Q is not None:
+        ex = Q[Q.prompt.str.contains("تناسخ الأرواح", regex=False)]
+        add(("abstract example: longest shared span", 1, int(ex.lcn_verses.iloc[0])))
+        add(("abstract example: shared words", 2, int(round(ex.C_verses.iloc[0] * ex.q_len.iloc[0]))))
+        tot = Q[Q.prompt.str.contains("أكثري أو فأقلي", regex=False)]
+        add(("ToT example: verbatim span (the hemistich)", 6, int(tot.lcn_verses.iloc[0])))
+
+    # Table 1 caption: why the explanations change overlap
+    if Q is not None:
+        f = Q[Q.corpus == "fannorflop"]
+        add(("FoF explanations vs verses, median length ratio (almost four)", 1,
+             int(3.5 <= f.dlen_expl_ff.median() / f.dlen_verses.median() < 4.0)))
+    if CC is not None:
+        rv = CC[CC.check == "reuse"].set_index(["system", "quantity"]).value
+        add(("FoF explanations reuse about half the verse vocabulary", 0.51,
+             round(float(rv[("fannorflop", "verse_vocab_in_expl_ff")]), 2)))
+        add(("AI explanations reuse about a fifth (FoF)", 0.20,
+             round(float(rv[("fannorflop", "verse_vocab_in_expl_ai")]), 2)))
+        add(("AI explanations reuse about a fifth (Diwan)", 0.21,
+             round(float(rv[("diwan", "verse_vocab_in_expl_ai")]), 2)))
+
+    # section 8 and Discussion: best single index on Fann or Flop
+    best = A[(A.corpus == "fannorflop") & (A.subset == "all")].sort_values("R@5").iloc[-1]
+    add(("best single index FoF is Qwen3-8B on FoF explanations", 1,
+         int(best.system == "Qwen3-8B" and best["mode"] == "expl_ff")))
+    add(("its R@5", 0.816, float(best["R@5"])))
+    nq = A[(A.corpus == "fannorflop") & (A.subset == "noquote")]
+    add(("best on non-quoting, verses only (about 0.65)", 0.646,
+         float(nq[nq["mode"] == "verses"]["R@5"].max())))
+    add(("best on non-quoting, any index (0.82)", 0.817, float(nq["R@5"].max())))
+
+    # section 8: BM25 in the fusion, by subset
+    if F is not None:
+        q8 = F[F.model == "Qwen3-8B"].set_index(["corpus", "variant", "subset"])["R@5"]
+        add(("Qwen3-8B + BM25, FoF non-quoting", 0.756,
+             float(q8[("fannorflop", "hybrid_bm25+dense", "noquote")])))
+        add(("Qwen3-8B verses, FoF non-quoting", 0.646, float(q8[("fannorflop", "verses", "noquote")])))
+        add(("Qwen3-8B + BM25, Diwan", 0.616, float(q8[("diwan", "hybrid_bm25+dense", "all")])))
+        add(("Qwen3-8B verses, Diwan", 0.748, float(q8[("diwan", "verses", "all")])))
+
     # spot check controls (Limitations)
     kf = os.path.join(ROOT, "spotcheck", "key.csv")
     af = os.path.join(ROOT, "spotcheck", "spotcheck_answers.csv")

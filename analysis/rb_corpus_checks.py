@@ -11,6 +11,8 @@ The results go to one long-format CSV so that verify_paper.py can check them wit
   fof_filter  the Fann or Flop subset is the poems with at most 16 verses
   duplicates  Diwan poems whose normalised text is identical to another poem's, and how much
               verse-mode R@5 changes if a duplicate of the gold poem is counted as a hit
+  reuse       share of a target poem's verse vocabulary that reappears in its explanation
+              (reference explanations and our generated ones), averaged over gold queries
 
 Writes:
   results/derived/rb_corpus_checks.csv   check, system, quantity, value
@@ -122,6 +124,18 @@ def main():
             any(p == str(g) or p in twins.get(str(g), ()) for p in list(map(str, top))[:5])
             for g, top in zip(r.gold_pid, r.top_pids)])
         add("duplicates", s, "R@5_change_if_twin_counts", loose - strict)
+
+    # how much of each target poem's verse vocabulary its explanations reuse
+    from query_features import containment, load_queries, load_units
+    from common import ar_tokens
+    for corpus, modes in (("fannorflop", ["expl_ai", "expl_ff"]), ("diwan", ["expl_ai"])):
+        verses = load_units(corpus, "verses")
+        gold = load_queries(corpus, "gold").gold_pid
+        for m in modes:
+            expl = load_units(corpus, m)
+            share = [containment(ar_tokens(" ".join(verses[g])), ar_tokens(" ".join(expl[g])))
+                     for g in gold if g in verses and g in expl]
+            add("reuse", corpus, f"verse_vocab_in_{m}", np.mean(share))
 
     out = pd.DataFrame(rows, columns=["check", "system", "quantity", "value"])
     out.to_csv(os.path.join(DERIVED, "rb_corpus_checks.csv"), index=False)

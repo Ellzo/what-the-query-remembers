@@ -17,27 +17,27 @@ exception on both corpora is LaBSE, the weakest dense encoder, which BM25 is sta
 indistinguishable from ($p{=}.35$ on \textit{Diwan}, $p{=}.054$ on \textit{Fann or Flop}). The blind
 human judgments give the same ordering on the systems they cover: on \textit{Fann or Flop}, jina-v3
 $0.93$, the RRF hybrid $0.83$, BM25 $0.50$ for the first rater (paired Wilcoxon BM25 vs.\ jina-v3
-$p{=}.016$; pooled over both corpora $\Delta{=}{-}0.45$, $p{=}.005$, and $p{=}.028$ for the second
-rater).
+$p{=}.016$; pooled over both corpora $\Delta{=}{-}0.45$, $p{=}.005$).
 
 \paragraph{Two open-weights judges replicate it.} A proprietary judge cannot be re-run once
 withdrawn, so we repeat Track B locally over a random half of the thematic queries ($2{,}000$ cells
-per judge). The second judge, Gemma-3-27B-it, uses the identical rubric. It agrees with the primary
+per judge). The second judge, Gemma-3-27B-it, uses the identical rubric. It agrees closely with the primary
 judge at the cell level (Spearman $\rho{=}0.67$ on overall quality) and on system ordering (Kendall
 $\tau{=}{+}0.85$ on \textit{Diwan}, ${+}0.81$ on \textit{Fann or Flop}), and it tracks the blind
-human judgments too ($\rho{=}0.70$). Under it BM25 is \emph{ninth} of ten rather than last, still
-significantly below eight of nine dense encoders on both corpora, displaced by LaBSE, the one
-system the primary judge could not separate from BM25 either. Both of these judges are Google
-models, so the third, Qwen3-32B, comes from another family. It also places BM25 ninth of ten on
-both corpora, above LaBSE only ($\tau{=}0.67$ and $0.89$ with the primary judge). We then remove
-the literal-match aspect and its framing from the rubric and change nothing else. Under this
-neutral rubric BM25 is tenth on \textit{Fann or Flop} and ninth on \textit{Diwan}, and the ordering
+human judgments too ($\rho{=}0.70$). The main difference is at the bottom: BM25 and LaBSE swap
+places, so BM25 is \emph{ninth} rather than last, still significantly below the other eight dense
+encoders on both corpora. The primary judge could not separate these two systems either. Because
+both judges are Google models, we add a third from another family, Qwen3-32B. It also places BM25
+ninth of ten on both corpora, above LaBSE only ($\tau{=}0.67$ and $0.89$ with the primary judge).
+We then rerun it with a neutral rubric, which drops the one aspect that treats literal matching as a
+weakness, together with the sentence asking the judge to reward implicit meaning; the rest of the
+prompt is unchanged. Under this neutral rubric BM25 is tenth on \textit{Fann or Flop} and ninth on \textit{Diwan}, and the ordering
 barely moves ($\tau{=}0.90$ and $0.97$ against the original rubric). Dropping the aspect raises
 every system's score, BM25's the least ($+0.10$ against up to $+0.27$). The literal-match aspect is
 therefore not what places BM25 near the bottom (Appendix~\ref{app:judge2}).
 
-\paragraph{The judge separates matching from aboutness.} BM25 is last of ten on every aspect
-requiring knowledge of what a poem is about (all but precision on \textit{Diwan}), with its largest deficits on metaphor understanding and
+\paragraph{The judge separates matching from aboutness.} BM25 is last of ten on almost every aspect
+requiring knowledge of what a poem is about, with its largest deficits on metaphor understanding and
 semantic coverage; but on \emph{direct textual relevance}, which measures how far retrieved poems
 merely repeat the query's wording, it is \emph{first} of ten on both corpora ($4.26$, $4.48$;
 second of ten under the second judge, behind LaBSE; Appendix~\ref{app:aspects}). The judge

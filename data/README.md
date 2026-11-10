@@ -68,7 +68,7 @@ queries were written.
 The two known-item sets were written under deliberately different instructions. Fann or Flop queries
 simulate someone who half remembers a poem and may include remembered wording, as a real tip of the
 tongue searcher would. Diwan queries were written as abstract descriptions of what a poem is about,
-with no quotation. That difference in instruction is the variable the paper manipulates, and it is
+with little quotation. That difference in instruction is the variable the paper manipulates, and it is
 measurable: 32.8 percent of Fann or Flop queries share a verbatim three token span with their target
 poem, against 2.7 percent for Diwan.
 

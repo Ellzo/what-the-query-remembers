@@ -51,3 +51,6 @@ duplicates,qwen3_8b,R@5_change_if_twin_counts,0.0
 duplicates,bgem3,R@5_change_if_twin_counts,0.0
 duplicates,e5,R@5_change_if_twin_counts,0.0
 duplicates,bm25,R@5_change_if_twin_counts,0.0
+reuse,fannorflop,verse_vocab_in_expl_ai,0.19987474563927093
+reuse,fannorflop,verse_vocab_in_expl_ff,0.5105466143459934
+reuse,diwan,verse_vocab_in_expl_ai,0.21495968738904922

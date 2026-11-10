@@ -9,7 +9,7 @@ surface matching succeed without any notion of aboutness.
 
 The two results are consistent. Track A rewards recovering a specific remembered item, and where the query carries the item's wording, surface matching is close to sufficient. Track B asks whether retrieved poems are about a theme that is never stated in the poems' own words, and there surface matching has nothing to work with. Both protocols are valid, but they measure different things, and a system's score under one carries little information about its score under the other.
 
-Reporting a single protocol can therefore mislead. A study that evaluated only known-item retrieval on a tip-of-the-tongue query set would conclude that dense retrieval is not worth its cost for Arabic poetry, since a bag of words beats a state-of-the-art 8B encoder. A study that evaluated only thematic relevance would conclude the opposite, with BM25 last of ten and significantly behind eight of the nine dense encoders. Each conclusion is supported by its own data, and neither holds in general.
+Reporting a single protocol can therefore mislead. A study that evaluated only known-item retrieval on a tip-of-the-tongue query set would conclude that dense retrieval is not worth its cost for Arabic poetry, since a bag of words beats an 8B multilingual encoder. A study that evaluated only thematic relevance would conclude the opposite, with BM25 last of ten and significantly behind eight of the nine dense encoders. Each conclusion is supported by its own data, and neither holds in general.
 
 \begin{figure}[t]
 \centering
