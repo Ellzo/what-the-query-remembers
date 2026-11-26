@@ -193,7 +193,9 @@ Please cite them if you use the data:
 
 - Fann or Flop (Al Ghallabi et al., EMNLP 2025), released under the Apache 2.0 licence at
   [omkarthawakar/FannOrFlop](https://huggingface.co/datasets/omkarthawakar/FannOrFlop). Its
-  reference explanations are part of that release.
+  reference explanations are part of that release. The licence text is in
+  `data/LICENSE-FannOrFlop.txt`.
 - Diwan (Al-Onazi, Nashir and Al-Shargabi, IEEE Access 2025,
-  [doi:10.1109/ACCESS.2025.3551161](https://doi.org/10.1109/ACCESS.2025.3551161)). We do not
-  relicense the Diwan text; its original terms apply.
+  [doi:10.1109/ACCESS.2025.3551161](https://doi.org/10.1109/ACCESS.2025.3551161)), released
+  under the MIT licence at [NoorBayan/Diwan](https://github.com/NoorBayan/Diwan). Its copyright
+  and permission notice is in `data/LICENSE-Diwan.txt`.
