@@ -129,19 +129,47 @@
 }
 
 @inproceedings{elzohbi2025tahdib,
-   title={Tahdib: A Rhythm-Aware Phrase Insertion for {C}lassical {A}rabic Poetry Composition},
-   url={http://dx.doi.org/10.18653/v1/2025.arabicnlp-main.15},
-   DOI={10.18653/v1/2025.arabicnlp-main.15},
-   booktitle={Proceedings of The Third Arabic Natural Language Processing Conference},
-   publisher={Association for Computational Linguistics},
-   author={Elzohbi, Mohamad and Zhao, Richard},
-   year={2025},
-   pages={194--202} }
+    title = "Tahḏ{\={i}}b: A Rhythm-Aware Phrase Insertion for {C}lassical {A}rabic Poetry Composition",
+    author = "Elzohbi, Mohamad  and
+      Zhao, Richard",
+    editor = "Darwish, Kareem  and
+      Ali, Ahmed  and
+      Abu Farha, Ibrahim  and
+      Touileb, Samia  and
+      Zitouni, Imed  and
+      Abdelali, Ahmed  and
+      Al-Ghamdi, Sharefah  and
+      Alkhereyf, Sakhar  and
+      Zaghouani, Wajdi  and
+      Khalifa, Salam  and
+      AlKhamissi, Badr  and
+      Almatham, Rawan  and
+      Hamed, Injy  and
+      Alyafeai, Zaid  and
+      Alowisheq, Areeb  and
+      Inoue, Go  and
+      Mrini, Khalil  and
+      Alshammari, Waad",
+    booktitle = "Proceedings of The Third {A}rabic Natural Language Processing Conference",
+    month = nov,
+    year = "2025",
+    address = "Suzhou, China",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.arabicnlp-main.15/",
+    doi = "10.18653/v1/2025.arabicnlp-main.15",
+    pages = "194--202",
+    ISBN = "979-8-89176-352-4",
+    abstract = "This paper presents a methodology for inserting phrases in Arabic poems to conform to a specific rhythm using ByT5, a byte-level multilingual transformer-based model. Our work discusses a rule-based grapheme-to-beat transformation tailored for extracting the rhythm from fully diacritized Arabic script. Our approach employs a conditional denoising objective to fine-tune ByT5, where the model reconstructs masked words to match a target rhythm. We adopt a curriculum learning strategy, pre-training on a general Arabic dataset before fine-tuning on poetic dataset, and explore cross-lingual transfer from English to Arabic. Experimental results demonstrate that our models achieve high rhythmic alignment while maintaining semantic coherence. The proposed model has the potential to be used in co-creative applications in the process of composing classical Arabic poems."
+}
 
 @inproceedings{chalamalasetti2025metricalargs,
     title = "{M}etrical{ARGS}: Studying Metrical Poetry with {LLM}s",
     author = "Kranti, Chalamalasetti  and
       Vajjala, Sowmya",
+    editor = "Jha, Girish Nath  and
+      Bali, Kalika  and
+      L, Sobha  and
+      Kumar, Devendr",
     booktitle = "Proceedings of the 8th Workshop on {I}ndian Language Data: Resources and Evaluation",
     month = may,
     year = "2026",
@@ -149,7 +177,8 @@
     publisher = "ELRA Language Resources Association (ELRA)",
     url = "https://aclanthology.org/2026.wildre-1.1/",
     doi = "10.63317/4o3nvxw6qwso",
-    pages = "1--13"
+    pages = "1--13",
+    abstract = "Many classical languages have well-studied traditions of poetic meter which enforce constraints on a poem in terms of syllable and phoneme patterns. Such advanced literary forms offer opportunities for probing deeper reasoning and language understanding in Large Language Models (LLMs) and their ability to follow strict pre-requisites and rules in generating text. In this paper, we introduce MetricalARGS, the first taxonomy of poetry-related NLP tasks designed to evaluate LLMs on metrical poetry across four dimensions: Analysis, Retrieval, Generation, and Support. We discuss how these tasks relate to existing NLP tasks, addressing questions around datasets and evaluation metrics. Taking the metrical poetry of Telugu language as our example, we illustrate how the taxonomy can be used with LLMs in practice through a quantitative and qualitative evaluation. MetricalARGS highlights the broader possibilities for understanding the capabilities and limitations of today{'}s LLMs through the lens of metrical poetry. We believe MetricalARGS can also serve as a reference taxonomy for studying and comparing metrical poetry across Indian languages as a starting point, and can be extended to other languages with established metrical poetry traditions."
 }
 
 % ---------------------------------------------------------------- Dense retrieval models
@@ -259,11 +288,11 @@
 }
 
 @misc{silma2024embedding,
-    author = {{SILMA AI}},
-    title = {silma-embedding-sts-v0.1},
-    year = {2024},
-    howpublished = {Hugging Face model card},
-    url = {https://huggingface.co/silma-ai/silma-embedding-sts-v0.1}
+  author = {Soliman, Abu Bakr and Ouda, Karim and {SILMA AI}},
+  title = {{SILMA} {E}mbedding {STS} 0.1},
+  year = {2024},
+  publisher = {Hugging Face},
+  howpublished = {\url{https://huggingface.co/silma-ai/silma-embedding-sts-v0.1}},
 }
 
 @misc{muffakir2025embedding,
@@ -350,15 +379,17 @@
 
 % ---------------------------------------------------------------- LLM-as-judge
 @inproceedings{zheng2023judging,
-    title = {Judging {LLM}-as-a-Judge with {MT-Bench} and {C}hatbot {A}rena},
-    author = {Zheng, Lianmin and Chiang, Wei-Lin and Sheng, Ying and Zhuang, Siyuan and Wu, Zhanghao and Zhuang, Yonghao and Lin, Zi and Li, Zhuohan and Li, Dacheng and Xing, Eric P. and Zhang, Hao and Gonzalez, Joseph E. and Stoica, Ion},
-    booktitle = {Advances in Neural Information Processing Systems},
-    volume = {36},
-    pages = {46595--46623},
-    year = {2023},
-    eprint = {2306.05685},
-    archivePrefix = {arXiv},
-    url = {https://arxiv.org/abs/2306.05685}
+author = {Zheng, Lianmin and Chiang, Wei-Lin and Sheng, Ying and Zhuang, Siyuan and Wu, Zhanghao and Zhuang, Yonghao and Lin, Zi and Li, Zhuohan and Li, Dacheng and Xing, Eric P. and Zhang, Hao and Gonzalez, Joseph E. and Stoica, Ion},
+title = {Judging {LLM}-as-a-Judge with {MT-Bench} and {C}hatbot {A}rena},
+year = {2023},
+publisher = {Curran Associates Inc.},
+address = {Red Hook, NY, USA},
+abstract = {Evaluating large language model (LLM) based chat assistants is challenging due to their broad capabilities and the inadequacy of existing benchmarks in measuring human preferences. To address this, we explore using strong LLMs as judges to evaluate these models on more open-ended questions. We examine the usage and limitations of LLM-as-a-judge, including position, verbosity, and self-enhancement biases, as well as limited reasoning ability, and propose solutions to mitigate some of them. We then verify the agreement between LLM judges and human preferences by introducing two benchmarks: MT-bench, a multi-turn question set; and Chatbot Arena, a crowdsourced battle platform. Our results reveal that strong LLM judges like GPT-4 can match both controlled and crowdsourced human preferences well, achieving over 80\% agreement, the same level of agreement between humans. Hence, LLM-as-a-judge is a scalable and explainable way to approximate human preferences, which are otherwise very expensive to obtain. Additionally, we show our benchmark and traditional benchmarks complement each other by evaluating several variants of LLaMA and Vicuna. The MT-bench questions, 3K expert votes, and 30K conversations with human preferences are publicly available at https://github.com/lm-sys/FastChat/tree/main/fastchat/llm_judge.},
+booktitle = {Proceedings of the 37th International Conference on Neural Information Processing Systems},
+articleno = {2020},
+numpages = {29},
+location = {New Orleans, LA, USA},
+series = {NIPS '23}
 }
 
 @misc{google2026gemini,
