@@ -37,7 +37,7 @@ meter, rhyme, genre and so on. We did not use them for retrieval.
 | `explanation`, `raw_explanation` | the reference explanations distributed with the source corpus |
 | `verses_ai_explanations` | our generated explanation of each verse |
 
-A note on the reference explanations. The source paper describes them as human written. We make no
+The source paper describes the reference explanations as human written. We make no
 independent claim about their authorship, and we report them as the explanations distributed with
 the corpus. Their surface form does not look hand written to us: 91.7 percent contain the phrase
 meaning "each one separately" and 35.9 percent contain "I will explain". Nothing in our analysis
@@ -57,8 +57,8 @@ The released benchmark. 502 known-item queries with a gold poem, and 200 themati
 | `gemini_prompts.csv` | 200 | `id`, `prompt` | thematic topics, no target poem |
 
 `accuracy_prompts.csv` contains 245 rows but only 244 distinct queries. One query is duplicated in
-the source file. The pipeline removes it at load time, and every count in the paper is 244. We ship
-the file as it was actually used rather than silently editing it.
+the source file. The pipeline removes it at load time, and every count in the paper is 244. The
+file is left unchanged.
 
 ## How the queries were written
 
@@ -70,8 +70,7 @@ queries were written.
 The two known-item sets were written under deliberately different instructions. Fann or Flop queries
 simulate someone who half remembers a poem and may include remembered wording, as a real tip of the
 tongue searcher would. Diwan queries were written as abstract descriptions of what a poem is about,
-with little quotation. That difference in instruction is the variable the paper manipulates, and it is
-measurable: 32.8 percent of Fann or Flop queries share a verbatim three token span with their target
+with little quotation. This difference is measurable: 32.8 percent of Fann or Flop queries share a verbatim three token span with their target
 poem, against 2.7 percent for Diwan.
 
 The 200 thematic queries name a topic only and were written before either corpus was inspected, so
@@ -84,8 +83,8 @@ verse, using a fixed instruction asking for a concise and faithful prose paraphr
 Arabic and forbidding any information beyond the verse. The explanations were generated
 independently of the queries, and no retriever sees a query at indexing time.
 
-That model was withdrawn from the API during this work, so the generation step cannot be reproduced
-with the model that produced it. The generated text itself is included here, which is why.
+That model was withdrawn from the API during this work, so the generation step cannot be rerun with
+the same model, and we release the generated text instead.
 
 ## Edited queries
 
