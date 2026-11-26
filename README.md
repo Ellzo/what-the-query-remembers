@@ -12,7 +12,7 @@ adding one remembered half-verse helps BM25 far more than the strongest dense en
 rewriting the quoted words removes BM25's lead.
 
 Every number in the paper is recomputed from the files in this repository. Running
-`python3 analysis/verify_paper.py` checks all 197 numeric claims against the released files and
+`python3 analysis/verify_paper.py` checks all 231 numeric claims against the released files and
 exits with a non-zero status if any of them disagree.
 
 ## Layout
@@ -136,7 +136,7 @@ The `rb_` prefix marks the analyses added after the first round of review.
 ```bash
 pip install -r requirements.txt
 
-python3 analysis/verify_paper.py        # checks all 197 claims, no GPU needed
+python3 analysis/verify_paper.py        # checks all 231 claims, no GPU needed
 python3 analysis/make_tables.py         # rebuild the paper tables
 python3 analysis/appendix_tables.py
 python3 analysis/eacl_figures.py
