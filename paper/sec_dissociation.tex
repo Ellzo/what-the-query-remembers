@@ -1,9 +1,9 @@
-Tracks A and B measure the same ten systems, in the same indexing mode, over the same corpora. They do not agree, and the disagreement falls where the mechanism predicts. On \textit{Fann or Flop}, BM25 ranks first of ten on Track A and last of ten on Track B, a shift of nine places (Figure~\ref{fig:dissoc}). No other system moves more than four. On \textit{Diwan}, where queries carry no remembered wording, BM25 is poor under both protocols and the ranks broadly agree. The dissociation is a property of the tip-of-the-tongue regime, not of BM25 in general.
+Tracks A and B measure the same ten systems, in the same indexing mode, over the same corpora. They do not agree, and the disagreement falls where the mechanism predicts. On \textit{Fann or Flop}, BM25 ranks first of ten on Track A and last of ten on Track B, a shift of nine places (Figure~\ref{fig:dissoc}). No other system moves more than four. On \textit{Diwan}, where few queries quote the poem, BM25 is poor under both protocols and the ranks broadly agree. The dissociation is a property of the tip-of-the-tongue regime, not of BM25 in general.
 
-Correlating the two rankings gives Kendall $\tau{=}+0.24$ ($p{=}0.38$) on \textit{Fann or Flop}
-against $\tau{=}+0.51$ ($p{=}0.047$) on \textit{Diwan}. We do not read the first as evidence that
+Correlating the two rankings gives Kendall $\tau{=}{+}0.24$ ($p{=}.38$) on \textit{Fann or Flop}
+against $\tau{=}{+}0.51$ ($p{=}.047$) on \textit{Diwan}. We do not read the first as evidence that
 the protocols are unrelated in general: with ten systems one outlier is enough to move $\tau$, and
-removing BM25 restores agreement ($\tau{=}+0.56$, $p{=}0.045$). Among dense encoders the protocols
+removing BM25 restores agreement ($\tau{=}{+}0.56$, $p{=}.045$). Among dense encoders the protocols
 largely concur; what dissociates is the lexical system, and only where remembered wording lets
 surface matching succeed without any notion of aboutness.
 
@@ -17,7 +17,7 @@ Reporting a single protocol can therefore mislead. A study that evaluated only k
 \includegraphics[width=\columnwidth]{figures/fig_dissociation_b.pdf}
 \caption{The dissociation. Each point is a system; $x$ is known-item Recall@5, $y$ is the thematic
 judge score. Top: on \textit{Fann or Flop}, BM25 (red diamond) is the best system on one axis and
-the worst on the other. Bottom: on \textit{Diwan}, where no query carries remembered wording, the
+the worst on the other. Bottom: on \textit{Diwan}, where few queries quote, the
 two protocols broadly agree.}
 \label{fig:dissoc}
 \end{figure}

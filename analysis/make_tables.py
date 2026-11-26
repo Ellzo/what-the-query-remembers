@@ -91,6 +91,9 @@ def t3_controlled():
 
     # quotation slope and its difference against the reference dense encoder (§5 interaction)
     itr = pd.read_csv(os.path.join(DERIVED, "eacl_interaction.csv")).set_index("system")
+    # stars use the Holm-corrected p across the nine slope comparisons, as in Table 2
+    mult = pd.read_csv(os.path.join(DERIVED, "eacl_multiplicity.csv"))
+    holm = mult[mult.family == "B: quotation-slope DiD"].set_index("item")["p_holm"]
 
     b = ["\\begin{tabular}{l cccc cc}", "\\toprule",
          "& \\multicolumn{2}{c}{FannOrFlop R@5} & \\multicolumn{2}{c}{slope} &"
@@ -119,8 +122,9 @@ def t3_controlled():
             if np.isnan(p):                       # the reference encoder itself
                 did = "ref."
             else:
-                did = f"${itr.loc[s, 'DiD_vs_ref']:+.2f}$" + (f"$^{{{stars(p)}}}$" if stars(p) else "")
-                if p < .05:
+                ph = holm.get(s, np.nan)
+                did = f"${itr.loc[s, 'DiD_vs_ref']:+.2f}$" + (f"$^{{{stars(ph)}}}$" if stars(ph) else "")
+                if ph < .05:
                     did = f"\\textbf{{{did}}}"
         else:
             d = did = NA
@@ -161,8 +165,8 @@ def t4_trackb():
                       f"{tb:.2f}" if not np.isnan(tb) else NA]
         b.append(f"{nm} & {cells[0]} & {cells[1]} & & {cells[2]} & {cells[3]} \\\\")
     if hum:
-        b.append("\\midrule\n\\multicolumn{6}{l}{\\textit{blind human relevance of top-3 "
-                 "(0 to 2), 20 queries}} \\\\")
+        b.append("\\midrule\n\\multicolumn{6}{l}{\\textit{blind human top-3 relevance "
+                 "(0 to 2), 10 per corpus}} \\\\")
         for s in ("jina-v3", "hybrid", "BM25"):
             f_ = hum.get(("fannorflop", s), np.nan)
             d_ = hum.get(("diwan", s), np.nan)

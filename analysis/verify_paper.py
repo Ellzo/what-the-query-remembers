@@ -158,6 +158,10 @@ def claims():
         add(("thr2 no-quote Qwen3-8B", 0.571, float(t2.loc["Qwen3-8B", "R@5_noquote"])))
         add(("thr2 no-quote BM25", 0.429, float(t2.loc["BM25", "R@5_noquote"])))
         add(("thr2 no-quote p", 0.039, float(b[b.threshold == 2]["p_vs_Qwen3-8B_noquote"].iloc[0])))
+        for thr, n_steeper in ((4, 3), (5, 6)):
+            t = S[S.threshold == thr].set_index("system")["delta"]
+            add((f"encoders steeper than BM25 at threshold {thr}", n_steeper,
+                 int((t.drop("BM25") > t["BM25"]).sum())))
 
     # Appendix: normalisation ablation across three encoders
     N = load("eacl_norm_ablation.csv")
@@ -220,6 +224,15 @@ def claims():
                                                suffixes=("_1", "_2"))
         add(("judge1-judge2 cell rho", 0.67,
              round(float(_sp(mm.overall_quality_1, mm.overall_quality_2)[0]), 2)))
+        about = ["semantic_relevance", "thematic_coherence", "semantic_coverage", "precision",
+                 "overall_quality"]
+        ma = A1[k + about].merge(B2[k + about], on=k, suffixes=("_1", "_2"))
+        rhos = []
+        for mt in about:
+            ok = ma[f"{mt}_1"].notna() & ma[f"{mt}_2"].notna()
+            rhos.append(round(float(_sp(ma[f"{mt}_1"][ok], ma[f"{mt}_2"][ok])[0]), 2))
+        add(("judge1-judge2 rho, aboutness aspects, min", 0.64, min(rhos)))
+        add(("judge1-judge2 rho, aboutness aspects, max", 0.71, max(rhos)))
 
     # §7 / Appendix: the judge's per-aspect behaviour
     J = load("trackB_rejudged.csv")
