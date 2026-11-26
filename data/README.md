@@ -6,7 +6,9 @@ this directory, so that `flipp_flop_ai.csv` and `diwan_with_explanations.csv` si
 files.
 
 Both corpora are redistributed from their original publishers, cited in the paper, with one column
-added by us. Please cite the original corpus papers if you use them.
+added by us. Please cite the original corpus papers if you use them. Fann or Flop is released under the Apache 2.0
+licence and Diwan under the MIT licence. Their licence texts, `LICENSE-FannOrFlop.txt` and
+`LICENSE-Diwan.txt`, are in this directory and in `corpora.zip`.
 
 ## Corpora
 
